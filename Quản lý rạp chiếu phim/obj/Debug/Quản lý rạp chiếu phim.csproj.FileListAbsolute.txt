@@ -1,0 +1,13 @@
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\bin\Debug\Quản lý rạp chiếu phim.exe.config
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\bin\Debug\Quản lý rạp chiếu phim.exe
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\bin\Debug\Quản lý rạp chiếu phim.pdb
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản lý rạp chiếu phim.csprojAssemblyReference.cache
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fLogin.resources
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.Properties.Resources.resources
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản lý rạp chiếu phim.csproj.GenerateResource.cache
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản lý rạp chiếu phim.csproj.CoreCompileInputs.cache
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản lý rạp chiếu phim.exe
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản lý rạp chiếu phim.pdb
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fTableManager.resources
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fAccount.resources
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fAdmin.resources
