@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quản_lý_rạp_chiếu_phim.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

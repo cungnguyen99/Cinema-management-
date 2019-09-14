@@ -10,11 +10,30 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 {
     public class DataProvider
     {
-        string connectionSTR = "Data Source=.\\sqlexpress;Initial Catalog=QLGiaoHang;Integrated Security=True";
+        private static DataProvider instance;
+
+        public static DataProvider Instance {
+            get
+            {
+                if (instance == null) instance = new DataProvider();
+                return DataProvider.instance;
+            }
+            private set
+            {
+                instance = value;
+            }
+        }
+
+        private DataProvider() { }
+
+        string connectionSTR = "Data Source=.\\sqlexpress;Initial Catalog=QLRa;Integrated Security=True";
+
+        //Trả về số dòng kết quả
+
         public DataTable ExecuteQuery(string query, object [] paramater=null)
         {
             DataTable table = new DataTable();
-            using (SqlConnection connection = new SqlConnection())
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
                 SqlCommand com = new SqlCommand(query, connection);
@@ -31,17 +50,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                         }
                     }
                 }
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(com);
                 sqlDataAdapter.Fill(table);
                 connection.Close();
             }
             return table;
         }
 
+        //Trả về số trường dữ liệu thỏa mãn được thực thi(insert, delete, update)
         public int ExecuteNonQuery(string query, object[] paramater = null)
         {
             int data = 0;
-            using (SqlConnection connection = new SqlConnection())
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
                 SqlCommand com = new SqlCommand(query, connection);
