@@ -26,7 +26,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         private DataProvider() { }
 
-        string connectionSTR = "Data Source=.\\sqlexpress;Initial Catalog=QLRa;Integrated Security=True";
+        string connectionSTR = "Data Source=.\\sqlexpress;Initial Catalog=Cinema;Integrated Security=True";
 
         //Trả về số dòng kết quả
 

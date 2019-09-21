@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quản_lý_rạp_chiếu_phim.DAO;
+using Quản_lý_rạp_chiếu_phim.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,17 @@ namespace Quản_lý_rạp_chiếu_phim
         public fTableManager()
         {
             InitializeComponent();
+            loadFimls();
+        }
+
+        void loadFimls()
+        {
+            dtgvFimls.DataSource = fimlsDAO.Instance.loadListTable();
+            //List<Fimls> fimlsList = fimlsDAO.Instance.loadListTable();
+            //foreach (Fimls item in fimlsList)
+            //{
+            //    flbTable.Controls.Add(item);
+            //}
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)

@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\fimlsDAO.cs" />
+    <Compile Include="DTO\Fimls.cs" />
     <Compile Include="fAccount.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,8 +28,9 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool login(string user, string pass)
         {
-            string query = "SELECT * FROM ACCOUNT WHERE UserName=N'" + user + "'AND PASSWORD=N'" + pass + "'";
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+            //string query = "USP_login @userName , @passWord";
+            string query = "SELECT * FROM GHE WHERE MAGHE=N'"+user+"'AND MARAP=N'"+pass+"'";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query,new object[] { user,pass});
             return dataTable.Rows.Count > 0;
         }
     }
