@@ -443,7 +443,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(745, 374);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Danh mục";
+            this.tabPage3.Text = "Lịch chiếu";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4

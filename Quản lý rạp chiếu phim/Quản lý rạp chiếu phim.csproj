@@ -46,9 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\CinemaRoomDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\fimlsDAO.cs" />
+    <Compile Include="DAO\ShowtimesDAO.cs" />
+    <Compile Include="DTO\CinemaRoom.cs" />
     <Compile Include="DTO\Fimls.cs" />
+    <Compile Include="DTO\Showtimes.cs" />
     <Compile Include="fAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,5 +113,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

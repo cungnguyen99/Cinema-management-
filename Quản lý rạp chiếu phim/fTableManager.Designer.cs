@@ -45,15 +45,12 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.flbTable = new System.Windows.Forms.FlowLayoutPanel();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.dtgvFimls = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.flbTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvFimls)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -196,7 +193,6 @@
             // flbTable
             // 
             this.flbTable.AutoScroll = true;
-            this.flbTable.Controls.Add(this.dtgvFimls);
             this.flbTable.Location = new System.Drawing.Point(12, 36);
             this.flbTable.Name = "flbTable";
             this.flbTable.Size = new System.Drawing.Size(375, 348);
@@ -206,14 +202,6 @@
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // dtgvFimls
-            // 
-            this.dtgvFimls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvFimls.Location = new System.Drawing.Point(3, 3);
-            this.dtgvFimls.Name = "dtgvFimls";
-            this.dtgvFimls.Size = new System.Drawing.Size(345, 334);
-            this.dtgvFimls.TabIndex = 0;
             // 
             // fTableManager
             // 
@@ -235,9 +223,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.flbTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvFimls)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,6 +248,5 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.FlowLayoutPanel flbTable;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.DataGridView dtgvFimls;
     }
 }

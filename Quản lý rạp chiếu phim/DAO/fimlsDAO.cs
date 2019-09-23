@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Quản_lý_rạp_chiếu_phim.DAO
 {
@@ -37,6 +38,19 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                 fimlsList.Add(fimls);
             }
             return fimlsList;
+        }
+
+        public List<Fimls> getListFimsByIdFiml(string id)
+        {
+            List<Fimls> fimls = new List<Fimls>();
+            string query = "SELECT TenPhim, NuChinh, NamChinh, NgayKhoiChieu, Anh  FROM PHIM, THELOAI WHERE MaPhim="+id.ToString();
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Fimls fiml = new Fimls(item);
+                fimls.Add(fiml);
+            }
+            return fimls;
         }
     }
 }
