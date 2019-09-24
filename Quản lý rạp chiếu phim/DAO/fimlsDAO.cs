@@ -43,7 +43,12 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         public List<Fimls> getListFimsByIdFiml(string id)
         {
             List<Fimls> fimls = new List<Fimls>();
-            string query = "SELECT TenPhim, NuChinh, NamChinh, NgayKhoiChieu, Anh  FROM PHIM, THELOAI WHERE MaPhim="+id.ToString();
+            // dau @ dat trc dau " de minh co the xuong dong
+            // dau $ dat trc dau " de minh gan {id} vao trong string ma ko can + string
+            string query = $@"SELECT p.*,t.TenTheLoai
+                            FROM PHIM p 
+                            left join THELOAI t on p.MaTheLoai = t.MaTheLoai
+                            WHERE p.MaPhim='{id}' ";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {

@@ -27,17 +27,26 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 Button btn = new Button() { Width = 100, Height = 80 };
                 btn.Text = item.TenPhim;
+                btn.Tag = item;
                 btn.Click += btn_click;
                 btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\"+item.Anh.ToString());
-                btn.ImageAlign = ContentAlignment.BottomCenter;
+                btn.pro
                 flbTable.Controls.Add(btn);
             }
         }
 
         private void btn_click(object sender, EventArgs e)
         {
-            string fimlsID = ((sender as Button).Tag as Fimls).MaPhim;
-            showFimls(fimlsID);
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            if (((sender as Button).Tag as Fimls).MaPhim != null)
+            {
+                string fimlsID = ((sender as Button).Tag as Fimls).MaPhim.ToString();
+                showFimls(fimlsID);
+            }
         }
 
         private void showFimls(string fimlsID)
@@ -46,9 +55,12 @@ namespace Quản_lý_rạp_chiếu_phim
             List<Fimls> listFimls = fimlsDAO.Instance.getListFimsByIdFiml(fimlsID);
             foreach (Fimls item in listFimls)
             {
-                ListViewItem lsvItem = new ListViewItem(item.TenPhim.ToString());
-                lsvItem.SubItems.Add(item.NamChinh.ToString());
-                listView1.Items.Add(lsvItem);
+                label1.Text = "Tên phim: " + item.TenPhim;
+                label2.Text = "Nữ chính: "+item.NuChinh;
+                label3.Text = "Nam chính: "+item.NamChinh;
+                label4.Text = "Số tiền làm phim: "+ item.TongChi.ToString();
+                label5.Text = "Ngày sản xuất: "+item.NgayKhoiChieu.ToString();
+                pictureBox1.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
             }
         }
 
