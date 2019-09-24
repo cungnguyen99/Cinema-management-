@@ -25,12 +25,11 @@ namespace Quản_lý_rạp_chiếu_phim
             List<Fimls> fimlsList = fimlsDAO.Instance.loadListTable();
             foreach (Fimls item in fimlsList)
             {
-                Button btn = new Button() { Width = 100, Height = 80 };
-                btn.Text = item.TenPhim;
+                Button btn = new Button() { Width = 110, Height = 140 };
                 btn.Tag = item;
                 btn.Click += btn_click;
                 btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\"+item.Anh.ToString());
-                btn.pro
+                btn.BackgroundImageLayout = ImageLayout.Stretch;
                 flbTable.Controls.Add(btn);
             }
         }
@@ -42,6 +41,7 @@ namespace Quản_lý_rạp_chiếu_phim
             label3.Visible = true;
             label4.Visible = true;
             label5.Visible = true;
+            pictureBox1.Visible = true;
             if (((sender as Button).Tag as Fimls).MaPhim != null)
             {
                 string fimlsID = ((sender as Button).Tag as Fimls).MaPhim.ToString();
@@ -79,6 +79,34 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             fAdmin admin = new fAdmin();
             admin.ShowDialog();
+        }
+
+
+        List<Fimls> searchFimlsByFimlsName(string name)
+        {
+            List<Fimls> fimls = fimlsDAO.Instance.searchFimlsByFimlsName(name);
+            return fimls;
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            flbTable.Controls.Clear();
+            List<Fimls> fimls=searchFimlsByFimlsName(textBox1.Text);
+            listView1.Items.Clear();
+            foreach (Fimls item in fimls)
+            {
+                Button btn = new Button() { Width = 100, Height = 130 };
+                btn.Tag = item;
+                btn.Click += btn_click;
+                btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+                btn.BackgroundImageLayout = ImageLayout.Stretch;
+                flbTable.Controls.Add(btn);
+            }
+        }
+
+        private void btnSee_Click(object sender, EventArgs e)
+        {
+            flbTable.Controls.Clear();
+            loadFimls();
         }
     }
 }

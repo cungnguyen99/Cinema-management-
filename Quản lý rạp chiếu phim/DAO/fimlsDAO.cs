@@ -57,5 +57,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             }
             return fimls;
         }
+
+        public List<Fimls> searchFimlsByFimlsName(string name)
+        {
+            List<Fimls> fimls = new List<Fimls>();
+            string query = string.Format("SELECT * FROM PHIM WHERE dbo.fuConvertToUnsign1(TenPhim) LIKE N'%'+dbo.fuConvertToUnsign1(N'{0}')+N'%'",name);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Fimls fiml = new Fimls(item);
+                fimls.Add(fiml);
+            }
+            return fimls;
+        }
     }
 }
