@@ -1,4 +1,5 @@
 ﻿using Quản_lý_rạp_chiếu_phim.DAO;
+using Quản_lý_rạp_chiếu_phim.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             InitializeComponent();
             loadListRevenueOfFimls();
+            loadListCinema();
         }
 
         void loadListRevenueOfFimls()
@@ -25,22 +27,40 @@ namespace Quản_lý_rạp_chiếu_phim
             dtgvRevenue.DataSource = fimlsDAO.Instance.getListRevenueOfFimls();
         }
 
-        void loadListRevenueOfCinema(int month)
+        void loadListRevenueOfCinema()
         {
-            dtgvRevenue.DataSource=CinemaDAO.Instance.getListRevenueOfCinema(month);
+            dtgvRevenue.DataSource=CinemaDAO.Instance.getListRevenueOfCinema();
         }
+
+        void loadListCinema()
+        {
+            List<Cinema> cinemas = CinemaDAO.Instance.getListCinemas();
+            cbLoadCinema.DataSource = cinemas;
+            cbLoadCinema.DisplayMember = "TenRap";
+        }
+
+        void loadListCinemaByName(string name)
+        {
+            dtgvRevenue.DataSource = CinemaDAO.Instance.getListCinemaByName(name);
+        }
+
         private void btnView_Click(object sender, EventArgs e)
         {
             kt++;
             if (kt%2==0)
             {
                 btnView.Text = "Doanh thu các rạp";
-                loadListRevenueOfCinema(dateTimePicker1.Value.Month);
+                loadListRevenueOfCinema();
             }else
             {
                 btnView.Text = "Doanh thu phim";
                 loadListRevenueOfFimls();
             }
+        }
+
+        private void cbLoadCinema_SelectedValueChanged(object sender, EventArgs e)
+        {
+            loadListCinemaByName(cbLoadCinema.Text.ToString());
         }
     }
 }

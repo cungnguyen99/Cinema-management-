@@ -75,5 +75,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         {
             return DataProvider.Instance.ExecuteQuery("EXEC USP_GetListRevenueOfFimls", new object[] { });
         }
+
+        public List<Fimls> getListMoviesShowing()
+        {
+            List<Fimls> fimls = new List<Fimls>();
+            string query = string.Format("SELECT PHIM.TenPhim FROM PHIM WHERE EXISTS (SELECT LICHCHIEU.MaPhim FROM LICHCHIEU WHERE PHIM.MaPhim=LICHCHIEU.MaPhim)");
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Fimls fiml = new Fimls(item);
+                fimls.Add(fiml);
+            }
+            return fimls;
+        }
     }
 }

@@ -108,5 +108,20 @@ namespace Quản_lý_rạp_chiếu_phim
             flbTable.Controls.Clear();
             loadFimls();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //flbTable.Controls.Clear();
+            //List<Fimls> fimlsList = fimlsDAO.Instance.getListMoviesShowing();
+            //foreach (Fimls item in fimlsList)
+            //{
+            //    Button btn = new Button() { Width = 110, Height = 140 };
+            //    btn.Tag = item;
+            //    btn.Click += btn_click;
+            //    btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+            //    btn.BackgroundImageLayout = ImageLayout.Stretch;
+            //    flbTable.Controls.Add(btn);
+            //}
+        }
     }
 }

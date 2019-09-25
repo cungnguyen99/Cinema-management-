@@ -32,8 +32,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnView = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvRevenue = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -70,6 +68,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
+            this.cbLoadCinema = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -118,9 +118,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cbLoadCinema);
             this.panel2.Controls.Add(this.btnView);
-            this.panel2.Controls.Add(this.dateTimePicker2);
-            this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Location = new System.Drawing.Point(28, 15);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(692, 33);
@@ -128,27 +128,13 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(284, 6);
+            this.btnView.Location = new System.Drawing.Point(406, 4);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(119, 23);
             this.btnView.TabIndex = 2;
             this.btnView.Text = "Doanh thu phim";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(489, 6);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(15, 6);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -477,6 +463,37 @@
             this.dtgvAccount.Size = new System.Drawing.Size(709, 163);
             this.dtgvAccount.TabIndex = 0;
             // 
+            // cbLoadCinema
+            // 
+            this.cbLoadCinema.FormattingEnabled = true;
+            this.cbLoadCinema.Location = new System.Drawing.Point(137, 6);
+            this.cbLoadCinema.Name = "cbLoadCinema";
+            this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
+            this.cbLoadCinema.TabIndex = 3;
+            this.cbLoadCinema.SelectedValueChanged += new System.EventHandler(this.cbLoadCinema_SelectedValueChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox1.Location = new System.Drawing.Point(312, 6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(47, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Text = "1";
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -528,8 +545,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -560,5 +575,7 @@
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtgvAccount;
+        private System.Windows.Forms.ComboBox cbLoadCinema;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quản_lý_rạp_chiếu_phim.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -26,9 +27,27 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         private CinemaDAO() { }
 
-        public DataTable getListRevenueOfCinema(int month)
+        public List<Cinema> getListCinemas()
         {
-            return DataProvider.Instance.ExecuteQuery("EXEC USP_GetListRevenueOfCinema @month", new object[] {month});
+            List<Cinema> cinemas = new List<Cinema>();
+            string query = "SELECT * FROM RAP";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Cinema cinema = new Cinema(item);
+                cinemas.Add(cinema);
+            }
+            return cinemas;
+        }
+
+        public DataTable getListRevenueOfCinema()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT RAP.TenRap AS [Rạp], MAX(RAP.DiaChi) AS [Địa chỉ], MAX(RAP.SDT) AS [Số điện thoại], MAX(RAP.SoPhong) AS [Số phòng], SUM(LICHCHIEU.TongTien) AS [Doanh thu] FROM RAP LEFT JOIN LICHCHIEU ON RAP.MaRap=LICHCHIEU.MaRap GROUP BY RAP.TenRap");
+        }
+
+        public DataTable getListCinemaByName(string name)
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT RAP.TenRap AS [Rạp], MAX(RAP.DiaChi) AS [Địa chỉ], MAX(RAP.SDT) AS [Số điện thoại], MAX(RAP.SoPhong) AS [Số phòng], SUM(LICHCHIEU.TongTien) AS [Doanh thu] FROM RAP, LICHCHIEU WHERE RAP.MaRap=LICHCHIEU.MaRap AND RAP.TenRap= N'"+name+"'GROUP BY RAP.TenRap");
         }
     }
 }

@@ -46,11 +46,11 @@ namespace Quản_lý_rạp_chiếu_phim.DTO
             this.maRap = row["MaRap"].ToString();
             this.tenRap = row["TenRap"].ToString();
             this.diaChi = row["DiaChi"].ToString();
-            this.soDienThoai = row["SoDienThoai"].ToString();
+            this.soDienThoai = row["SDT"].ToString();
             this.soPhong = (int)row["SoPhong"];
             this.tongSoGhe = (int)row["TongSoGhe"];
-            this.tongTien = (int)row["TongTien"];
-            this.ngayChieu = (DateTime)row["NgayChieu"];
+            //this.tongTien = (int)row["TongTien"];
+            //this.ngayChieu = (DateTime)row["NgayChieu"];
         }
     }
 }
