@@ -35,7 +35,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtgvBill = new System.Windows.Forms.DataGridView();
+            this.dtgvRevenue = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtFimlsName = new System.Windows.Forms.TextBox();
@@ -74,7 +74,7 @@
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvRevenue)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -128,42 +128,44 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(299, 4);
+            this.btnView.Location = new System.Drawing.Point(284, 6);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(75, 23);
+            this.btnView.Size = new System.Drawing.Size(119, 23);
             this.btnView.TabIndex = 2;
-            this.btnView.Text = "Xem";
+            this.btnView.Text = "Doanh thu phim";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(489, 3);
+            this.dateTimePicker2.Location = new System.Drawing.Point(489, 6);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(22, 3);
+            this.dateTimePicker1.Location = new System.Drawing.Point(15, 6);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dtgvBill);
+            this.panel1.Controls.Add(this.dtgvRevenue);
             this.panel1.Location = new System.Drawing.Point(28, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(692, 284);
             this.panel1.TabIndex = 0;
             // 
-            // dtgvBill
+            // dtgvRevenue
             // 
-            this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBill.Location = new System.Drawing.Point(22, 16);
-            this.dtgvBill.Name = "dtgvBill";
-            this.dtgvBill.Size = new System.Drawing.Size(651, 247);
-            this.dtgvBill.TabIndex = 0;
+            this.dtgvRevenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvRevenue.Location = new System.Drawing.Point(61, 16);
+            this.dtgvRevenue.Name = "dtgvRevenue";
+            this.dtgvRevenue.Size = new System.Drawing.Size(573, 247);
+            this.dtgvRevenue.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -488,7 +490,7 @@
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvRevenue)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -521,7 +523,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dtgvBill;
+        private System.Windows.Forms.DataGridView dtgvRevenue;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;

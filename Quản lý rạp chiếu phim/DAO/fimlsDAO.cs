@@ -61,7 +61,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         public List<Fimls> searchFimlsByFimlsName(string name)
         {
             List<Fimls> fimls = new List<Fimls>();
-            string query = string.Format("SELECT * FROM PHIM WHERE dbo.fuConvertToUnsign1(TenPhim) LIKE N'%'+dbo.fuConvertToUnsign1(N'{0}')+N'%'",name);
+            string query = string.Format("SELECT * FROM PHIM JOIN THELOAI ON PHIM.MaTheLoai=THELOAI.MaTheLoai JOIN HANGSANXUAT ON PHIM.MaHangSX=HANGSANXUAT.MaHangSX WHERE dbo.fuConvertToUnsign1(TenPhim) LIKE N'%'+dbo.fuConvertToUnsign1(N'{0}')+N'%' or dbo.fuConvertToUnsign1(TenTheLoai) LIKE N'%'+dbo.fuConvertToUnsign1(N'{0}')+N'%' or dbo.fuConvertToUnsign1(TenHangSX) LIKE N'%'+dbo.fuConvertToUnsign1(N'{0}')+N'%'", name);
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
@@ -69,6 +69,11 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                 fimls.Add(fiml);
             }
             return fimls;
+        }
+
+        public DataTable getListRevenueOfFimls()
+        {
+            return DataProvider.Instance.ExecuteQuery("EXEC USP_GetListRevenueOfFimls", new object[] { });
         }
     }
 }
