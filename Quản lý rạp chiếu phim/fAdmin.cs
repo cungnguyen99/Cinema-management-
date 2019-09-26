@@ -60,7 +60,15 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void cbLoadCinema_SelectedValueChanged(object sender, EventArgs e)
         {
-            loadListCinemaByName(cbLoadCinema.Text.ToString());
+            kt++;
+            if (kt%2!=0)
+            {
+                loadListRevenueOfCinema();
+            }
+            else
+            {
+                loadListCinemaByName(cbLoadCinema.Text.ToString());
+            }
         }
     }
 }

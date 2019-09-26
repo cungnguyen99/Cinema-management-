@@ -22,7 +22,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void loadFimls()
         {
-            List<Fimls> fimlsList = fimlsDAO.Instance.loadListTable();
+            List<Fimls> fimlsList = fimlsDAO.Instance.loadListFimls();
             foreach (Fimls item in fimlsList)
             {
                 Button btn = new Button() { Width = 110, Height = 140 };
@@ -90,6 +90,7 @@ namespace Quản_lý_rạp_chiếu_phim
         private void btnSearch_Click(object sender, EventArgs e)
         {
             flbTable.Controls.Clear();
+            textBox1.Text = "";
             List<Fimls> fimls=searchFimlsByFimlsName(textBox1.Text);
             listView1.Items.Clear();
             foreach (Fimls item in fimls)
@@ -111,17 +112,17 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //flbTable.Controls.Clear();
-            //List<Fimls> fimlsList = fimlsDAO.Instance.getListMoviesShowing();
-            //foreach (Fimls item in fimlsList)
-            //{
-            //    Button btn = new Button() { Width = 110, Height = 140 };
-            //    btn.Tag = item;
-            //    btn.Click += btn_click;
-            //    btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
-            //    btn.BackgroundImageLayout = ImageLayout.Stretch;
-            //    flbTable.Controls.Add(btn);
-            //}
+            flbTable.Controls.Clear();
+            List<Fimls> fimlsList = fimlsDAO.Instance.getListMoviesShowing();
+            foreach (Fimls item in fimlsList)
+            {
+                Button btn = new Button() { Width = 110, Height = 140 };
+                btn.Tag = item;
+                btn.Click += btn_click;
+                btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+                btn.BackgroundImageLayout = ImageLayout.Stretch;
+                flbTable.Controls.Add(btn);
+            }
         }
     }
 }

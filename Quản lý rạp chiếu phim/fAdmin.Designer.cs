@@ -31,6 +31,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbLoadCinema = new System.Windows.Forms.ComboBox();
             this.btnView = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgvRevenue = new System.Windows.Forms.DataGridView();
@@ -68,8 +70,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
-            this.cbLoadCinema = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -125,6 +125,37 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(692, 33);
             this.panel2.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox1.Location = new System.Drawing.Point(312, 6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(47, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Text = "1";
+            // 
+            // cbLoadCinema
+            // 
+            this.cbLoadCinema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLoadCinema.FormattingEnabled = true;
+            this.cbLoadCinema.Location = new System.Drawing.Point(137, 6);
+            this.cbLoadCinema.Name = "cbLoadCinema";
+            this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
+            this.cbLoadCinema.TabIndex = 3;
             // 
             // btnView
             // 
@@ -462,37 +493,6 @@
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.Size = new System.Drawing.Size(709, 163);
             this.dtgvAccount.TabIndex = 0;
-            // 
-            // cbLoadCinema
-            // 
-            this.cbLoadCinema.FormattingEnabled = true;
-            this.cbLoadCinema.Location = new System.Drawing.Point(137, 6);
-            this.cbLoadCinema.Name = "cbLoadCinema";
-            this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
-            this.cbLoadCinema.TabIndex = 3;
-            this.cbLoadCinema.SelectedValueChanged += new System.EventHandler(this.cbLoadCinema_SelectedValueChanged);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBox1.Location = new System.Drawing.Point(312, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(47, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.Text = "1";
             // 
             // fAdmin
             // 

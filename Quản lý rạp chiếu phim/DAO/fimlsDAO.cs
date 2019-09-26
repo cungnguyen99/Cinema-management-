@@ -28,7 +28,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         private fimlsDAO() { }
 
-        public List<Fimls> loadListTable()
+        public List<Fimls> loadListFimls()
         {
             List<Fimls> fimlsList = new List<Fimls>();
             DataTable dataTable = DataProvider.Instance.ExecuteQuery("USP_fimls");
@@ -79,7 +79,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         public List<Fimls> getListMoviesShowing()
         {
             List<Fimls> fimls = new List<Fimls>();
-            string query = string.Format("SELECT PHIM.TenPhim FROM PHIM WHERE EXISTS (SELECT LICHCHIEU.MaPhim FROM LICHCHIEU WHERE PHIM.MaPhim=LICHCHIEU.MaPhim)");
+            string query = string.Format("SELECT * FROM PHIM WHERE EXISTS (SELECT LICHCHIEU.MaPhim FROM LICHCHIEU WHERE PHIM.MaPhim=LICHCHIEU.MaPhim)");
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
