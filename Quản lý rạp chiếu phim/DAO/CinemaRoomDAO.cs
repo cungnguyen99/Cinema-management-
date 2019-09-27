@@ -52,5 +52,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             }
             return room;
         }
+
+        public List<CinemaRoom> getRoomsByID(string id)
+        {
+            List<CinemaRoom> rooms = new List<CinemaRoom>();
+            string query = "SELECT * FROM PHONGCHIEU WHERE MaRap = "+id;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                CinemaRoom room = new CinemaRoom(item);
+                rooms.Add(room);
+            }
+            return rooms;
+        }
     }
 }

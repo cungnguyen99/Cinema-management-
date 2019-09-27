@@ -41,6 +41,9 @@
             this.txtFimlsName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.txtSum = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.txtNgayKT = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,8 +51,10 @@
             this.txtNgayKC = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.cbRooms = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.cbIDCinema = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtTen = new System.Windows.Forms.TextBox();
@@ -69,11 +74,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.txtSum = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbRooms = new System.Windows.Forms.ComboBox();
-            this.cbIDCinema = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +82,7 @@
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -95,7 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShowTimes)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -244,6 +244,32 @@
             this.panel5.Size = new System.Drawing.Size(291, 312);
             this.panel5.TabIndex = 2;
             // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.txtSum);
+            this.panel13.Controls.Add(this.label7);
+            this.panel13.Location = new System.Drawing.Point(3, 262);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(282, 43);
+            this.panel13.TabIndex = 4;
+            // 
+            // txtSum
+            // 
+            this.txtSum.Location = new System.Drawing.Point(90, 12);
+            this.txtSum.Name = "txtSum";
+            this.txtSum.ReadOnly = true;
+            this.txtSum.Size = new System.Drawing.Size(189, 20);
+            this.txtSum.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Tổng tiền";
+            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.txtNgayKT);
@@ -304,6 +330,14 @@
             this.panel11.Size = new System.Drawing.Size(282, 36);
             this.panel11.TabIndex = 2;
             // 
+            // cbRooms
+            // 
+            this.cbRooms.FormattingEnabled = true;
+            this.cbRooms.Location = new System.Drawing.Point(90, 6);
+            this.cbRooms.Name = "cbRooms";
+            this.cbRooms.Size = new System.Drawing.Size(189, 21);
+            this.cbRooms.TabIndex = 1;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -321,6 +355,16 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(282, 35);
             this.panel9.TabIndex = 2;
+            // 
+            // cbIDCinema
+            // 
+            this.cbIDCinema.FormattingEnabled = true;
+            this.cbIDCinema.Location = new System.Drawing.Point(90, 7);
+            this.cbIDCinema.Name = "cbIDCinema";
+            this.cbIDCinema.Size = new System.Drawing.Size(189, 21);
+            this.cbIDCinema.TabIndex = 2;
+            this.cbIDCinema.SelectedIndexChanged += new System.EventHandler(this.cbIDCinema_SelectedIndexChanged);
+            this.cbIDCinema.TextChanged += new System.EventHandler(this.cbIDCinema_TextChanged);
             // 
             // label3
             // 
@@ -402,6 +446,7 @@
             this.btnSee.TabIndex = 3;
             this.btnSee.Text = "Xem";
             this.btnSee.UseVisualStyleBackColor = true;
+            this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
             // 
             // btnEdit
             // 
@@ -470,7 +515,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(745, 374);
+            this.tabPage4.Size = new System.Drawing.Size(744, 374);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Phòng chiếu";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -481,7 +526,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(745, 374);
+            this.tabPage5.Size = new System.Drawing.Size(744, 374);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Tài khoản";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -493,49 +538,6 @@
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.Size = new System.Drawing.Size(709, 163);
             this.dtgvAccount.TabIndex = 0;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.txtSum);
-            this.panel13.Controls.Add(this.label7);
-            this.panel13.Location = new System.Drawing.Point(3, 262);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(282, 43);
-            this.panel13.TabIndex = 4;
-            // 
-            // txtSum
-            // 
-            this.txtSum.Location = new System.Drawing.Point(90, 12);
-            this.txtSum.Name = "txtSum";
-            this.txtSum.ReadOnly = true;
-            this.txtSum.Size = new System.Drawing.Size(189, 20);
-            this.txtSum.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 15);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Tổng tiền";
-            // 
-            // cbRooms
-            // 
-            this.cbRooms.FormattingEnabled = true;
-            this.cbRooms.Location = new System.Drawing.Point(90, 6);
-            this.cbRooms.Name = "cbRooms";
-            this.cbRooms.Size = new System.Drawing.Size(189, 21);
-            this.cbRooms.TabIndex = 1;
-            // 
-            // cbIDCinema
-            // 
-            this.cbIDCinema.FormattingEnabled = true;
-            this.cbIDCinema.Location = new System.Drawing.Point(90, 7);
-            this.cbIDCinema.Name = "cbIDCinema";
-            this.cbIDCinema.Size = new System.Drawing.Size(189, 21);
-            this.cbIDCinema.TabIndex = 2;
-            this.cbIDCinema.TextChanged += new System.EventHandler(this.cbIDCinema_TextChanged);
             // 
             // fAdmin
             // 
@@ -555,6 +557,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -574,8 +578,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShowTimes)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }

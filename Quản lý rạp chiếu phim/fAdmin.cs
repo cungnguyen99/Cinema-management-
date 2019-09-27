@@ -15,6 +15,7 @@ namespace Quản_lý_rạp_chiếu_phim
     public partial class fAdmin : Form
     {
         private int kt = 1;
+        BindingSource showList = new BindingSource();
         public fAdmin()
         {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void Load()
         {
+            //Khi nhấn nút xem vẫn binding được 
+            dtgvShows.DataSource = showList;
             loadListRevenueOfFimls();
             //Load danh sách rạp trong bảng doanh thu
             loadListCinema(cbLoadCinema,true);
@@ -30,7 +33,6 @@ namespace Quản_lý_rạp_chiếu_phim
             //load danh mã rạp trong bảng lịch chiếu
             loadListCinema(cbIDCinema, false);
             addShowTimesBinding();
-            loadRoomsInToCombobox(cbRooms);
         }
 
         void loadListRevenueOfFimls()
@@ -64,22 +66,26 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void loadListShowTimes()
         {
-            dtgvShows.DataSource = ShowtimesDAO.Instance.getListShowTimes();
+            //Thay dtgvShows bằng showList
+            showList.DataSource = ShowtimesDAO.Instance.getListShowTimes();
         }
 
         void addShowTimesBinding()
         {
             txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow"));
             txtTen.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhim"));
+            cbIDCinema.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaRap"));
             txtNgayKC.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "NgayChieu"));
             txtNgayKT.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "SoVeDaBan"));
+            cbRooms.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhong"));
             txtSum.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "TongTien"));
         }
 
-        void loadRoomsInToCombobox(ComboBox comboBox)
+        void loadRoomsInToCombobox(string id)
         {
-            comboBox.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
-            comboBox.DisplayMember = "MaPhong";
+            List<CinemaRoom> rooms = CinemaRoomDAO.Instance.getRoomsByID(id);
+            cbRooms.DataSource = rooms;
+            cbRooms.DisplayMember = "MaPhong";
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -103,8 +109,22 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void cbIDCinema_TextChanged(object sender, EventArgs e)
         {
-            string id = cbIDCinema.Text;
-            CinemaRoom room = CinemaRoomDAO.Instance.getRoomByID(id);
+            
+        }
+
+        private void cbIDCinema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id;
+            ComboBox comboBox = sender as ComboBox;
+            if (comboBox.SelectedItem == null) return;
+            Cinema selected = comboBox.SelectedItem as Cinema;
+            id = selected.MaRap;
+            loadRoomsInToCombobox(id);
+        }
+
+        private void btnSee_Click(object sender, EventArgs e)
+        {
+            loadListShowTimes();
         }
     }
 }
