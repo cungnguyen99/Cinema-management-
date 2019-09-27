@@ -18,8 +18,19 @@ namespace Quản_lý_rạp_chiếu_phim
         public fAdmin()
         {
             InitializeComponent();
+            Load();
+        }
+
+        void Load()
+        {
             loadListRevenueOfFimls();
-            loadListCinema();
+            //Load danh sách rạp trong bảng doanh thu
+            loadListCinema(cbLoadCinema,true);
+            loadListShowTimes();
+            //load danh mã rạp trong bảng lịch chiếu
+            loadListCinema(cbIDCinema, false);
+            addShowTimesBinding();
+            loadRoomsInToCombobox(cbRooms);
         }
 
         void loadListRevenueOfFimls()
@@ -32,16 +43,43 @@ namespace Quản_lý_rạp_chiếu_phim
             dtgvRevenue.DataSource=CinemaDAO.Instance.getListRevenueOfCinema();
         }
 
-        void loadListCinema()
-        {
-            List<Cinema> cinemas = CinemaDAO.Instance.getListCinemas();
-            cbLoadCinema.DataSource = cinemas;
-            cbLoadCinema.DisplayMember = "TenRap";
-        }
-
         void loadListCinemaByName(string name)
         {
             dtgvRevenue.DataSource = CinemaDAO.Instance.getListCinemaByName(name);
+        }
+
+        void loadListCinema(ComboBox comboBox, bool check)
+        {
+            List<Cinema> cinemas = CinemaDAO.Instance.getListCinemas();
+            comboBox.DataSource = cinemas;
+            if (check)
+            {
+                comboBox.DisplayMember = "TenRap";
+            }
+            else
+            {
+                comboBox.DisplayMember = "MaRap";
+            }
+        }
+
+        void loadListShowTimes()
+        {
+            dtgvShows.DataSource = ShowtimesDAO.Instance.getListShowTimes();
+        }
+
+        void addShowTimesBinding()
+        {
+            txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow"));
+            txtTen.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhim"));
+            txtNgayKC.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "NgayChieu"));
+            txtNgayKT.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "SoVeDaBan"));
+            txtSum.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "TongTien"));
+        }
+
+        void loadRoomsInToCombobox(ComboBox comboBox)
+        {
+            comboBox.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
+            comboBox.DisplayMember = "MaPhong";
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -60,15 +98,13 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void cbLoadCinema_SelectedValueChanged(object sender, EventArgs e)
         {
-            kt++;
-            if (kt%2!=0)
-            {
-                loadListRevenueOfCinema();
-            }
-            else
-            {
-                loadListCinemaByName(cbLoadCinema.Text.ToString());
-            }
+            loadListCinemaByName(comboBox1.Text.ToString());
+        }
+
+        private void cbIDCinema_TextChanged(object sender, EventArgs e)
+        {
+            string id = cbIDCinema.Text;
+            CinemaRoom room = CinemaRoomDAO.Instance.getRoomByID(id);
         }
     }
 }
