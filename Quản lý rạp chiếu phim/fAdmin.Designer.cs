@@ -157,12 +157,12 @@
             // 
             // cbLoadCinema
             // 
-            this.cbLoadCinema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoadCinema.FormattingEnabled = true;
             this.cbLoadCinema.Location = new System.Drawing.Point(137, 6);
             this.cbLoadCinema.Name = "cbLoadCinema";
             this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
             this.cbLoadCinema.TabIndex = 3;
+            this.cbLoadCinema.SelectedIndexChanged += new System.EventHandler(this.cbLoadCinema_SelectedIndexChanged_1);
             // 
             // btnView
             // 
@@ -474,6 +474,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel3
             // 

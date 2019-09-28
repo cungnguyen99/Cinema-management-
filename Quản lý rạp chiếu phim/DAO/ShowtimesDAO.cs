@@ -30,5 +30,13 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         {
             return DataProvider.Instance.ExecuteQuery("SELECT * FROM LICHCHIEU");
         }
+
+        //public bool insertShowtimes(string maShow, string maPhim, string maRap, 
+        //    string maPhong, int soVeDaBan=0, DateTime ngayChieu, int tongTien=0)
+        //{
+        //    string query = string.Format("Insert Into LICHCHIEU values(N'{0}', N'{1}', N'{2}', N'{3}',{4}, N'{5}',{6})", maShow, maPhim, maRap, maPhong, soVeDaBan, ngayChieu, tongTien);
+        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
+        //    return result > 0;
+        //}
     }
 }
