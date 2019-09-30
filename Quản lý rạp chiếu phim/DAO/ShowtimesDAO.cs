@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quản_lý_rạp_chiếu_phim.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -31,12 +32,38 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return DataProvider.Instance.ExecuteQuery("SELECT * FROM LICHCHIEU");
         }
 
-        //public bool insertShowtimes(string maShow, string maPhim, string maRap, 
-        //    string maPhong, int soVeDaBan=0, DateTime ngayChieu, int tongTien=0)
-        //{
-        //    string query = string.Format("Insert Into LICHCHIEU values(N'{0}', N'{1}', N'{2}', N'{3}',{4}, N'{5}',{6})", maShow, maPhim, maRap, maPhong, soVeDaBan, ngayChieu, tongTien);
-        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
-        //    return result > 0;
-        //}
+        public bool insertShowtimes(string maShow, string maPhim, string maRap, string maPhong, DateTime ngayChieu)
+        {
+            string query = string.Format("Insert Into LICHCHIEU values(N'{0}', N'{1}', N'{2}', N'{3}',{4}, N'{5}',{6})", maShow, maPhim, maRap, maPhong, 0, ngayChieu, 0);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool updateShowtimes(string maShow, string maPhim, string maRap, string maPhong, DateTime ngayChieu)
+        {
+            string query = string.Format("UPDATE LICHCHIEU SET MaPhim=N'{0}', MaRap=N'{1}', MaPhong=N'{2}',NgayChieu=N'{3}' WHERE MaShow=N'{4}'", maPhim, maRap, maPhong, ngayChieu, maShow);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool deleteShowtimes(string maShow)
+        {
+            string query = string.Format("DELETE LICHCHIEU WHERE MaShow=N'{0}'", maShow);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public List<Showtimes> getListShowTimesByIdFimlsOrIdCinema(string id)
+        {
+            List<Showtimes> fimls = new List<Showtimes>();
+            string query = string.Format("SELECT * FROM LICHCHIEU WHERE MaPhim = N'{0}' or MaRap = N'{0}'", id);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Showtimes fiml = new Showtimes(item);
+                fimls.Add(fiml);
+            }
+            return fimls;
+        }
     }
 }

@@ -81,10 +81,10 @@ namespace Quản_lý_rạp_chiếu_phim
             txtSum.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "TongTien", true, DataSourceUpdateMode.Never));
         }
 
-        void loadRoomIntoCombobox()
+        void loadroomintocombobox()
         {
             cbRooms.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
-            cbRooms.DisplayMember = "MaPhong";
+            cbRooms.DisplayMember = "maphong";
         }
 
         void loadRoomsInToCombobox(string id)
@@ -108,11 +108,6 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
-        private void cbIDCinema_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void cbIDCinema_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id;
@@ -130,24 +125,87 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //string maShow = txtID.Text;
-            //string maPhim = txtTen.Text;
-            //string maRap = cbIDCinema.Text;
-            //string maPhong = cbRooms.Text;
-            //string ngayChieu = txtNgayKC.Text;
-            //if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, 0, Convert.ToDateTime(ngayChieu), 0))
-            //{
-            //    MessageBox.Show("Insert succeeded");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Insert unsuccessful");
-            //}
+            string maShow = txtID.Text;
+            string maPhim = txtTen.Text;
+            string maRap = cbIDCinema.Text;
+            string maPhong = cbRooms.Text;
+            string ngayChieu = txtNgayKC.Text;
+            if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+            {
+                MessageBox.Show("Insert succeeded");
+                loadListShowTimes();
+            }
+            else
+            {
+                MessageBox.Show("Insert unsuccessful");
+            }
         }
 
-        private void cbLoadCinema_SelectedIndexChanged_1(object sender, EventArgs e)
+        private List<Showtimes> searchShowTimes(string id)
         {
-            loadListCinemaByName(comboBox1.Text.ToString());
+            List<Showtimes> showtimes = ShowtimesDAO.Instance.getListShowTimesByIdFimlsOrIdCinema(txtID.Text);
+            return showtimes;
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            string maShow = txtID.Text;
+            string maPhim = txtTen.Text;
+            string maRap = cbIDCinema.Text;
+            string maPhong = cbRooms.Text;
+            string ngayChieu = txtNgayKC.Text;
+            if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+            {
+                MessageBox.Show("Update succeeded");
+                loadListShowTimes();
+            }
+            else
+            {
+                MessageBox.Show("Update unsuccessful");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string maShow = txtID.Text;
+            if (ShowtimesDAO.Instance.deleteShowtimes(maShow))
+            {
+                MessageBox.Show("Delete succeeded");
+                loadListShowTimes();
+            }
+            else
+            {
+                MessageBox.Show("Delete unsuccessful");
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            showList.DataSource = searchShowTimes(txtID.Text);
+        }
+
+        private void cbLoadCinema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadListCinemaByName(cbLoadCinema.Text.ToString());
+            if (dtgvShows.SelectedCells.Count > 0)
+            {
+                string id = dtgvShows.SelectedCells[3].OwningRow.Cells["MaPhong"].Value.ToString();
+                CinemaRoom room = CinemaRoomDAO.Instance.getRoomByID(id);
+                cbRooms.SelectedItem = room;
+                int index = -1;
+                int i = 0;
+                foreach (CinemaRoom item in cbRooms.Items)
+                {
+                    if (item.MaPhong == room.MaPhong)
+                    {
+                        index = i;
+                        break;
+                    }
+                    i++;
+                }
+                cbRooms.SelectedIndex = index;
+            }
+        }
+
     }
 }

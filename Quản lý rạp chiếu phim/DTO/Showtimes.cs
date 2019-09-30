@@ -28,7 +28,9 @@ namespace Quản_lý_rạp_chiếu_phim.DTO
             TongTien = tongTien;
         }
 
-        private Showtimes(DataRow row)
+        private Showtimes() { }
+
+        public Showtimes(DataRow row)
         {
             this.maShow = row["Mashow"].ToString();
             this.maPhim = row["MaPhim"].ToString();

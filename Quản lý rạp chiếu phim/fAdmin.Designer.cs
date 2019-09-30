@@ -162,7 +162,7 @@
             this.cbLoadCinema.Name = "cbLoadCinema";
             this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
             this.cbLoadCinema.TabIndex = 3;
-            this.cbLoadCinema.SelectedIndexChanged += new System.EventHandler(this.cbLoadCinema_SelectedIndexChanged_1);
+            this.cbLoadCinema.SelectedIndexChanged += new System.EventHandler(this.cbLoadCinema_SelectedIndexChanged);
             // 
             // btnView
             // 
@@ -229,6 +229,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Tìm Kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel5
             // 
@@ -283,6 +284,7 @@
             // 
             this.txtNgayKT.Location = new System.Drawing.Point(90, 12);
             this.txtNgayKT.Name = "txtNgayKT";
+            this.txtNgayKT.ReadOnly = true;
             this.txtNgayKT.Size = new System.Drawing.Size(189, 20);
             this.txtNgayKT.TabIndex = 1;
             // 
@@ -308,7 +310,6 @@
             // 
             this.txtNgayKC.Location = new System.Drawing.Point(90, 12);
             this.txtNgayKC.Name = "txtNgayKC";
-            this.txtNgayKC.ReadOnly = true;
             this.txtNgayKC.Size = new System.Drawing.Size(189, 20);
             this.txtNgayKC.TabIndex = 1;
             // 
@@ -364,7 +365,6 @@
             this.cbIDCinema.Size = new System.Drawing.Size(189, 21);
             this.cbIDCinema.TabIndex = 2;
             this.cbIDCinema.SelectedIndexChanged += new System.EventHandler(this.cbIDCinema_SelectedIndexChanged);
-            this.cbIDCinema.TextChanged += new System.EventHandler(this.cbIDCinema_TextChanged);
             // 
             // label3
             // 
@@ -388,7 +388,6 @@
             // 
             this.txtTen.Location = new System.Drawing.Point(90, 12);
             this.txtTen.Name = "txtTen";
-            this.txtTen.ReadOnly = true;
             this.txtTen.Size = new System.Drawing.Size(189, 20);
             this.txtTen.TabIndex = 1;
             // 
@@ -414,7 +413,6 @@
             // 
             this.txtID.Location = new System.Drawing.Point(90, 8);
             this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(189, 20);
             this.txtID.TabIndex = 1;
             // 
@@ -456,6 +454,7 @@
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -465,6 +464,7 @@
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
