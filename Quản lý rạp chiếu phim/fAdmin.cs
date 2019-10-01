@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Quản_lý_rạp_chiếu_phim
 {
-    public partial class fAdmin : Form
+    public partial class fAdmin : BaseForm
     {
         private int kt = 1;
         BindingSource showList = new BindingSource();
@@ -28,7 +28,7 @@ namespace Quản_lý_rạp_chiếu_phim
             dtgvShows.DataSource = showList;
             loadListRevenueOfFimls();
             //Load danh sách rạp trong bảng doanh thu
-            loadListCinema(cbLoadCinema,true);
+            loadListCinema(cbLoadCinema, true);
             loadListShowTimes();
             //load danh mã rạp trong bảng lịch chiếu
             loadListCinema(cbIDCinema, false);
@@ -42,7 +42,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void loadListRevenueOfCinema()
         {
-            dtgvRevenue.DataSource=CinemaDAO.Instance.getListRevenueOfCinema();
+            dtgvRevenue.DataSource = CinemaDAO.Instance.getListRevenueOfCinema();
         }
 
         void loadListCinemaByName(string name)
@@ -72,7 +72,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void addShowTimesBinding()
         {
-            txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow",true, DataSourceUpdateMode.Never));
+            txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow", true, DataSourceUpdateMode.Never));
             txtTen.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhim", true, DataSourceUpdateMode.Never));
             cbIDCinema.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaRap", true, DataSourceUpdateMode.Never));
             txtNgayKC.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "NgayChieu", true, DataSourceUpdateMode.Never));
@@ -97,14 +97,15 @@ namespace Quản_lý_rạp_chiếu_phim
         private void btnView_Click(object sender, EventArgs e)
         {
             kt++;
-            if (kt%2==0)
+            if (kt % 2 != 0)
             {
-                btnView.Text = "Doanh thu các rạp";
-                loadListRevenueOfCinema();
-            }else
-            {
-                btnView.Text = "Doanh thu phim";
+                btnView.Text = "Xem doanh thu rạp";
                 loadListRevenueOfFimls();
+            }
+            else
+            {
+                btnView.Text = "Xem doanh thu phim";
+                loadListRevenueOfCinema();
             }
         }
 
@@ -186,25 +187,8 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void cbLoadCinema_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadListCinemaByName(cbLoadCinema.Text.ToString());
-            if (dtgvShows.SelectedCells.Count > 0)
-            {
-                string id = dtgvShows.SelectedCells[3].OwningRow.Cells["MaPhong"].Value.ToString();
-                CinemaRoom room = CinemaRoomDAO.Instance.getRoomByID(id);
-                cbRooms.SelectedItem = room;
-                int index = -1;
-                int i = 0;
-                foreach (CinemaRoom item in cbRooms.Items)
-                {
-                    if (item.MaPhong == room.MaPhong)
-                    {
-                        index = i;
-                        break;
-                    }
-                    i++;
-                }
-                cbRooms.SelectedIndex = index;
-            }
+           if(this.Is_Shown)
+            loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap);
         }
 
     }

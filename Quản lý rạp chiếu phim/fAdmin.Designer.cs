@@ -170,7 +170,7 @@
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(119, 23);
             this.btnView.TabIndex = 2;
-            this.btnView.Text = "Doanh thu phim";
+            this.btnView.Text = "Xem doanh thu rạp";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
@@ -209,9 +209,9 @@
             // 
             this.panel6.Controls.Add(this.txtFimlsName);
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(435, 8);
+            this.panel6.Location = new System.Drawing.Point(432, 8);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(288, 42);
+            this.panel6.Size = new System.Drawing.Size(291, 42);
             this.panel6.TabIndex = 3;
             // 
             // txtFimlsName

@@ -45,16 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\CinemaDAO.cs" />
     <Compile Include="DAO\CinemaRoomDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\fimlsDAO.cs" />
     <Compile Include="DAO\ShowtimesDAO.cs" />
+    <Compile Include="DAO\ticketDAO.cs" />
     <Compile Include="DTO\Cinema.cs" />
     <Compile Include="DTO\CinemaRoom.cs" />
     <Compile Include="DTO\Fimls.cs" />
     <Compile Include="DTO\Showtimes.cs" />
+    <Compile Include="DTO\Ticket.cs" />
     <Compile Include="fAccount.cs">
       <SubType>Form</SubType>
     </Compile>
