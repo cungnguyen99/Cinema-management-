@@ -70,10 +70,21 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvShows = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dtgvShowTimes = new System.Windows.Forms.DataGridView();
+            this.dtgvTicket = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
+            this.btnAddTicket = new System.Windows.Forms.Button();
+            this.btnRemoveTicket = new System.Windows.Forms.Button();
+            this.btnEditTicket = new System.Windows.Forms.Button();
+            this.txtmashow = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtmaghe = new System.Windows.Forms.TextBox();
+            this.txtgiochieu = new System.Windows.Forms.TextBox();
+            this.txtgia = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -93,7 +104,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShows)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvShowTimes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTicket)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             this.SuspendLayout();
@@ -202,7 +213,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(744, 374);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Phim";
+            this.tabPage2.Text = "Lịch chiếu";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel6
@@ -494,22 +505,33 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.dtgvShowTimes);
+            this.tabPage3.Controls.Add(this.txtgia);
+            this.tabPage3.Controls.Add(this.txtgiochieu);
+            this.tabPage3.Controls.Add(this.txtmaghe);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.txtmashow);
+            this.tabPage3.Controls.Add(this.btnEditTicket);
+            this.tabPage3.Controls.Add(this.btnRemoveTicket);
+            this.tabPage3.Controls.Add(this.btnAddTicket);
+            this.tabPage3.Controls.Add(this.dtgvTicket);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(744, 374);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Lịch chiếu";
+            this.tabPage3.Text = "Vé";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dtgvShowTimes
+            // dtgvTicket
             // 
-            this.dtgvShowTimes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvShowTimes.Location = new System.Drawing.Point(0, 146);
-            this.dtgvShowTimes.Name = "dtgvShowTimes";
-            this.dtgvShowTimes.Size = new System.Drawing.Size(741, 232);
-            this.dtgvShowTimes.TabIndex = 0;
+            this.dtgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTicket.Location = new System.Drawing.Point(23, 101);
+            this.dtgvTicket.Name = "dtgvTicket";
+            this.dtgvTicket.Size = new System.Drawing.Size(443, 232);
+            this.dtgvTicket.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -539,6 +561,99 @@
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.Size = new System.Drawing.Size(709, 163);
             this.dtgvAccount.TabIndex = 0;
+            // 
+            // btnAddTicket
+            // 
+            this.btnAddTicket.Location = new System.Drawing.Point(45, 44);
+            this.btnAddTicket.Name = "btnAddTicket";
+            this.btnAddTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTicket.TabIndex = 1;
+            this.btnAddTicket.Text = "Thêm vé";
+            this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
+            // 
+            // btnRemoveTicket
+            // 
+            this.btnRemoveTicket.Location = new System.Drawing.Point(182, 44);
+            this.btnRemoveTicket.Name = "btnRemoveTicket";
+            this.btnRemoveTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveTicket.TabIndex = 2;
+            this.btnRemoveTicket.Text = "Xóa";
+            this.btnRemoveTicket.UseVisualStyleBackColor = true;
+            // 
+            // btnEditTicket
+            // 
+            this.btnEditTicket.Location = new System.Drawing.Point(329, 44);
+            this.btnEditTicket.Name = "btnEditTicket";
+            this.btnEditTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTicket.TabIndex = 3;
+            this.btnEditTicket.Text = "Sửa";
+            this.btnEditTicket.UseVisualStyleBackColor = true;
+            this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
+            // 
+            // txtmashow
+            // 
+            this.txtmashow.Location = new System.Drawing.Point(588, 101);
+            this.txtmashow.Name = "txtmashow";
+            this.txtmashow.Size = new System.Drawing.Size(138, 20);
+            this.txtmashow.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(507, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Mã show";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(507, 181);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Mã ghế";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(507, 249);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Giờ chiếu";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(507, 320);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Giá vé";
+            // 
+            // txtmaghe
+            // 
+            this.txtmaghe.Location = new System.Drawing.Point(588, 181);
+            this.txtmaghe.Name = "txtmaghe";
+            this.txtmaghe.Size = new System.Drawing.Size(138, 20);
+            this.txtmaghe.TabIndex = 9;
+            // 
+            // txtgiochieu
+            // 
+            this.txtgiochieu.Location = new System.Drawing.Point(588, 249);
+            this.txtgiochieu.Name = "txtgiochieu";
+            this.txtgiochieu.Size = new System.Drawing.Size(138, 20);
+            this.txtgiochieu.TabIndex = 10;
+            // 
+            // txtgia
+            // 
+            this.txtgia.Location = new System.Drawing.Point(588, 313);
+            this.txtgia.Name = "txtgia";
+            this.txtgia.Size = new System.Drawing.Size(138, 20);
+            this.txtgia.TabIndex = 11;
             // 
             // fAdmin
             // 
@@ -576,7 +691,8 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShows)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvShowTimes)).EndInit();
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTicket)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             this.ResumeLayout(false);
@@ -625,11 +741,22 @@
         private System.Windows.Forms.DataGridView dtgvAccount;
         private System.Windows.Forms.ComboBox cbLoadCinema;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dtgvShowTimes;
+        private System.Windows.Forms.DataGridView dtgvTicket;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox txtSum;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbRooms;
         private System.Windows.Forms.ComboBox cbIDCinema;
+        private System.Windows.Forms.Button btnEditTicket;
+        private System.Windows.Forms.Button btnRemoveTicket;
+        private System.Windows.Forms.Button btnAddTicket;
+        private System.Windows.Forms.TextBox txtgia;
+        private System.Windows.Forms.TextBox txtgiochieu;
+        private System.Windows.Forms.TextBox txtmaghe;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtmashow;
     }
 }

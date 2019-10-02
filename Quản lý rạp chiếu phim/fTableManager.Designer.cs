@@ -49,10 +49,10 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.flbTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.btnSee = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -241,6 +241,16 @@
             this.panel1.Size = new System.Drawing.Size(776, 76);
             this.panel1.TabIndex = 6;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(567, 18);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(136, 31);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Phim đang chiếu";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // btnSee
             // 
             this.btnSee.Location = new System.Drawing.Point(395, 16);
@@ -267,16 +277,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(209, 20);
             this.textBox1.TabIndex = 0;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(567, 18);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(136, 31);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Phim đang chiếu";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // fTableManager
             // 

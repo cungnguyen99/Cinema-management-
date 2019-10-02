@@ -52,12 +52,14 @@
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\ChairDAO.cs" />
     <Compile Include="DAO\CinemaDAO.cs" />
     <Compile Include="DAO\CinemaRoomDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\fimlsDAO.cs" />
     <Compile Include="DAO\ShowtimesDAO.cs" />
     <Compile Include="DAO\ticketDAO.cs" />
+    <Compile Include="DTO\Chair.cs" />
     <Compile Include="DTO\Cinema.cs" />
     <Compile Include="DTO\CinemaRoom.cs" />
     <Compile Include="DTO\Fimls.cs" />
@@ -87,6 +89,12 @@
     <Compile Include="fTableManager.Designer.cs">
       <DependentUpon>fTableManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="menuTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuTicket.Designer.cs">
+      <DependentUpon>menuTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fAccount.resx">
@@ -100,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fTableManager.resx">
       <DependentUpon>fTableManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuTicket.resx">
+      <DependentUpon>menuTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -30,9 +30,11 @@ namespace Quản_lý_rạp_chiếu_phim
             //Load danh sách rạp trong bảng doanh thu
             loadListCinema(cbLoadCinema, true);
             loadListShowTimes();
+            loadListTicket();
             //load danh mã rạp trong bảng lịch chiếu
             loadListCinema(cbIDCinema, false);
             addShowTimesBinding();
+            addTicketBinding();
         }
 
         void loadListRevenueOfFimls()
@@ -70,6 +72,11 @@ namespace Quản_lý_rạp_chiếu_phim
             showList.DataSource = ShowtimesDAO.Instance.getListShowTimes();
         }
 
+        void loadListTicket()
+        {
+            dtgvTicket.DataSource = ticketDAO.Instance.getListTicket();
+        }
+
         void addShowTimesBinding()
         {
             txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow", true, DataSourceUpdateMode.Never));
@@ -79,6 +86,18 @@ namespace Quản_lý_rạp_chiếu_phim
             txtNgayKT.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "SoVeDaBan", true, DataSourceUpdateMode.Never));
             cbRooms.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhong", true, DataSourceUpdateMode.Never));
             txtSum.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "TongTien", true, DataSourceUpdateMode.Never));
+        }
+
+        void addTicketBinding()
+        {
+            txtmashow.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "MaShow", true,
+              DataSourceUpdateMode.Never));
+            txtmaghe.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "MaGhe", true,
+              DataSourceUpdateMode.Never));
+            txtgiochieu.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "GioChieu", true,
+              DataSourceUpdateMode.Never));
+            txtgia.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "GiaVe", true,
+              DataSourceUpdateMode.Never));
         }
 
         void loadroomintocombobox()
@@ -191,5 +210,27 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap);
         }
 
+        private void btnAddTicket_Click(object sender, EventArgs e)
+        {
+            menuTicket menu = new menuTicket();
+            menu.ShowDialog();
+        }
+
+        private void btnEditTicket_Click(object sender, EventArgs e)
+        {
+            string maShow = txtmashow.Text;
+            string maGhe = txtmaghe.Text;
+            string gioChieu = txtgiochieu.Text;
+            string giaVe = txtgia.Text;
+            if (ticketDAO.Instance.updateTicket(maShow, maGhe, gioChieu, Convert.ToInt16(giaVe)))
+            {
+                MessageBox.Show("Update succeeded");
+                loadListTicket();
+            }
+            else
+            {
+                MessageBox.Show("Update unsuccessful");
+            }
+        }
     }
 }
