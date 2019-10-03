@@ -19,7 +19,6 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             InitializeComponent();
             loadCinemaRooms1();
-
         }
 
         void loadCinemaRooms1()
@@ -36,6 +35,13 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
+        void loadListChairEmpty(string id)
+        {
+            List<Chair> chairs = ChairDAO.Instance.getListChairEmpty(id);
+            comboBox1.DataSource = chairs;
+            comboBox1.DisplayMember = "MaGhe";
+        }
+
         private void btn_click(object sender, EventArgs e)
         {
             if (((sender as Button).Tag as CinemaRoom).MaPhong != null)
@@ -47,16 +53,21 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void showRooms(string id)
         {
-            listView1.Items.Clear();
-            List<CinemaRoom> listFimls = CinemaRoomDAO.Instance.getRoomsByID(id);
-            //foreach (CinemaRoom item in fimlsList)
-            //{
-            //    Button btn = new Button() { Width = 100, Height = 120 };
-            //    btn.Tag = item;
-            //    btn.Click += btn_click;
-            //    btn.Text = "Phòng " + item.MaPhong;
-            //    flowLayoutPanel1.Controls.Add(btn);
-            //}
+            flowLayoutPanel2.Controls.Clear();
+            List<Chair> listChairs = ChairDAO.Instance.getListChair(id);
+            foreach (Chair item in listChairs)
+            {
+                Button btn = new Button() { Width = 50, Height = 70 };
+                btn.Tag = item;
+                btn.Click += btn_click;
+                btn.Text = item.MaGhe;
+                flowLayoutPanel2.Controls.Add(btn);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            loadListChairEmpty(textBox2.Text);
         }
     }
 }
