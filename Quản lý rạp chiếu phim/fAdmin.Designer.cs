@@ -70,21 +70,21 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvShows = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtgia = new System.Windows.Forms.TextBox();
+            this.txtgiochieu = new System.Windows.Forms.TextBox();
+            this.txtmaghe = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtmashow = new System.Windows.Forms.TextBox();
+            this.btnEditTicket = new System.Windows.Forms.Button();
+            this.btnRemoveTicket = new System.Windows.Forms.Button();
+            this.btnAddTicket = new System.Windows.Forms.Button();
             this.dtgvTicket = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dtgvAccount = new System.Windows.Forms.DataGridView();
-            this.btnAddTicket = new System.Windows.Forms.Button();
-            this.btnRemoveTicket = new System.Windows.Forms.Button();
-            this.btnEditTicket = new System.Windows.Forms.Button();
-            this.txtmashow = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtmaghe = new System.Windows.Forms.TextBox();
-            this.txtgiochieu = new System.Windows.Forms.TextBox();
-            this.txtgia = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -165,6 +165,8 @@
             this.comboBox1.Size = new System.Drawing.Size(47, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "1";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.MouseHover += new System.EventHandler(this.comboBox1_MouseHover);
             // 
             // cbLoadCinema
             // 
@@ -525,6 +527,99 @@
             this.tabPage3.Text = "Vé";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // txtgia
+            // 
+            this.txtgia.Location = new System.Drawing.Point(588, 313);
+            this.txtgia.Name = "txtgia";
+            this.txtgia.Size = new System.Drawing.Size(138, 20);
+            this.txtgia.TabIndex = 11;
+            // 
+            // txtgiochieu
+            // 
+            this.txtgiochieu.Location = new System.Drawing.Point(588, 249);
+            this.txtgiochieu.Name = "txtgiochieu";
+            this.txtgiochieu.Size = new System.Drawing.Size(138, 20);
+            this.txtgiochieu.TabIndex = 10;
+            // 
+            // txtmaghe
+            // 
+            this.txtmaghe.Location = new System.Drawing.Point(588, 181);
+            this.txtmaghe.Name = "txtmaghe";
+            this.txtmaghe.Size = new System.Drawing.Size(138, 20);
+            this.txtmaghe.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(507, 320);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Giá vé";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(507, 249);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Giờ chiếu";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(507, 181);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Mã ghế";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(507, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Mã show";
+            // 
+            // txtmashow
+            // 
+            this.txtmashow.Location = new System.Drawing.Point(588, 101);
+            this.txtmashow.Name = "txtmashow";
+            this.txtmashow.Size = new System.Drawing.Size(138, 20);
+            this.txtmashow.TabIndex = 4;
+            // 
+            // btnEditTicket
+            // 
+            this.btnEditTicket.Location = new System.Drawing.Point(329, 44);
+            this.btnEditTicket.Name = "btnEditTicket";
+            this.btnEditTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTicket.TabIndex = 3;
+            this.btnEditTicket.Text = "Sửa";
+            this.btnEditTicket.UseVisualStyleBackColor = true;
+            this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
+            // 
+            // btnRemoveTicket
+            // 
+            this.btnRemoveTicket.Location = new System.Drawing.Point(182, 44);
+            this.btnRemoveTicket.Name = "btnRemoveTicket";
+            this.btnRemoveTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveTicket.TabIndex = 2;
+            this.btnRemoveTicket.Text = "Xóa";
+            this.btnRemoveTicket.UseVisualStyleBackColor = true;
+            // 
+            // btnAddTicket
+            // 
+            this.btnAddTicket.Location = new System.Drawing.Point(45, 44);
+            this.btnAddTicket.Name = "btnAddTicket";
+            this.btnAddTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTicket.TabIndex = 1;
+            this.btnAddTicket.Text = "Thêm vé";
+            this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
+            // 
             // dtgvTicket
             // 
             this.dtgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -561,99 +656,6 @@
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.Size = new System.Drawing.Size(709, 163);
             this.dtgvAccount.TabIndex = 0;
-            // 
-            // btnAddTicket
-            // 
-            this.btnAddTicket.Location = new System.Drawing.Point(45, 44);
-            this.btnAddTicket.Name = "btnAddTicket";
-            this.btnAddTicket.Size = new System.Drawing.Size(75, 23);
-            this.btnAddTicket.TabIndex = 1;
-            this.btnAddTicket.Text = "Thêm vé";
-            this.btnAddTicket.UseVisualStyleBackColor = true;
-            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
-            // 
-            // btnRemoveTicket
-            // 
-            this.btnRemoveTicket.Location = new System.Drawing.Point(182, 44);
-            this.btnRemoveTicket.Name = "btnRemoveTicket";
-            this.btnRemoveTicket.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveTicket.TabIndex = 2;
-            this.btnRemoveTicket.Text = "Xóa";
-            this.btnRemoveTicket.UseVisualStyleBackColor = true;
-            // 
-            // btnEditTicket
-            // 
-            this.btnEditTicket.Location = new System.Drawing.Point(329, 44);
-            this.btnEditTicket.Name = "btnEditTicket";
-            this.btnEditTicket.Size = new System.Drawing.Size(75, 23);
-            this.btnEditTicket.TabIndex = 3;
-            this.btnEditTicket.Text = "Sửa";
-            this.btnEditTicket.UseVisualStyleBackColor = true;
-            this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
-            // 
-            // txtmashow
-            // 
-            this.txtmashow.Location = new System.Drawing.Point(588, 101);
-            this.txtmashow.Name = "txtmashow";
-            this.txtmashow.Size = new System.Drawing.Size(138, 20);
-            this.txtmashow.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(507, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Mã show";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(507, 181);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Mã ghế";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(507, 249);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Giờ chiếu";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(507, 320);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Giá vé";
-            // 
-            // txtmaghe
-            // 
-            this.txtmaghe.Location = new System.Drawing.Point(588, 181);
-            this.txtmaghe.Name = "txtmaghe";
-            this.txtmaghe.Size = new System.Drawing.Size(138, 20);
-            this.txtmaghe.TabIndex = 9;
-            // 
-            // txtgiochieu
-            // 
-            this.txtgiochieu.Location = new System.Drawing.Point(588, 249);
-            this.txtgiochieu.Name = "txtgiochieu";
-            this.txtgiochieu.Size = new System.Drawing.Size(138, 20);
-            this.txtgiochieu.TabIndex = 10;
-            // 
-            // txtgia
-            // 
-            this.txtgia.Location = new System.Drawing.Point(588, 313);
-            this.txtgia.Name = "txtgia";
-            this.txtgia.Size = new System.Drawing.Size(138, 20);
-            this.txtgia.TabIndex = 11;
             // 
             // fAdmin
             // 

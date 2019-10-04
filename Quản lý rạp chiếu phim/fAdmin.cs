@@ -232,5 +232,18 @@ namespace Quản_lý_rạp_chiếu_phim
                 MessageBox.Show("Update unsuccessful");
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_MouseHover(object sender, EventArgs e)
+        {
+            if (cbLoadCinema.SelectedIndex<0)
+            {
+                MessageBox.Show("Chọn");
+            }
+        }
     }
 }
