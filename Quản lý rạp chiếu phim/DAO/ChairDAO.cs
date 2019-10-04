@@ -42,7 +42,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         public List<Chair> getListChairEmpty(string id)
         {
             List<Chair> fimlsList = new List<Chair>();
-            string query = string.Format("SELECT * FROM GHE WHERE NOT EXISTS (SELECT VE.MaGhe FROM VE WHERE VE.MaGhe=GHE.MaGhe AND VE.MaShow=N'{0}'", id);
+            string query = string.Format("SELECT * FROM GHE WHERE NOT EXISTS (SELECT VE.MaGhe FROM VE WHERE VE.MaGhe=GHE.MaGhe AND VE.MaShow=N'{0}')", id);
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in dataTable.Rows)
             {
@@ -51,5 +51,13 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             }
             return fimlsList;
         }
+
+        public bool insertChair(string maShow, string maGhe, string gioChieu, string giaVe)
+        {
+            string query = string.Format("Insert Into VE values(N'{0}', N'{1}', N'{2}', N'{3}')", maShow, maGhe, gioChieu, giaVe);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
     }
 }

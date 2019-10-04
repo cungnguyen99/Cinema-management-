@@ -69,5 +69,27 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             loadListChairEmpty(textBox2.Text);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string maShow = textBox2.Text;
+            string maPhim = comboBox1.Text;
+            string maRap = textBox3.Text;
+            string maPhong = textBox4.Text;
+            if (ChairDAO.Instance.insertChair(maShow, maPhim, maRap, maPhong))
+            {
+                MessageBox.Show("Insert succeeded");
+            }
+            else
+            {
+                MessageBox.Show("Insert unsuccessful");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fAdmin menu = new fAdmin();
+            menu.ShowDialog(tabPage3);
+        }
     }
 }
