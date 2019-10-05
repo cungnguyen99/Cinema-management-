@@ -47,9 +47,9 @@ namespace Quản_lý_rạp_chiếu_phim
             dtgvRevenue.DataSource = CinemaDAO.Instance.getListRevenueOfCinema();
         }
 
-        void loadListCinemaByName(string name)
+        void loadListCinemaByName(string name, int month)
         {
-            dtgvRevenue.DataSource = CinemaDAO.Instance.getListCinemaByName(name);
+            dtgvRevenue.DataSource = CinemaDAO.Instance.getListCinemaByName(name, month);
         }
 
         void loadListCinema(ComboBox comboBox, bool check)
@@ -207,7 +207,13 @@ namespace Quản_lý_rạp_chiếu_phim
         private void cbLoadCinema_SelectedIndexChanged(object sender, EventArgs e)
         {
            if(this.Is_Shown)
-            loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap);
+            {
+                loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap, Convert.ToInt32(comboBox1.Text));
+                if (dtgvRevenue.Rows.Count == 0||dtgvRevenue == null)
+                {
+                    MessageBox.Show("Rạp " + cbLoadCinema.Text + " tháng " + comboBox1.Text + " không có doanh thu");
+                }
+            }
         }
 
         private void btnAddTicket_Click(object sender, EventArgs e)
@@ -235,15 +241,19 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (this.Is_Shown)
+            {
+                loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap, Convert.ToInt32(comboBox1.Text));
+                if (dtgvRevenue.Rows.Count == 0||dtgvRevenue==null)
+                {
+                    MessageBox.Show("Rạp " + cbLoadCinema.Text + " tháng " + comboBox1.Text + " không có doanh thu");
+                }
+            }
         }
 
         private void comboBox1_MouseHover(object sender, EventArgs e)
         {
-            if (cbLoadCinema.SelectedIndex<0)
-            {
-                MessageBox.Show("Chọn");
-            }
+         
         }
     }
 }

@@ -45,9 +45,9 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return DataProvider.Instance.ExecuteQuery("SELECT RAP.TenRap AS [Rạp], MAX(RAP.DiaChi) AS [Địa chỉ], MAX(RAP.SDT) AS [Số điện thoại], MAX(RAP.SoPhong) AS [Số phòng], SUM(LICHCHIEU.TongTien) AS [Doanh thu] FROM RAP LEFT JOIN LICHCHIEU ON RAP.MaRap=LICHCHIEU.MaRap GROUP BY RAP.TenRap");
         }
 
-        public DataTable getListCinemaByName(string name)
+        public DataTable getListCinemaByName(string name, int month)
         {
-            return DataProvider.Instance.ExecuteQuery("SELECT RAP.TenRap AS [Rạp], MAX(RAP.DiaChi) AS [Địa chỉ], MAX(RAP.SDT) AS [Số điện thoại], MAX(RAP.SoPhong) AS [Số phòng], SUM(LICHCHIEU.TongTien) AS [Doanh thu] FROM RAP, LICHCHIEU WHERE RAP.MaRap=LICHCHIEU.MaRap AND RAP.TenRap= N'"+name+"'GROUP BY RAP.TenRap");
+            return DataProvider.Instance.ExecuteQuery("SELECT RAP.TenRap AS [Rạp], MAX(RAP.DiaChi) AS [Địa chỉ], MAX(RAP.SDT) AS [Số điện thoại], MAX(RAP.SoPhong) AS [Số phòng], SUM(LICHCHIEU.TongTien) AS [Doanh thu] FROM RAP, LICHCHIEU WHERE RAP.MaRap=LICHCHIEU.MaRap AND RAP.TenRap= N'"+name+ "'AND MONTH(LICHCHIEU.NgayChieu)="+month+"GROUP BY RAP.TenRap");
         }
     }
 }
