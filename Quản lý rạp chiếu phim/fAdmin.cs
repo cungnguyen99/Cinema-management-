@@ -100,17 +100,16 @@ namespace Quản_lý_rạp_chiếu_phim
               DataSourceUpdateMode.Never));
         }
 
-        void loadroomintocombobox()
-        {
-            cbRooms.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
-            cbRooms.DisplayMember = "maphong";
-        }
-
         void loadRoomsInToCombobox(string id)
         {
             List<CinemaRoom> rooms = CinemaRoomDAO.Instance.getRoomsByID(id);
             cbRooms.DataSource = rooms;
-            cbRooms.DisplayMember = "MaPhong";
+            cbRooms.DisplayMember = nameof(CinemaRoom.MaPhong);
+            cbRooms.ValueMember = nameof(CinemaRoom.MaPhong);
+            foreach (Binding binding in cbRooms.DataBindings)
+            {
+                binding.ReadValue();
+            }
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -206,10 +205,10 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void cbLoadCinema_SelectedIndexChanged(object sender, EventArgs e)
         {
-           if(this.Is_Shown)
+            if (this.Is_Shown)
             {
                 loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap, Convert.ToInt32(comboBox1.Text));
-                if (dtgvRevenue.Rows.Count == 0||dtgvRevenue == null)
+                if (dtgvRevenue.Rows.Count == 0 || dtgvRevenue == null)
                 {
                     MessageBox.Show("Rạp " + cbLoadCinema.Text + " tháng " + comboBox1.Text + " không có doanh thu");
                 }
@@ -244,7 +243,7 @@ namespace Quản_lý_rạp_chiếu_phim
             if (this.Is_Shown)
             {
                 loadListCinemaByName(((DTO.Cinema)cbLoadCinema.SelectedValue).TenRap, Convert.ToInt32(comboBox1.Text));
-                if (dtgvRevenue.Rows.Count == 0||dtgvRevenue==null)
+                if (dtgvRevenue.Rows.Count == 0 || dtgvRevenue == null)
                 {
                     MessageBox.Show("Rạp " + cbLoadCinema.Text + " tháng " + comboBox1.Text + " không có doanh thu");
                 }
@@ -253,7 +252,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void comboBox1_MouseHover(object sender, EventArgs e)
         {
-         
+
         }
     }
 }

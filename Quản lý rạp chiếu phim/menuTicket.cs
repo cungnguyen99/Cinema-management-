@@ -88,8 +88,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fAdmin menu = new fAdmin();
-            menu.ShowDialog(tabPage3);
+            this.Close();
         }
     }
 }
