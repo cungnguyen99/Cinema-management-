@@ -27,10 +27,10 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         private ChairDAO() { }
 
-        public List<Chair> getListChair(string id=null)
+        public List<Chair> getListChair()
         {
             List<Chair> fimlsList = new List<Chair>();
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery("SELECT * FROM GHE  WHERE MaPhong = N'"+id+"'");
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("SELECT * FROM GHE");
             foreach (DataRow item in dataTable.Rows)
             {
                 Chair fimls = new Chair(item);

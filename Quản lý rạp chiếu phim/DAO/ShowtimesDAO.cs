@@ -32,6 +32,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return DataProvider.Instance.ExecuteQuery("SELECT * FROM LICHCHIEU");
         }
 
+        public List<Showtimes> loadListShowtimes()
+        {
+            List<Showtimes> fimlsList = new List<Showtimes>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("SELECT * FROM LICHCHIEU");
+            foreach (DataRow item in dataTable.Rows)
+            {
+                Showtimes fimls = new Showtimes(item);
+                fimlsList.Add(fimls);
+            }
+            return fimlsList;
+        }
+
         public bool insertShowtimes(string maShow, string maPhim, string maRap, string maPhong, DateTime ngayChieu)
         {
             string query = string.Format("Insert Into LICHCHIEU values(N'{0}', N'{1}', N'{2}', N'{3}',{4}, N'{5}',{6})", maShow, maPhim, maRap, maPhong, 0, ngayChieu, 0);

@@ -11,4 +11,4 @@ C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Qu�
 C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fTableManager.resources
 C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fAccount.resources
 C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.fAdmin.resources
-C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.menuTicket.resources
+C:\Users\KHUONG\source\repos\Bài tập lớn\Quản lý rạp chiếu phim\Quản lý rạp chiếu phim\obj\Debug\Quản_lý_rạp_chiếu_phim.formAddTicket.resources

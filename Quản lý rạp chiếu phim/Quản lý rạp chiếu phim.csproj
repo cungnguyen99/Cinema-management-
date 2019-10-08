@@ -83,17 +83,17 @@
     <Compile Include="fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAddTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddTicket.Designer.cs">
+      <DependentUpon>formAddTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTableManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fTableManager.Designer.cs">
       <DependentUpon>fTableManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="menuTicket.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="menuTicket.Designer.cs">
-      <DependentUpon>menuTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,11 +106,11 @@
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formAddTicket.resx">
+      <DependentUpon>formAddTicket.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fTableManager.resx">
       <DependentUpon>fTableManager.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="menuTicket.resx">
-      <DependentUpon>menuTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

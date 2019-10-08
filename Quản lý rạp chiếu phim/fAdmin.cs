@@ -217,7 +217,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnAddTicket_Click(object sender, EventArgs e)
         {
-            menuTicket menu = new menuTicket();
+            formAddTicket menu = new formAddTicket();
             menu.ShowDialog();
         }
 
