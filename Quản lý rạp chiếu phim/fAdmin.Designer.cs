@@ -83,8 +83,21 @@
             this.btnAddTicket = new System.Windows.Forms.Button();
             this.dtgvTicket = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.btnRemoveChair = new System.Windows.Forms.Button();
+            this.btnAddChair = new System.Windows.Forms.Button();
+            this.btnEditChair = new System.Windows.Forms.Button();
+            this.dtgvChair = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dtgvAccount = new System.Windows.Forms.DataGridView();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,8 +118,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShows)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTicket)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvChair)).BeginInit();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
+            this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinemaRoom)).BeginInit();
+            this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -593,9 +612,9 @@
             // 
             // btnEditTicket
             // 
-            this.btnEditTicket.Location = new System.Drawing.Point(329, 44);
+            this.btnEditTicket.Location = new System.Drawing.Point(329, 29);
             this.btnEditTicket.Name = "btnEditTicket";
-            this.btnEditTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTicket.Size = new System.Drawing.Size(75, 38);
             this.btnEditTicket.TabIndex = 3;
             this.btnEditTicket.Text = "Sửa";
             this.btnEditTicket.UseVisualStyleBackColor = true;
@@ -603,18 +622,18 @@
             // 
             // btnRemoveTicket
             // 
-            this.btnRemoveTicket.Location = new System.Drawing.Point(182, 44);
+            this.btnRemoveTicket.Location = new System.Drawing.Point(182, 29);
             this.btnRemoveTicket.Name = "btnRemoveTicket";
-            this.btnRemoveTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveTicket.Size = new System.Drawing.Size(75, 38);
             this.btnRemoveTicket.TabIndex = 2;
             this.btnRemoveTicket.Text = "Xóa";
             this.btnRemoveTicket.UseVisualStyleBackColor = true;
             // 
             // btnAddTicket
             // 
-            this.btnAddTicket.Location = new System.Drawing.Point(45, 44);
+            this.btnAddTicket.Location = new System.Drawing.Point(45, 29);
             this.btnAddTicket.Name = "btnAddTicket";
-            this.btnAddTicket.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTicket.Size = new System.Drawing.Size(75, 38);
             this.btnAddTicket.TabIndex = 1;
             this.btnAddTicket.Text = "Thêm vé";
             this.btnAddTicket.UseVisualStyleBackColor = true;
@@ -630,32 +649,151 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.panel16);
+            this.tabPage4.Controls.Add(this.panel14);
+            this.tabPage4.Controls.Add(this.dtgvChair);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(744, 374);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Phòng chiếu";
+            this.tabPage4.Text = "Ghế";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btnRemoveChair);
+            this.panel14.Controls.Add(this.btnAddChair);
+            this.panel14.Controls.Add(this.btnEditChair);
+            this.panel14.Location = new System.Drawing.Point(129, 16);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(443, 46);
+            this.panel14.TabIndex = 2;
+            // 
+            // btnRemoveChair
+            // 
+            this.btnRemoveChair.Location = new System.Drawing.Point(323, 4);
+            this.btnRemoveChair.Name = "btnRemoveChair";
+            this.btnRemoveChair.Size = new System.Drawing.Size(75, 38);
+            this.btnRemoveChair.TabIndex = 4;
+            this.btnRemoveChair.Text = "Xóa";
+            this.btnRemoveChair.UseVisualStyleBackColor = true;
+            // 
+            // btnAddChair
+            // 
+            this.btnAddChair.Location = new System.Drawing.Point(37, 4);
+            this.btnAddChair.Name = "btnAddChair";
+            this.btnAddChair.Size = new System.Drawing.Size(75, 38);
+            this.btnAddChair.TabIndex = 3;
+            this.btnAddChair.Text = "Thêm";
+            this.btnAddChair.UseVisualStyleBackColor = true;
+            // 
+            // btnEditChair
+            // 
+            this.btnEditChair.Location = new System.Drawing.Point(184, 4);
+            this.btnEditChair.Name = "btnEditChair";
+            this.btnEditChair.Size = new System.Drawing.Size(75, 38);
+            this.btnEditChair.TabIndex = 2;
+            this.btnEditChair.Text = "Sửa";
+            this.btnEditChair.UseVisualStyleBackColor = true;
+            // 
+            // dtgvChair
+            // 
+            this.dtgvChair.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvChair.Location = new System.Drawing.Point(23, 77);
+            this.dtgvChair.Name = "dtgvChair";
+            this.dtgvChair.Size = new System.Drawing.Size(398, 232);
+            this.dtgvChair.TabIndex = 1;
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.dtgvAccount);
+            this.tabPage5.Controls.Add(this.panel15);
+            this.tabPage5.Controls.Add(this.dtgvCinemaRoom);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(744, 374);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Tài khoản";
+            this.tabPage5.Text = "Phòng chiếu";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // dtgvAccount
+            // panel15
             // 
-            this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAccount.Location = new System.Drawing.Point(18, 23);
-            this.dtgvAccount.Name = "dtgvAccount";
-            this.dtgvAccount.Size = new System.Drawing.Size(709, 163);
-            this.dtgvAccount.TabIndex = 0;
+            this.panel15.Controls.Add(this.button1);
+            this.panel15.Controls.Add(this.button2);
+            this.panel15.Controls.Add(this.button3);
+            this.panel15.Location = new System.Drawing.Point(139, 211);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(443, 46);
+            this.panel15.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(323, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 38);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Xóa";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(37, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 38);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Thêm";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(184, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 38);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Sửa";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // dtgvCinemaRoom
+            // 
+            this.dtgvCinemaRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCinemaRoom.Location = new System.Drawing.Point(18, 23);
+            this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
+            this.dtgvCinemaRoom.Size = new System.Drawing.Size(709, 163);
+            this.dtgvCinemaRoom.TabIndex = 0;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.panel17);
+            this.panel16.Location = new System.Drawing.Point(439, 77);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(299, 232);
+            this.panel16.TabIndex = 3;
+            // 
+            // panel17
+            // 
+            this.panel17.Controls.Add(this.textBox1);
+            this.panel17.Controls.Add(this.label12);
+            this.panel17.Location = new System.Drawing.Point(13, 22);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(264, 35);
+            this.panel17.TabIndex = 0;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "label12";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(65, 7);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(154, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // fAdmin
             // 
@@ -695,8 +833,15 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTicket)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvChair)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
+            this.panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinemaRoom)).EndInit();
+            this.panel16.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -740,7 +885,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dtgvAccount;
+        private System.Windows.Forms.DataGridView dtgvCinemaRoom;
         private System.Windows.Forms.ComboBox cbLoadCinema;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dtgvTicket;
@@ -760,5 +905,18 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtmashow;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Button btnRemoveChair;
+        private System.Windows.Forms.Button btnAddChair;
+        private System.Windows.Forms.Button btnEditChair;
+        private System.Windows.Forms.DataGridView dtgvChair;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label12;
     }
 }

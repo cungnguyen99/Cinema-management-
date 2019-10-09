@@ -18,6 +18,7 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             InitializeComponent();
             loadListShow();
+            showChairInCinemaRoom("MS001");
         }
 
         List<Chair> listChairs = ChairDAO.Instance.getListChair();
@@ -34,10 +35,10 @@ namespace Quản_lý_rạp_chiếu_phim
             List<Showtimes> fimlsList = ShowtimesDAO.Instance.loadListShowtimes();
             foreach (Showtimes item in fimlsList)
             {
-                Button btn = new Button() { Width = 100, Height = 120 };
+                Button btn = new Button() { Width = 50, Height = 50 };
                 btn.Tag = item;
                 btn.Click += btn_click;
-                btn.Text = "Show " + item.MaShow;
+                btn.Text = item.MaShow;
                 flowLayoutPanel1.Controls.Add(btn);
             }
         }

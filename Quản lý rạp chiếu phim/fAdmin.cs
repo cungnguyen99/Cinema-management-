@@ -31,6 +31,8 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListCinema(cbLoadCinema, true);
             loadListShowTimes();
             loadListTicket();
+            loadListChair();
+            loadListCinemaRooms();
             //load danh mã rạp trong bảng lịch chiếu
             loadListCinema(cbIDCinema, false);
             addShowTimesBinding();
@@ -64,6 +66,16 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 comboBox.DisplayMember = "MaRap";
             }
+        }
+
+        void loadListChair()
+        {
+            dtgvChair.DataSource = ChairDAO.Instance.getListChair();
+        }
+
+        void loadListCinemaRooms()
+        {
+            dtgvCinemaRoom.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
         }
 
         void loadListShowTimes()

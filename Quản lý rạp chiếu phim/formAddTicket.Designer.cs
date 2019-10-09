@@ -52,16 +52,16 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 124);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 21);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(327, 253);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(327, 95);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(371, 192);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(84, 135);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(406, 180);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(602, 237);
             this.flowLayoutPanel2.TabIndex = 10;
             // 
             // panel2
@@ -119,7 +119,7 @@
             // 
             this.panel3.Controls.Add(this.comboBox2);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Location = new System.Drawing.Point(371, 81);
+            this.panel3.Location = new System.Drawing.Point(371, 55);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 35);
             this.panel3.TabIndex = 12;
@@ -145,7 +145,7 @@
             // 
             this.panel1.Controls.Add(this.textBox9);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(577, 81);
+            this.panel1.Location = new System.Drawing.Point(577, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 35);
             this.panel1.TabIndex = 13;
