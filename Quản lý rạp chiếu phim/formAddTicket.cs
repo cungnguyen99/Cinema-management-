@@ -89,8 +89,8 @@ namespace Quản_lý_rạp_chiếu_phim
             string maShow = textBox1.Text;
             string maPhim = comboBox2.Text;
             string maRap = textBox11.Text;
-            string maPhong = textBox9.Text;
-            if (ChairDAO.Instance.insertChair(maShow, maPhim, maRap, maPhong))
+            int maPhong =Convert.ToInt32(textBox9.Text);
+            if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
             {
                 MessageBox.Show("Insert succeeded");
             }

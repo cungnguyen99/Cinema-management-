@@ -65,5 +65,26 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             }
             return rooms;
         }
+
+        public bool insertCinemaRoom(string maPhong, string maRap, string tenPhong)
+        {
+            string query = string.Format("Insert Into PHONGCHIEU values(N'{0}', N'{1}', N'{2}', 0)", maPhong, maRap, tenPhong);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool updateCinemaRoom(string maPhong, string maRap, string tenPhong)
+        {
+            string query = string.Format("UPDATE PHONGCHIEU SET MaRap=N'{0}', TenPhong=N'{1}' WHERE MaPhong=N'{2}'", maRap, tenPhong, maPhong);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool deleteCinemaRoom(string maPhong)
+        {
+            string query = string.Format("DELETE PHONGCHIEU WHERE MaPhong=N'{0}'", maPhong);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }

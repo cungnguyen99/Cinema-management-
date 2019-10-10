@@ -44,5 +44,11 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+        public bool deleteTicket(string maShow, string maGhe)
+        {
+            string query = string.Format("DELETE VE WHERE MaShow=N'{0}' AND MaGhe=N'{1}}'", maShow, maGhe);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }

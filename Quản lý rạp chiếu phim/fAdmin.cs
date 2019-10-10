@@ -250,6 +250,21 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
+        private void btnRemoveTicket_Click(object sender, EventArgs e)
+        {
+            string maShow = txtmashow.Text;
+            string maGhe = txtmaghe.Text;
+            if (ticketDAO.Instance.deleteTicket(maShow,maGhe))
+            {
+                MessageBox.Show("Delete succeeded");
+                loadListTicket();
+            }
+            else
+            {
+                MessageBox.Show("Delete unsuccessful");
+            }
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.Is_Shown)
@@ -262,9 +277,96 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
-        private void comboBox1_MouseHover(object sender, EventArgs e)
+        private void btnAddChair_Click(object sender, EventArgs e)
         {
+            string maShow = txtChair1.Text;
+            string maPhim = txtRap1.Text;
+            string maRap = txtPhong1.Text;
+            if (ChairDAO.Instance.insertChair(maShow, maPhim, maRap))
+            {
+                MessageBox.Show("Insert succeeded");
+                loadListChair();
+            }
+            else
+            {
+                MessageBox.Show("Insert unsuccessful");
+            }
+        }
 
+        private void btnEditChair_Click(object sender, EventArgs e)
+        {
+            string maShow = txtChair1.Text;
+            string maPhim = txtRap1.Text;
+            string maRap = txtPhong1.Text;
+            if (ChairDAO.Instance.updateChair(maPhim, maRap, maShow))
+            {
+                MessageBox.Show("Update succeeded");
+                loadListChair();
+            }
+            else
+            {
+                MessageBox.Show("Update unsuccessful");
+            }
+        }
+
+        private void btnRemoveChair_Click(object sender, EventArgs e)
+        {
+            string maShow = txtChair1.Text;
+            if (ChairDAO.Instance.deleteChair(maShow))
+            {
+                MessageBox.Show("Delete succeeded");
+                loadListChair();
+            }
+            else
+            {
+                MessageBox.Show("Delete unsuccessful");
+            }
+        }
+
+        private void btnthemphong_Click(object sender, EventArgs e)
+        {
+            string maPhong = txtmaphong2.Text;
+            string maRap = txtmarap2.Text;
+            string tenPhong = txttenphong.Text;
+            if (CinemaRoomDAO.Instance.insertCinemaRoom(maPhong, maRap, tenPhong))
+            {
+                MessageBox.Show("Insert succeeded");
+                loadListCinemaRooms();
+            }
+            else
+            {
+                MessageBox.Show("Insert unsuccessful");
+            }
+        }
+
+        private void btnsuaphong_Click(object sender, EventArgs e)
+        {
+            string maPhong = txtmaphong2.Text;
+            string maRap = txtmarap2.Text;
+            string tenPhong = txttenphong.Text;
+            if (CinemaRoomDAO.Instance.updateCinemaRoom(maRap, tenPhong, maPhong))
+            {
+                MessageBox.Show("Insert succeeded");
+                loadListCinemaRooms();
+            }
+            else
+            {
+                MessageBox.Show("Insert unsuccessful");
+            }
+        }
+
+        private void btnxoaphong_Click(object sender, EventArgs e)
+        {
+            string maPhong = txtmaphong2.Text;
+            if (ChairDAO.Instance.deleteChair(maPhong))
+            {
+                MessageBox.Show("Delete succeeded");
+                loadListCinemaRooms();
+            }
+            else
+            {
+                MessageBox.Show("Delete unsuccessful");
+            }
         }
     }
 }

@@ -52,12 +52,27 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return fimlsList;
         }
 
-        public bool insertChair(string maShow, string maGhe, string gioChieu, string giaVe)
+        public bool insertChair(string maGhe, string maRap, string maPhong)
         {
-            string query = string.Format("Insert Into VE values(N'{0}', N'{1}', N'{2}', N'{3}')", maShow, maGhe, gioChieu, giaVe);
+            string query = string.Format("Insert Into GHE values(N'{0}', N'{1}', N'{2}')", maGhe, maRap, maPhong);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+
+        public bool deleteChair(string maGhe)
+        {
+            string query = string.Format("DELETE GHE WHERE MaGhe=N'{0}}'", maGhe);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
+        public bool updateChair(string maGhe, string maRap, string maPhong)
+        {
+            string query = string.Format("UPDATE GHE SET MaRap=N'{0}', MaPhong=N'{1}' WHERE MaGhe=N'{2}'", maRap, maPhong, maGhe);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
 
     }
 }
