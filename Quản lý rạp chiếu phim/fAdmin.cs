@@ -243,6 +243,9 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 MessageBox.Show("Update succeeded");
                 loadListTicket();
+                loadListRevenueOfCinema();
+                loadListRevenueOfFimls();
+                loadListShowTimes();
             }
             else
             {
@@ -258,6 +261,9 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 MessageBox.Show("Delete succeeded");
                 loadListTicket();
+                loadListRevenueOfCinema();
+                loadListRevenueOfFimls();
+                loadListShowTimes();
             }
             else
             {

@@ -22,6 +22,7 @@ namespace Quản_lý_rạp_chiếu_phim
         }
 
         List<Chair> listChairs = ChairDAO.Instance.getListChair();
+        List<Showtimes> showtimes = ShowtimesDAO.Instance.loadListShowtimes();
 
         void loadListChairEmpty(string id)
         {
@@ -76,6 +77,13 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            foreach (Showtimes item in showtimes)
+            {
+                if (textBox1.Text != item.MaShow)
+                {
+                    MessageBox.Show("Khong co ma sho do trong CSDL");
+                }
+            }
             loadListChairEmpty(textBox1.Text);
         }
 

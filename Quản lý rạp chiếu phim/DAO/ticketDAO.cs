@@ -33,7 +33,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool updateTicket(string maShow, string maGhe, string gioChieu, int giaVe)
         {
-            string query = string.Format("UPDATE VE SET MaShow=N'{0}', MaGhe=N'{1}', GioChieu=N'{2}',GiaVe={3} WHERE MaShow=N'{4}'", maShow, maGhe, gioChieu, giaVe, maShow);
+            string query = string.Format("UPDATE VE SET MaShow=N'{0}', MaGhe=N'{1}', GioChieu=N'{2}',GiaVe={3} WHERE MaShow=N'{4}' AND MaGhe=N'{5}'", maShow, maGhe, gioChieu, giaVe, maShow, maGhe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
@@ -46,7 +46,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         }
         public bool deleteTicket(string maShow, string maGhe)
         {
-            string query = string.Format("DELETE VE WHERE MaShow=N'{0}' AND MaGhe=N'{1}}'", maShow, maGhe);
+            string query = string.Format("DELETE VE WHERE MaShow=N'{0}' AND MaGhe=N'{1}'", maShow, maGhe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
