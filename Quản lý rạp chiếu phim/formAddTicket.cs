@@ -24,6 +24,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         List<Chair> listChairs = ChairDAO.Instance.getListChair();
         List<Showtimes> showtimes = ShowtimesDAO.Instance.loadListShowtimes();
+        List<Showtimes> listId;
 
         void loadListChairEmpty(string id)
         {
@@ -45,14 +46,36 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
-        bool checkInsertIntoTickets(string mashow, string lichChieu)
+        int dem = 0;
+
+        bool checkShowTimeCinemaRoom()
+        {
+            listId = ShowtimesDAO.Instance.getIDRoom(textBox1.Text);
+                foreach (Showtimes items in showtimes)
+                {
+                     if (listId == items.MaPhong)
+                    {
+                        dem++;
+                    }
+            }
+            if (dem > 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        bool checkInsertIntoTickets(string lichChieu)
         {
             List<Ticket> tickets = ticketDAO.Instance.loadListTicket();
-            foreach (Ticket item in tickets)
+            if (checkShowTimeCinemaRoom())
             {
-                if (mashow != item.MaShow && lichChieu == item.GioChieu)
+                foreach (Ticket item in tickets)
                 {
-                    return true;
+                    if (lichChieu == item.GioChieu)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -112,22 +135,23 @@ namespace Quản_lý_rạp_chiếu_phim
             string maShow = textBox1.Text;
             string maPhim = comboBox2.Text;
             string maRap = textBox11.Text;
-            int maPhong =Convert.ToInt32(textBox9.Text);
-            if (checkInsertIntoTickets(maShow, maRap))
+             int maPhong =Convert.ToInt32(textBox9.Text);
+            if (checkInsertIntoTickets(maRap))
             {
                 MessageBox.Show("Correct showtimes. Enter a different showtime");
             }
             else
             {
-                if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
-                {
-                    MessageBox.Show("Insert succeeded");
-                    showChairInCinemaRoom(textBox1.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Insert unsuccessful");
-                }
+                MessageBox.Show("Them thanh cong"+dem.ToString()+showtimes.Count.ToString());
+                //if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
+                //{
+                //    MessageBox.Show("Insert succeeded");
+                //    showChairInCinemaRoom(textBox1.Text);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Insert unsuccessful");
+                //}
             }
         }
     }
