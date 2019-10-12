@@ -65,6 +65,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return result > 0;
         }
 
+
         public List<Showtimes> getListShowTimesByIdFimlsOrIdCinema(string id)
         {
             List<Showtimes> fimls = new List<Showtimes>();

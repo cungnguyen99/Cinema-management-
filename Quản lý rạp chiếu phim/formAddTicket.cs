@@ -19,6 +19,7 @@ namespace Quản_lý_rạp_chiếu_phim
             InitializeComponent();
             loadListShow();
             showChairInCinemaRoom("MS001");
+            textBox1.Text = "MS001";
         }
 
         List<Chair> listChairs = ChairDAO.Instance.getListChair();
@@ -42,6 +43,19 @@ namespace Quản_lý_rạp_chiếu_phim
                 btn.Text = item.MaShow;
                 flowLayoutPanel1.Controls.Add(btn);
             }
+        }
+
+        bool checkInsertIntoTickets(string mashow, string lichChieu)
+        {
+            List<Ticket> tickets = ticketDAO.Instance.loadListTicket();
+            foreach (Ticket item in tickets)
+            {
+                if (mashow != item.MaShow && lichChieu == item.GioChieu)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void showChairInCinemaRoom(string id)
@@ -71,19 +85,20 @@ namespace Quản_lý_rạp_chiếu_phim
             if (((sender as Button).Tag as Showtimes).MaShow != null)
             {
                 string fimlsID = ((sender as Button).Tag as Showtimes).MaShow.ToString();
+                textBox1.Text = fimlsID;
                 showChairInCinemaRoom(fimlsID);
             }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            foreach (Showtimes item in showtimes)
-            {
-                if (textBox1.Text != item.MaShow)
-                {
-                    MessageBox.Show("Khong co ma sho do trong CSDL");
-                }
-            }
+            //foreach (Showtimes item in showtimes)
+            //{
+            //    if (textBox1.Text != item.MaShow)
+            //    {
+            //        MessageBox.Show("Khong co ma sho do trong CSDL");
+            //    }
+            //}
             loadListChairEmpty(textBox1.Text);
         }
 
@@ -98,13 +113,21 @@ namespace Quản_lý_rạp_chiếu_phim
             string maPhim = comboBox2.Text;
             string maRap = textBox11.Text;
             int maPhong =Convert.ToInt32(textBox9.Text);
-            if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
+            if (checkInsertIntoTickets(maShow, maRap))
             {
-                MessageBox.Show("Insert succeeded");
+                MessageBox.Show("Correct showtimes. Enter a different showtime");
             }
             else
             {
-                MessageBox.Show("Insert unsuccessful");
+                if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
+                {
+                    MessageBox.Show("Insert succeeded");
+                    showChairInCinemaRoom(textBox1.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Insert unsuccessful");
+                }
             }
         }
     }

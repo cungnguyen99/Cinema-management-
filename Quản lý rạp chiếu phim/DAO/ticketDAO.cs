@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quản_lý_rạp_chiếu_phim.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -31,6 +32,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return DataProvider.Instance.ExecuteQuery("SELECT * FROM VE");
         }
 
+        public List<Ticket> loadListTicket()
+        {
+            List<Ticket> fimlsList = new List<Ticket>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("SELECT * FROM VE");
+            foreach (DataRow item in dataTable.Rows)
+            {
+                Ticket fimls = new Ticket(item);
+                fimlsList.Add(fimls);
+            }
+            return fimlsList;
+        }
+
         public bool updateTicket(string maShow, string maGhe, string gioChieu, int giaVe)
         {
             string query = string.Format("UPDATE VE SET MaShow=N'{0}', MaGhe=N'{1}', GioChieu=N'{2}',GiaVe={3} WHERE MaShow=N'{4}' AND MaGhe=N'{5}'", maShow, maGhe, gioChieu, giaVe, maShow, maGhe);
@@ -40,7 +53,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool insertTicket(string maShow, string maGhe, string gioChieu, int giaVe)
         {
-            string query = string.Format("Insert Into VE values(N'{0}', N'{1}', N'{2}', N'{3}',{4})", maShow, maGhe, gioChieu, giaVe);
+            string query = string.Format("Insert Into VE values(N'{0}', N'{1}', N'{2}',{3})", maShow, maGhe, gioChieu, giaVe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
