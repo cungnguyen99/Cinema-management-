@@ -37,6 +37,7 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListCinema(cbIDCinema, false);
             addShowTimesBinding();
             addTicketBinding();
+            addChairBinding();
         }
 
         void loadListRevenueOfFimls()
@@ -109,6 +110,16 @@ namespace Quản_lý_rạp_chiếu_phim
             txtgiochieu.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "GioChieu", true,
               DataSourceUpdateMode.Never));
             txtgia.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "GiaVe", true,
+              DataSourceUpdateMode.Never));
+        }
+
+        void addChairBinding()
+        {
+            txtChair1.DataBindings.Add(new Binding("Text", dtgvChair.DataSource, "MaGhe", true,
+              DataSourceUpdateMode.Never));
+            txtRap1.DataBindings.Add(new Binding("Text", dtgvChair.DataSource, "MaRap", true,
+              DataSourceUpdateMode.Never));
+            txtPhong1.DataBindings.Add(new Binding("Text", dtgvChair.DataSource, "MaPhong", true,
               DataSourceUpdateMode.Never));
         }
 
@@ -308,6 +319,7 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 MessageBox.Show("Update succeeded");
                 loadListChair();
+                loadListCinemaRooms();
             }
             else
             {
@@ -317,15 +329,32 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnRemoveChair_Click(object sender, EventArgs e)
         {
-            string maShow = txtChair1.Text;
-            if (ChairDAO.Instance.deleteChair(maShow))
+            if (MessageBox.Show("Bạn sẽ xóa luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                MessageBox.Show("Delete succeeded");
-                loadListChair();
-            }
-            else
-            {
-                MessageBox.Show("Delete unsuccessful");
+                string maShow = txtmashow.Text;
+                string maGhe = txtChair1.Text;
+                if (ticketDAO.Instance.deleteTickets(maGhe))
+                {
+                    loadListTicket();
+                    loadListRevenueOfCinema();
+                    loadListRevenueOfFimls();
+                    loadListShowTimes();
+                    if (ChairDAO.Instance.deleteChair(maShow))
+                    {
+                        MessageBox.Show("Delete succeeded");
+                        loadListChair();
+                        loadListCinemaRooms();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete unsuccessful");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Delete unsuccessful");
+                }
+
             }
         }
 

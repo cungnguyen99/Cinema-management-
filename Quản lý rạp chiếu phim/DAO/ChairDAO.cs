@@ -68,7 +68,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool updateChair(string maGhe, string maRap, string maPhong)
         {
-            string query = string.Format("UPDATE GHE SET MaRap=N'{0}', MaPhong=N'{1}' WHERE MaGhe=N'{2}'", maRap, maPhong, maGhe);
+            string query = string.Format("UPDATE GHE SET MaRap=N'{0}', MaPhong=N'{1}', MaGhe=N'{2}' WHERE MaGhe=N'{3}'", maRap, maPhong, maGhe, maGhe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

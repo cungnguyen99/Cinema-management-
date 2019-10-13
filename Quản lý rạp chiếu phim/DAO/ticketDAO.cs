@@ -63,5 +63,11 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
+        public bool deleteTickets(string maGhe)
+        {
+            string query = string.Format("DELETE VE WHERE MaGhe=N'{0}'", maGhe);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
     }
 }

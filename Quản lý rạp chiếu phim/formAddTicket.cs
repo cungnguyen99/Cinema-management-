@@ -51,13 +51,17 @@ namespace Quản_lý_rạp_chiếu_phim
         bool checkShowTimeCinemaRoom()
         {
             listId = ShowtimesDAO.Instance.getIDRoom(textBox1.Text);
+            foreach (var item in listId)
+            {
                 foreach (Showtimes items in showtimes)
                 {
-                     if (listId == items.MaPhong)
+                    if (item.MaPhong == items.MaPhong)
                     {
                         dem++;
                     }
+                }
             }
+               
             if (dem > 1)
             {
                 return true;
