@@ -99,12 +99,10 @@
             this.btnEditChair = new System.Windows.Forms.Button();
             this.dtgvChair = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.btnxoaphong = new System.Windows.Forms.Button();
-            this.btnthemphong = new System.Windows.Forms.Button();
-            this.btnsuaphong = new System.Windows.Forms.Button();
-            this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.txttenphong = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.txtmarap2 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -113,10 +111,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtmaphong2 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.txttenphong = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.btnxoaphong = new System.Windows.Forms.Button();
+            this.btnthemphong = new System.Windows.Forms.Button();
+            this.btnsuaphong = new System.Windows.Forms.Button();
+            this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -145,13 +145,13 @@
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChair)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinemaRoom)).BeginInit();
             this.panel20.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
+            this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinemaRoom)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -832,54 +832,6 @@
             this.tabPage5.Text = "Phòng chiếu";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.btnxoaphong);
-            this.panel15.Controls.Add(this.btnthemphong);
-            this.panel15.Controls.Add(this.btnsuaphong);
-            this.panel15.Location = new System.Drawing.Point(0, 184);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(443, 46);
-            this.panel15.TabIndex = 3;
-            // 
-            // btnxoaphong
-            // 
-            this.btnxoaphong.Location = new System.Drawing.Point(323, 4);
-            this.btnxoaphong.Name = "btnxoaphong";
-            this.btnxoaphong.Size = new System.Drawing.Size(75, 38);
-            this.btnxoaphong.TabIndex = 4;
-            this.btnxoaphong.Text = "Xóa";
-            this.btnxoaphong.UseVisualStyleBackColor = true;
-            this.btnxoaphong.Click += new System.EventHandler(this.btnxoaphong_Click);
-            // 
-            // btnthemphong
-            // 
-            this.btnthemphong.Location = new System.Drawing.Point(37, 4);
-            this.btnthemphong.Name = "btnthemphong";
-            this.btnthemphong.Size = new System.Drawing.Size(75, 38);
-            this.btnthemphong.TabIndex = 3;
-            this.btnthemphong.Text = "Thêm";
-            this.btnthemphong.UseVisualStyleBackColor = true;
-            this.btnthemphong.Click += new System.EventHandler(this.btnthemphong_Click);
-            // 
-            // btnsuaphong
-            // 
-            this.btnsuaphong.Location = new System.Drawing.Point(184, 4);
-            this.btnsuaphong.Name = "btnsuaphong";
-            this.btnsuaphong.Size = new System.Drawing.Size(75, 38);
-            this.btnsuaphong.TabIndex = 2;
-            this.btnsuaphong.Text = "Sửa";
-            this.btnsuaphong.UseVisualStyleBackColor = true;
-            this.btnsuaphong.Click += new System.EventHandler(this.btnsuaphong_Click);
-            // 
-            // dtgvCinemaRoom
-            // 
-            this.dtgvCinemaRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCinemaRoom.Location = new System.Drawing.Point(18, 23);
-            this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
-            this.dtgvCinemaRoom.Size = new System.Drawing.Size(709, 107);
-            this.dtgvCinemaRoom.TabIndex = 0;
-            // 
             // panel20
             // 
             this.panel20.Controls.Add(this.panel24);
@@ -890,6 +842,31 @@
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(299, 232);
             this.panel20.TabIndex = 4;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.txttenphong);
+            this.panel24.Controls.Add(this.label17);
+            this.panel24.Location = new System.Drawing.Point(13, 124);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(264, 35);
+            this.panel24.TabIndex = 2;
+            // 
+            // txttenphong
+            // 
+            this.txttenphong.Location = new System.Drawing.Point(87, 10);
+            this.txttenphong.Name = "txttenphong";
+            this.txttenphong.Size = new System.Drawing.Size(154, 20);
+            this.txttenphong.TabIndex = 1;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(59, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Tên phòng";
             // 
             // panel21
             // 
@@ -958,31 +935,6 @@
             this.txtmaphong2.Size = new System.Drawing.Size(154, 20);
             this.txtmaphong2.TabIndex = 1;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 13);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(59, 13);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Tên phòng";
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.txttenphong);
-            this.panel24.Controls.Add(this.label17);
-            this.panel24.Location = new System.Drawing.Point(13, 124);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(264, 35);
-            this.panel24.TabIndex = 2;
-            // 
-            // txttenphong
-            // 
-            this.txttenphong.Location = new System.Drawing.Point(87, 10);
-            this.txttenphong.Name = "txttenphong";
-            this.txttenphong.Size = new System.Drawing.Size(154, 20);
-            this.txttenphong.TabIndex = 1;
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -991,6 +943,54 @@
             this.label18.Size = new System.Drawing.Size(55, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Mã phòng";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.btnxoaphong);
+            this.panel15.Controls.Add(this.btnthemphong);
+            this.panel15.Controls.Add(this.btnsuaphong);
+            this.panel15.Location = new System.Drawing.Point(0, 184);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(443, 46);
+            this.panel15.TabIndex = 3;
+            // 
+            // btnxoaphong
+            // 
+            this.btnxoaphong.Location = new System.Drawing.Point(323, 4);
+            this.btnxoaphong.Name = "btnxoaphong";
+            this.btnxoaphong.Size = new System.Drawing.Size(75, 38);
+            this.btnxoaphong.TabIndex = 4;
+            this.btnxoaphong.Text = "Xóa";
+            this.btnxoaphong.UseVisualStyleBackColor = true;
+            this.btnxoaphong.Click += new System.EventHandler(this.btnxoaphong_Click);
+            // 
+            // btnthemphong
+            // 
+            this.btnthemphong.Location = new System.Drawing.Point(37, 4);
+            this.btnthemphong.Name = "btnthemphong";
+            this.btnthemphong.Size = new System.Drawing.Size(75, 38);
+            this.btnthemphong.TabIndex = 3;
+            this.btnthemphong.Text = "Thêm";
+            this.btnthemphong.UseVisualStyleBackColor = true;
+            this.btnthemphong.Click += new System.EventHandler(this.btnthemphong_Click);
+            // 
+            // btnsuaphong
+            // 
+            this.btnsuaphong.Location = new System.Drawing.Point(184, 4);
+            this.btnsuaphong.Name = "btnsuaphong";
+            this.btnsuaphong.Size = new System.Drawing.Size(75, 38);
+            this.btnsuaphong.TabIndex = 2;
+            this.btnsuaphong.Text = "Sửa";
+            this.btnsuaphong.UseVisualStyleBackColor = true;
+            this.btnsuaphong.Click += new System.EventHandler(this.btnsuaphong_Click);
+            // 
+            // dtgvCinemaRoom
+            // 
+            this.dtgvCinemaRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCinemaRoom.Location = new System.Drawing.Point(18, 23);
+            this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
+            this.dtgvCinemaRoom.Size = new System.Drawing.Size(709, 107);
+            this.dtgvCinemaRoom.TabIndex = 0;
             // 
             // fAdmin
             // 
@@ -1041,17 +1041,17 @@
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChair)).EndInit();
             this.tabPage5.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinemaRoom)).EndInit();
             this.panel20.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvCinemaRoom)).EndInit();
             this.ResumeLayout(false);
 
         }

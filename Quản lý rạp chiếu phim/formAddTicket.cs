@@ -69,8 +69,12 @@ namespace Quản_lý_rạp_chiếu_phim
             return false;
         }
 
-        bool checkInsertIntoTickets(string lichChieu)
+        bool checkInsertIntoTickets(string lichChieu,string maShow)
         {
+            DataProvider.Instance.ExecuteQuery($@"SELECT 1 from LICHCHIEU lc
+                                                inner join VE v ON lc.MaShow=v.MaShow
+                                                where lc.MaShow ='{maShow}'");
+            return false;
             List<Ticket> tickets = ticketDAO.Instance.loadListTicket();
             if (checkShowTimeCinemaRoom())
             {
@@ -138,15 +142,15 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             string maShow = textBox1.Text;
             string maPhim = comboBox2.Text;
-            string maRap = textBox11.Text;
+            string gioChieu= textBox11.Text;
              int maPhong =Convert.ToInt32(textBox9.Text);
-            if (checkInsertIntoTickets(maRap))
+            if (checkInsertIntoTickets(gioChieu, maShow))
             {
                 MessageBox.Show("Correct showtimes. Enter a different showtime");
             }
             else
             {
-                MessageBox.Show("Them thanh cong"+dem.ToString()+showtimes.Count.ToString());
+                MessageBox.Show("Insert unsuccessful");
                 //if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
                 //{
                 //    MessageBox.Show("Insert succeeded");
