@@ -12,7 +12,8 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
     {
         private static DataProvider instance;
 
-        public static DataProvider Instance {
+        public static DataProvider Instance
+        {
             get
             {
                 if (instance == null) instance = new DataProvider();
@@ -30,7 +31,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         //Trả về số dòng kết quả
 
-        public DataTable ExecuteQuery(string query, object [] paramater=null)
+        public DataTable ExecuteQuery(string query, object[] paramater = null)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionSTR))
@@ -39,13 +40,13 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                 SqlCommand com = new SqlCommand(query, connection);
                 if (paramater != null)
                 {
-                    string [] listPara = query.Split(' ');
+                    string[] listPara = query.Split(' ');
                     int i = 0;
                     foreach (string item in listPara)
                     {
                         if (item.Contains('@'))
                         {
-                            com.Parameters.AddWithValue(item,listPara[i]);
+                            com.Parameters.AddWithValue(item, listPara[i]);
                             i++;
                         }
                     }
@@ -82,6 +83,47 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                 connection.Close();
             }
             return data;
+        }
+
+        public DataTable ExecuteReturnDataTable(string procedureName, params object[] args)// params object[] args : nguyene cụm này có nghĩa là từ bên ngoài gọi vào sẽ truyền dc vô hạn phần tử, nhưng sau khi vào đây sẽ tạo thành 1 mảng object trong biến args. e xem bene hamf IsValidShowTime nguyene cumj nayf: "@MaShow", maShow, "@ShowTime", lichChieu sẽ dc truyền vào args.
+            // Quy ước của a là : phần tử chẵn là tên biến, phần tử lẻ kế tiếp là value của biến.
+        {
+            // mấy dòng này đơn giản e học rồi
+            using (SqlConnection conn = new SqlConnection(connectionSTR))
+            {
+            // mấy dòng này đơn giản e học rồi
+                using (SqlCommand cmd = new SqlCommand())
+                {
+            // mấy dòng này đơn giản e học rồi
+                    cmd.CommandType = CommandType.StoredProcedure;
+            // mấy dòng này đơn giản e học rồi
+                    cmd.CommandText = procedureName;
+            // mấy dòng này đơn giản e học rồi
+                    cmd.Connection = conn;
+
+                    var prs = args?.Select((val, ind) => new { ind, val })// ?. có nghĩa là nếu khác null thì xxx
+                        // Select((val,ind)) ~> cái này là lambda syntax. khi e có 1 mảng mà muốn lấy value và index của từng phần từ thì dùng syntax này.
+                        // => new {val, ind} : lên mạng tìm từ khóa C# anonymous type
+                        .Where(c => c.ind % 2 == 0) // lấy các phần từ có index %2 =0 tức alf tên biến 
+                        
+                        .Select(c => new SqlParameter(args[c.ind].ToString(), args[c.ind + 1]))// tạo sql param , để ý cái c.ind+1 ~> phần tử lẻ tiếp theo.
+                        // hiểu chưa em?
+                        .ToArray();
+                    if (prs?.Count() > 0)
+                    {
+                        cmd.Parameters.AddRange(prs);
+                    }
+
+            // mấy dòng này đơn giản e học rồi
+                    using (SqlDataAdapter adap = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dtRes = new DataTable();
+            // mấy dòng này đơn giản e học rồi
+                        adap.Fill(dtRes);
+                        return dtRes;
+                    }
+                }
+            }
         }
 
         public object ExecuteScalar(string query, object[] paramater = null)

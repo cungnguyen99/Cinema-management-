@@ -1,5 +1,6 @@
 ﻿using Quản_lý_rạp_chiếu_phim.DAO;
 using Quản_lý_rạp_chiếu_phim.DTO;
+using Quản_lý_rạp_chiếu_phim.Lib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace Quản_lý_rạp_chiếu_phim
 {
     public partial class formAddTicket : Form
     {
+        fAdmin f1 = new fAdmin();
+
+
         public formAddTicket()
         {
             InitializeComponent();
@@ -46,47 +50,12 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
-        int dem = 0;
-
-        bool checkShowTimeCinemaRoom()
+        bool IsValidShowTime(string lichChieu, string maShow)
         {
-            listId = ShowtimesDAO.Instance.getIDRoom(textBox1.Text);
-            foreach (var item in listId)
+            using (DataTable dttmp = DataProvider.Instance.ExecuteReturnDataTable(CommonConst.SPNAME_IsValidTicket, "@MaShow", maShow, "@ShowTime", lichChieu))
             {
-                foreach (Showtimes items in showtimes)
-                {
-                    if (item.MaPhong == items.MaPhong)
-                    {
-                        dem++;
-                    }
-                }
+                return dttmp != null && dttmp.Rows.Count > 0 && dttmp.Rows[0][0] is bool isValid && isValid;
             }
-               
-            if (dem > 1)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        bool checkInsertIntoTickets(string lichChieu,string maShow)
-        {
-            DataProvider.Instance.ExecuteQuery($@"SELECT 1 from LICHCHIEU lc
-                                                inner join VE v ON lc.MaShow=v.MaShow
-                                                where lc.MaShow ='{maShow}'");
-            return false;
-            List<Ticket> tickets = ticketDAO.Instance.loadListTicket();
-            if (checkShowTimeCinemaRoom())
-            {
-                foreach (Ticket item in tickets)
-                {
-                    if (lichChieu == item.GioChieu)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
         }
 
         private void showChairInCinemaRoom(string id)
@@ -142,9 +111,9 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             string maShow = textBox1.Text;
             string maPhim = comboBox2.Text;
-            string gioChieu= textBox11.Text;
-             int maPhong =Convert.ToInt32(textBox9.Text);
-            if (checkInsertIntoTickets(gioChieu, maShow))
+            string gioChieu = textBox11.Text;
+            int maPhong = Convert.ToInt32(textBox9.Text);
+            if (!IsValidShowTime(gioChieu, maShow))
             {
                 MessageBox.Show("Correct showtimes. Enter a different showtime");
             }
