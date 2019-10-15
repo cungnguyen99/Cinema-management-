@@ -61,14 +61,14 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool deleteChair(string maGhe)
         {
-            string query = string.Format("DELETE GHE WHERE MaGhe=N'{0}}'", maGhe);
+            string query = string.Format("DELETE GHE WHERE MaGhe=N'{0}'", maGhe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }
 
         public bool updateChair(string maGhe, string maRap, string maPhong)
         {
-            string query = string.Format("UPDATE GHE SET MaRap=N'{0}', MaPhong=N'{1}', MaGhe=N'{2}' WHERE MaGhe=N'{3}'", maRap, maPhong, maGhe, maGhe);
+            string query = string.Format("UPDATE GHE SET MaGhe=N'{0}', MaRap=N'{1}', MaPhong=N'{2}' WHERE MaGhe=N'{3}'", maGhe, maRap, maPhong, maGhe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

@@ -51,6 +51,13 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return result > 0;
         }
 
+        public bool updateTickets(string maGhe)
+        {
+            string query = string.Format("UPDATE VE SET MaGhe=N'{0}' WHERE MaGhe=N'{1}'", maGhe, maGhe);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
         public bool insertTicket(string maShow, string maGhe, string gioChieu, int giaVe)
         {
             string query = string.Format("Insert Into VE values(N'{0}', N'{1}', N'{2}',{3})", maShow, maGhe, gioChieu, giaVe);

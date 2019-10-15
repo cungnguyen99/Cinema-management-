@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quản_lý_rạp_chiếu_phim.Lib
+namespace Quản_lý_rạp_chiếu_phim.DAO
 {
     public static class CommonConst
     {

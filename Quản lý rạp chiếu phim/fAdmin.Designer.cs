@@ -85,10 +85,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.txtRap1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.txtPhong1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.txtChair1 = new System.Windows.Forms.TextBox();
@@ -117,6 +115,8 @@
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
             this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -698,19 +698,12 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.txtRap1);
+            this.panel19.Controls.Add(this.comboBox3);
             this.panel19.Controls.Add(this.label14);
             this.panel19.Location = new System.Drawing.Point(13, 98);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(264, 35);
             this.panel19.TabIndex = 2;
-            // 
-            // txtRap1
-            // 
-            this.txtRap1.Location = new System.Drawing.Point(65, 7);
-            this.txtRap1.Name = "txtRap1";
-            this.txtRap1.Size = new System.Drawing.Size(154, 20);
-            this.txtRap1.TabIndex = 1;
             // 
             // label14
             // 
@@ -723,19 +716,12 @@
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.txtPhong1);
+            this.panel18.Controls.Add(this.comboBox2);
             this.panel18.Controls.Add(this.label13);
             this.panel18.Location = new System.Drawing.Point(13, 176);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(264, 35);
             this.panel18.TabIndex = 1;
-            // 
-            // txtPhong1
-            // 
-            this.txtPhong1.Location = new System.Drawing.Point(65, 7);
-            this.txtPhong1.Name = "txtPhong1";
-            this.txtPhong1.Size = new System.Drawing.Size(154, 20);
-            this.txtPhong1.TabIndex = 1;
             // 
             // label13
             // 
@@ -992,6 +978,23 @@
             this.dtgvCinemaRoom.Size = new System.Drawing.Size(709, 107);
             this.dtgvCinemaRoom.TabIndex = 0;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(65, 10);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(154, 21);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(65, 7);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(154, 21);
+            this.comboBox3.TabIndex = 2;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1129,10 +1132,8 @@
         private System.Windows.Forms.TextBox txtChair1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.TextBox txtRap1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.TextBox txtPhong1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel24;
@@ -1147,5 +1148,7 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.TextBox txtmaphong2;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

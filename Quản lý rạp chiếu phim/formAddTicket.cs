@@ -1,6 +1,5 @@
 ﻿using Quản_lý_rạp_chiếu_phim.DAO;
 using Quản_lý_rạp_chiếu_phim.DTO;
-using Quản_lý_rạp_chiếu_phim.Lib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,20 +14,27 @@ namespace Quản_lý_rạp_chiếu_phim
 {
     public partial class formAddTicket : Form
     {
-        fAdmin f1 = new fAdmin();
-
+        fAdmin f1;
+        string fimlsID="MS001";
+        public formAddTicket(fAdmin addTicket)
+        {
+            InitializeComponent();
+            f1 = addTicket;
+            loadListShow();
+            loadListChairEmpty(fimlsID);
+            showChairInCinemaRoom("MS001");
+        }
 
         public formAddTicket()
         {
             InitializeComponent();
             loadListShow();
+            loadListChairEmpty(fimlsID);
             showChairInCinemaRoom("MS001");
-            textBox1.Text = "MS001";
         }
 
         List<Chair> listChairs = ChairDAO.Instance.getListChair();
         List<Showtimes> showtimes = ShowtimesDAO.Instance.loadListShowtimes();
-        List<Showtimes> listId;
 
         void loadListChairEmpty(string id)
         {
@@ -69,12 +75,15 @@ namespace Quản_lý_rạp_chiếu_phim
                 {
                     btn.Tag = item;
                     btn.Click += btn_click;
-                    btn.Text = item.MaGhe;
                     //btn.BackColor = Color.Tomato;
                     if (items.MaGhe == item.MaGhe)
                     {
-                        btn.BackColor = Color.LightSkyBlue;
+                        btn.Text = item.MaGhe;
+                        btn.ForeColor = Color.White;
                     }
+                    btn.Margin = new Padding(0, 0, 15, 15);
+                    btn.BackgroundImage= Image.FromFile(@"D:\My Easy Life\c1.jpg");
+                    btn.BackgroundImageLayout = ImageLayout.Stretch;
                 }
                 flowLayoutPanel2.Controls.Add(btn);
             }
@@ -84,51 +93,38 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             if (((sender as Button).Tag as Showtimes).MaShow != null)
             {
-                string fimlsID = ((sender as Button).Tag as Showtimes).MaShow.ToString();
-                textBox1.Text = fimlsID;
+                fimlsID = ((sender as Button).Tag as Showtimes).MaShow.ToString();
+                loadListChairEmpty(fimlsID);
                 showChairInCinemaRoom(fimlsID);
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //foreach (Showtimes item in showtimes)
-            //{
-            //    if (textBox1.Text != item.MaShow)
-            //    {
-            //        MessageBox.Show("Khong co ma sho do trong CSDL");
-            //    }
-            //}
-            loadListChairEmpty(textBox1.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            f1.Load();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string maShow = textBox1.Text;
             string maPhim = comboBox2.Text;
             string gioChieu = textBox11.Text;
             int maPhong = Convert.ToInt32(textBox9.Text);
-            if (!IsValidShowTime(gioChieu, maShow))
+            if (!IsValidShowTime(gioChieu, fimlsID))
             {
                 MessageBox.Show("Correct showtimes. Enter a different showtime");
             }
             else
             {
-                MessageBox.Show("Insert unsuccessful");
-                //if (ticketDAO.Instance.insertTicket(maShow, maPhim, maRap, maPhong))
-                //{
-                //    MessageBox.Show("Insert succeeded");
-                //    showChairInCinemaRoom(textBox1.Text);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Insert unsuccessful");
-                //}
+                if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                {
+                    MessageBox.Show("Insert succeeded");
+                    showChairInCinemaRoom(fimlsID);
+                }
+                else
+                {
+                    MessageBox.Show("Insert unsuccessful");
+                }
             }
         }
     }
