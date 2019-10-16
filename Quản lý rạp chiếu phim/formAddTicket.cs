@@ -14,16 +14,7 @@ namespace Quản_lý_rạp_chiếu_phim
 {
     public partial class formAddTicket : Form
     {
-        fAdmin f1;
         string fimlsID="MS001";
-        public formAddTicket(fAdmin addTicket)
-        {
-            InitializeComponent();
-            f1 = addTicket;
-            loadListShow();
-            loadListChairEmpty(fimlsID);
-            showChairInCinemaRoom("MS001");
-        }
 
         public formAddTicket()
         {
@@ -102,7 +93,6 @@ namespace Quản_lý_rạp_chiếu_phim
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            f1.Load();
         }
 
         private void button2_Click(object sender, EventArgs e)

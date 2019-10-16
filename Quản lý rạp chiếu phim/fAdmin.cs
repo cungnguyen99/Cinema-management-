@@ -93,6 +93,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void addShowTimesBinding()
         {
+            dtgvShows.DataBindings.Clear();
             txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow", true, DataSourceUpdateMode.Never));
             txtTen.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhim", true, DataSourceUpdateMode.Never));
             cbIDCinema.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaRap", true, DataSourceUpdateMode.Never));
@@ -196,7 +197,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private List<Showtimes> searchShowTimes(string id)
         {
-            List<Showtimes> showtimes = ShowtimesDAO.Instance.getListShowTimesByIdFimlsOrIdCinema(txtID.Text);
+            List<Showtimes> showtimes = ShowtimesDAO.Instance.getListShowTimesByIdFimlsOrIdCinema(id);
             return showtimes;
         }
 
@@ -234,7 +235,8 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            showList.DataSource = searchShowTimes(txtID.Text);
+            dtgvShows.DataBindings.Clear();
+            showList.DataSource = searchShowTimes(txtFimlsName.Text);
         }
 
         private void cbLoadCinema_SelectedIndexChanged(object sender, EventArgs e)
@@ -251,7 +253,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnAddTicket_Click(object sender, EventArgs e)
         {
-            formAddTicket menu = new formAddTicket(this);
+            formAddTicket menu = new formAddTicket();
             menu.ShowDialog();
         }
 
@@ -414,6 +416,12 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 MessageBox.Show("Delete unsuccessful");
             }
+        }
+
+        private void btnXemVe_Click(object sender, EventArgs e)
+        {
+            loadListTicket();
+            loadListShowTimes();
         }
     }
 }

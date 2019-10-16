@@ -85,8 +85,10 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.txtChair1 = new System.Windows.Forms.TextBox();
@@ -115,8 +117,7 @@
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
             this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.btnXemVe = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -551,6 +552,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnXemVe);
             this.tabPage3.Controls.Add(this.txtgia);
             this.tabPage3.Controls.Add(this.txtgiochieu);
             this.tabPage3.Controls.Add(this.txtmaghe);
@@ -637,7 +639,7 @@
             // 
             // btnEditTicket
             // 
-            this.btnEditTicket.Location = new System.Drawing.Point(329, 29);
+            this.btnEditTicket.Location = new System.Drawing.Point(269, 29);
             this.btnEditTicket.Name = "btnEditTicket";
             this.btnEditTicket.Size = new System.Drawing.Size(75, 38);
             this.btnEditTicket.TabIndex = 3;
@@ -647,7 +649,7 @@
             // 
             // btnRemoveTicket
             // 
-            this.btnRemoveTicket.Location = new System.Drawing.Point(182, 29);
+            this.btnRemoveTicket.Location = new System.Drawing.Point(144, 29);
             this.btnRemoveTicket.Name = "btnRemoveTicket";
             this.btnRemoveTicket.Size = new System.Drawing.Size(75, 38);
             this.btnRemoveTicket.TabIndex = 2;
@@ -657,7 +659,7 @@
             // 
             // btnAddTicket
             // 
-            this.btnAddTicket.Location = new System.Drawing.Point(45, 29);
+            this.btnAddTicket.Location = new System.Drawing.Point(23, 29);
             this.btnAddTicket.Name = "btnAddTicket";
             this.btnAddTicket.Size = new System.Drawing.Size(75, 38);
             this.btnAddTicket.TabIndex = 1;
@@ -705,6 +707,15 @@
             this.panel19.Size = new System.Drawing.Size(264, 35);
             this.panel19.TabIndex = 2;
             // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(65, 7);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(154, 21);
+            this.comboBox3.TabIndex = 2;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -722,6 +733,14 @@
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(264, 35);
             this.panel18.TabIndex = 1;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(65, 10);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(154, 21);
+            this.comboBox2.TabIndex = 1;
             // 
             // label13
             // 
@@ -762,14 +781,14 @@
             this.panel14.Controls.Add(this.btnRemoveChair);
             this.panel14.Controls.Add(this.btnAddChair);
             this.panel14.Controls.Add(this.btnEditChair);
-            this.panel14.Location = new System.Drawing.Point(129, 16);
+            this.panel14.Location = new System.Drawing.Point(113, 15);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(443, 46);
+            this.panel14.Size = new System.Drawing.Size(346, 46);
             this.panel14.TabIndex = 2;
             // 
             // btnRemoveChair
             // 
-            this.btnRemoveChair.Location = new System.Drawing.Point(323, 4);
+            this.btnRemoveChair.Location = new System.Drawing.Point(244, 4);
             this.btnRemoveChair.Name = "btnRemoveChair";
             this.btnRemoveChair.Size = new System.Drawing.Size(75, 38);
             this.btnRemoveChair.TabIndex = 4;
@@ -779,7 +798,7 @@
             // 
             // btnAddChair
             // 
-            this.btnAddChair.Location = new System.Drawing.Point(37, 4);
+            this.btnAddChair.Location = new System.Drawing.Point(14, 4);
             this.btnAddChair.Name = "btnAddChair";
             this.btnAddChair.Size = new System.Drawing.Size(75, 38);
             this.btnAddChair.TabIndex = 3;
@@ -789,7 +808,7 @@
             // 
             // btnEditChair
             // 
-            this.btnEditChair.Location = new System.Drawing.Point(184, 4);
+            this.btnEditChair.Location = new System.Drawing.Point(128, 4);
             this.btnEditChair.Name = "btnEditChair";
             this.btnEditChair.Size = new System.Drawing.Size(75, 38);
             this.btnEditChair.TabIndex = 2;
@@ -978,22 +997,15 @@
             this.dtgvCinemaRoom.Size = new System.Drawing.Size(709, 107);
             this.dtgvCinemaRoom.TabIndex = 0;
             // 
-            // comboBox2
+            // btnXemVe
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(65, 10);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(154, 21);
-            this.comboBox2.TabIndex = 1;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(65, 7);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(154, 21);
-            this.comboBox3.TabIndex = 2;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.btnXemVe.Location = new System.Drawing.Point(391, 29);
+            this.btnXemVe.Name = "btnXemVe";
+            this.btnXemVe.Size = new System.Drawing.Size(75, 38);
+            this.btnXemVe.TabIndex = 12;
+            this.btnXemVe.Text = "Xem";
+            this.btnXemVe.UseVisualStyleBackColor = true;
+            this.btnXemVe.Click += new System.EventHandler(this.btnXemVe_Click);
             // 
             // fAdmin
             // 
@@ -1150,5 +1162,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button btnXemVe;
     }
 }
