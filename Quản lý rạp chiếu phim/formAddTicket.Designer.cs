@@ -34,19 +34,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -65,11 +65,12 @@
             // 
             // button2
             // 
+            this.button2.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Location = new System.Drawing.Point(621, 359);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 60);
             this.button2.TabIndex = 14;
-            this.button2.Text = "Thêm vé";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -105,31 +106,30 @@
             this.panel2.Size = new System.Drawing.Size(200, 141);
             this.panel2.TabIndex = 17;
             // 
-            // panel3
+            // panel1
             // 
-            this.panel3.Controls.Add(this.comboBox2);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Location = new System.Drawing.Point(0, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 35);
-            this.panel3.TabIndex = 13;
+            this.panel1.Controls.Add(this.textBox9);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(0, 88);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 35);
+            this.panel1.TabIndex = 15;
             // 
-            // comboBox2
+            // textBox9
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(61, 7);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(136, 21);
-            this.comboBox2.TabIndex = 1;
+            this.textBox9.Location = new System.Drawing.Point(61, 8);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(136, 20);
+            this.textBox9.TabIndex = 1;
             // 
-            // label11
+            // label10
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 11);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Mã ghế";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Giá vé";
             // 
             // panel4
             // 
@@ -156,30 +156,31 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Giờ chiếu";
             // 
-            // panel1
+            // panel3
             // 
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(0, 88);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 35);
-            this.panel1.TabIndex = 15;
+            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Location = new System.Drawing.Point(0, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 35);
+            this.panel3.TabIndex = 13;
             // 
-            // textBox9
+            // comboBox2
             // 
-            this.textBox9.Location = new System.Drawing.Point(61, 8);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(136, 20);
-            this.textBox9.TabIndex = 1;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(61, 7);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(136, 21);
+            this.comboBox2.TabIndex = 1;
             // 
-            // label10
+            // label11
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 11);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Giá vé";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 11);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Mã ghế";
             // 
             // formAddTicket
             // 
@@ -196,12 +197,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formAddTicket";
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

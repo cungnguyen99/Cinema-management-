@@ -38,6 +38,7 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListCinema(comboBox3, false);
             addShowTimesBinding();
             addTicketBinding();
+            addCinemaRoomsBinding();
             addChairBinding();
         }
 
@@ -93,7 +94,6 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void addShowTimesBinding()
         {
-            dtgvShows.DataBindings.Clear();
             txtID.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaShow", true, DataSourceUpdateMode.Never));
             txtTen.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaPhim", true, DataSourceUpdateMode.Never));
             cbIDCinema.DataBindings.Add(new Binding("Text", dtgvShows.DataSource, "MaRap", true, DataSourceUpdateMode.Never));
@@ -112,6 +112,18 @@ namespace Quản_lý_rạp_chiếu_phim
             txtgiochieu.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "GioChieu", true,
               DataSourceUpdateMode.Never));
             txtgia.DataBindings.Add(new Binding("Text", dtgvTicket.DataSource, "GiaVe", true,
+              DataSourceUpdateMode.Never));
+        }
+
+        void addCinemaRoomsBinding()
+        {
+            txtmaphong2.DataBindings.Add(new Binding("Text", dtgvCinemaRoom.DataSource, "MaPhong", true,
+              DataSourceUpdateMode.Never));
+            txtmarap2.DataBindings.Add(new Binding("Text", dtgvCinemaRoom.DataSource, "MaRap", true,
+              DataSourceUpdateMode.Never));
+            txttenphong.DataBindings.Add(new Binding("Text", dtgvCinemaRoom.DataSource, "TenPhong", true,
+              DataSourceUpdateMode.Never));
+            txttongghe.DataBindings.Add(new Binding("Text", dtgvCinemaRoom.DataSource, "TongSoGhe", true,
               DataSourceUpdateMode.Never));
         }
 
@@ -235,7 +247,6 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dtgvShows.DataBindings.Clear();
             showList.DataSource = searchShowTimes(txtFimlsName.Text);
         }
 
@@ -333,20 +344,17 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = comboBox2.Text;
             if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                if (ticketDAO.Instance.updateTickets(maShow))
+                if (ChairDAO.Instance.updateChair(maShow, maPhim, maRap) && ticketDAO.Instance.updateTickets(maShow))
                 {
-                    if (ChairDAO.Instance.updateChair(maShow, maPhim, maRap))
-                    {
-                        MessageBox.Show("Update succeeded");
-                        loadListChair();
-                        loadListCinemaRooms();
-                        loadListShowTimes();
-                    }
+                    MessageBox.Show("Update succeeded");
+                    loadListChair();
+                    loadListCinemaRooms();
+                    loadListShowTimes();
                 }
-                else
-                {
-                    MessageBox.Show("Update unsuccessful");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Update unsuccessful");
             }
         }
 
@@ -407,7 +415,7 @@ namespace Quản_lý_rạp_chiếu_phim
         private void btnxoaphong_Click(object sender, EventArgs e)
         {
             string maPhong = txtmaphong2.Text;
-            if (ChairDAO.Instance.deleteChair(maPhong))
+            if (CinemaRoomDAO.Instance.deleteCinemaRoom(maPhong))
             {
                 MessageBox.Show("Delete succeeded");
                 loadListCinemaRooms();

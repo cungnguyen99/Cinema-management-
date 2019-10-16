@@ -69,5 +69,56 @@ namespace Quản_lý_rạp_chiếu_phim.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_1968246_960_720 {
+            get {
+                object obj = ResourceManager.GetObject("icon-1968246_960_720", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6 {
+            get {
+                object obj = ResourceManager.GetObject("kissclipart-delete-icon-clipart-computer-icons-231856fced9a0ea6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-addition-computer-icons-clip-art-add-to-cart-button-5ac18a1e9c2711.681010" +
+                        "1515226332466396", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tải_xuống {
+            get {
+                object obj = ResourceManager.GetObject("tải xuống", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

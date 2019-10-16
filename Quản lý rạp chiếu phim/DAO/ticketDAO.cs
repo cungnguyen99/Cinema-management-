@@ -53,7 +53,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool updateTickets(string maGhe)
         {
-            string query = string.Format("UPDATE VE SET MaGhe=N'{0}' WHERE MaGhe=N'{1}'", maGhe, maGhe);
+            string query = string.Format("UPDATE VE SET MaGhe=N'{0}' WHERE MaGhe=N'{0}'", maGhe);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

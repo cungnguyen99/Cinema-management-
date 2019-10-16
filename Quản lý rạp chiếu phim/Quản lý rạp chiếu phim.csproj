@@ -137,7 +137,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\tải xuống.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-addition-computer-icons-clip-art-add-to-cart-button-5ac18a1e9c2711.6810101515226332466396.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kissclipart-delete-icon-clipart-computer-icons-231856fced9a0ea6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-1968246_960_720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
