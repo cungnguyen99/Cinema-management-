@@ -39,6 +39,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtFimlsName = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtSum = new System.Windows.Forms.TextBox();
@@ -62,6 +63,10 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSee = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvShows = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -113,11 +118,6 @@
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
             this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSee = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -185,7 +185,7 @@
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.cbLoadCinema);
             this.panel2.Controls.Add(this.btnView);
-            this.panel2.Location = new System.Drawing.Point(28, 15);
+            this.panel2.Location = new System.Drawing.Point(28, 37);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(692, 33);
             this.panel2.TabIndex = 1;
@@ -211,6 +211,7 @@
             this.comboBox1.Size = new System.Drawing.Size(47, 21);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "1";
+            this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cbLoadCinema
@@ -220,6 +221,7 @@
             this.cbLoadCinema.Name = "cbLoadCinema";
             this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
             this.cbLoadCinema.TabIndex = 3;
+            this.cbLoadCinema.Visible = false;
             this.cbLoadCinema.SelectedIndexChanged += new System.EventHandler(this.cbLoadCinema_SelectedIndexChanged);
             // 
             // btnView
@@ -235,18 +237,18 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dtgvRevenue);
-            this.panel1.Location = new System.Drawing.Point(28, 70);
+            this.panel1.Location = new System.Drawing.Point(28, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 284);
+            this.panel1.Size = new System.Drawing.Size(692, 268);
             this.panel1.TabIndex = 0;
             // 
             // dtgvRevenue
             // 
             this.dtgvRevenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvRevenue.Location = new System.Drawing.Point(61, 16);
+            this.dtgvRevenue.Location = new System.Drawing.Point(63, 40);
             this.dtgvRevenue.Name = "dtgvRevenue";
-            this.dtgvRevenue.Size = new System.Drawing.Size(573, 247);
+            this.dtgvRevenue.Size = new System.Drawing.Size(573, 177);
             this.dtgvRevenue.TabIndex = 0;
             // 
             // tabPage2
@@ -279,6 +281,17 @@
             this.txtFimlsName.Name = "txtFimlsName";
             this.txtFimlsName.Size = new System.Drawing.Size(193, 21);
             this.txtFimlsName.TabIndex = 5;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.images;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Location = new System.Drawing.Point(210, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(64, 29);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel5
             // 
@@ -484,6 +497,50 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(404, 59);
             this.panel4.TabIndex = 1;
+            // 
+            // btnSee
+            // 
+            this.btnSee.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
+            this.btnSee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSee.Location = new System.Drawing.Point(310, 3);
+            this.btnSee.Name = "btnSee";
+            this.btnSee.Size = new System.Drawing.Size(67, 35);
+            this.btnSee.TabIndex = 3;
+            this.btnSee.UseVisualStyleBackColor = true;
+            this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.Location = new System.Drawing.Point(210, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(68, 35);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Location = new System.Drawing.Point(104, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(70, 38);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(67, 38);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel3
             // 
@@ -811,16 +868,16 @@
             this.panel20.Controls.Add(this.panel21);
             this.panel20.Controls.Add(this.panel22);
             this.panel20.Controls.Add(this.panel23);
-            this.panel20.Location = new System.Drawing.Point(419, 136);
+            this.panel20.Location = new System.Drawing.Point(473, 54);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(299, 232);
+            this.panel20.Size = new System.Drawing.Size(265, 264);
             this.panel20.TabIndex = 4;
             // 
             // panel24
             // 
             this.panel24.Controls.Add(this.txttenphong);
             this.panel24.Controls.Add(this.label17);
-            this.panel24.Location = new System.Drawing.Point(13, 124);
+            this.panel24.Location = new System.Drawing.Point(13, 153);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(264, 35);
             this.panel24.TabIndex = 2;
@@ -845,7 +902,7 @@
             // 
             this.panel21.Controls.Add(this.txtmarap2);
             this.panel21.Controls.Add(this.label15);
-            this.panel21.Location = new System.Drawing.Point(13, 73);
+            this.panel21.Location = new System.Drawing.Point(13, 77);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(264, 35);
             this.panel21.TabIndex = 2;
@@ -864,13 +921,13 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 13);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Ma rạp";
+            this.label15.Text = "Mã rạp";
             // 
             // panel22
             // 
             this.panel22.Controls.Add(this.txttongghe);
             this.panel22.Controls.Add(this.label16);
-            this.panel22.Location = new System.Drawing.Point(13, 176);
+            this.panel22.Location = new System.Drawing.Point(13, 226);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(264, 35);
             this.panel22.TabIndex = 1;
@@ -896,7 +953,7 @@
             // 
             this.panel23.Controls.Add(this.txtmaphong2);
             this.panel23.Controls.Add(this.label18);
-            this.panel23.Location = new System.Drawing.Point(13, 22);
+            this.panel23.Location = new System.Drawing.Point(13, 3);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(264, 35);
             this.panel23.TabIndex = 0;
@@ -922,16 +979,16 @@
             this.panel15.Controls.Add(this.btnxoaphong);
             this.panel15.Controls.Add(this.btnthemphong);
             this.panel15.Controls.Add(this.btnsuaphong);
-            this.panel15.Location = new System.Drawing.Point(0, 184);
+            this.panel15.Location = new System.Drawing.Point(3, 258);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(443, 46);
+            this.panel15.Size = new System.Drawing.Size(464, 46);
             this.panel15.TabIndex = 3;
             // 
             // btnxoaphong
             // 
             this.btnxoaphong.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
             this.btnxoaphong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnxoaphong.Location = new System.Drawing.Point(323, 4);
+            this.btnxoaphong.Location = new System.Drawing.Point(395, 5);
             this.btnxoaphong.Name = "btnxoaphong";
             this.btnxoaphong.Size = new System.Drawing.Size(66, 38);
             this.btnxoaphong.TabIndex = 4;
@@ -942,7 +999,7 @@
             // 
             this.btnthemphong.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
             this.btnthemphong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnthemphong.Location = new System.Drawing.Point(37, 4);
+            this.btnthemphong.Location = new System.Drawing.Point(3, 4);
             this.btnthemphong.Name = "btnthemphong";
             this.btnthemphong.Size = new System.Drawing.Size(67, 38);
             this.btnthemphong.TabIndex = 3;
@@ -963,65 +1020,10 @@
             // dtgvCinemaRoom
             // 
             this.dtgvCinemaRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCinemaRoom.Location = new System.Drawing.Point(18, 23);
+            this.dtgvCinemaRoom.Location = new System.Drawing.Point(6, 72);
             this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
-            this.dtgvCinemaRoom.Size = new System.Drawing.Size(709, 107);
+            this.dtgvCinemaRoom.Size = new System.Drawing.Size(461, 107);
             this.dtgvCinemaRoom.TabIndex = 0;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.images;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(210, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(64, 29);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnSee
-            // 
-            this.btnSee.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
-            this.btnSee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSee.Location = new System.Drawing.Point(310, 3);
-            this.btnSee.Name = "btnSee";
-            this.btnSee.Size = new System.Drawing.Size(67, 35);
-            this.btnSee.TabIndex = 3;
-            this.btnSee.UseVisualStyleBackColor = true;
-            this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEdit.Location = new System.Drawing.Point(210, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(68, 35);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.Location = new System.Drawing.Point(104, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 38);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(67, 38);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // fAdmin
             // 

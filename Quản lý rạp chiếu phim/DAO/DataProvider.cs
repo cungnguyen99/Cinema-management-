@@ -88,17 +88,12 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
         public DataTable ExecuteReturnDataTable(string procedureName, params object[] args)// params object[] args : nguyene cụm này có nghĩa là từ bên ngoài gọi vào sẽ truyền dc vô hạn phần tử, nhưng sau khi vào đây sẽ tạo thành 1 mảng object trong biến args. e xem bene hamf IsValidShowTime nguyene cumj nayf: "@MaShow", maShow, "@ShowTime", lichChieu sẽ dc truyền vào args.
             // Quy ước của a là : phần tử chẵn là tên biến, phần tử lẻ kế tiếp là value của biến.
         {
-            // mấy dòng này đơn giản e học rồi
             using (SqlConnection conn = new SqlConnection(connectionSTR))
             {
-            // mấy dòng này đơn giản e học rồi
                 using (SqlCommand cmd = new SqlCommand())
                 {
-            // mấy dòng này đơn giản e học rồi
                     cmd.CommandType = CommandType.StoredProcedure;
-            // mấy dòng này đơn giản e học rồi
                     cmd.CommandText = procedureName;
-            // mấy dòng này đơn giản e học rồi
                     cmd.Connection = conn;
 
                     var prs = args?.Select((val, ind) => new { ind, val })// ?. có nghĩa là nếu khác null thì xxx
@@ -113,12 +108,9 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                     {
                         cmd.Parameters.AddRange(prs);
                     }
-
-            // mấy dòng này đơn giản e học rồi
                     using (SqlDataAdapter adap = new SqlDataAdapter(cmd))
                     {
                         DataTable dtRes = new DataTable();
-            // mấy dòng này đơn giản e học rồi
                         adap.Fill(dtRes);
                         return dtRes;
                     }

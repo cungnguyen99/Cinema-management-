@@ -16,6 +16,9 @@ namespace Quản_lý_rạp_chiếu_phim
     {
         private int kt = 1;
         BindingSource showList = new BindingSource();
+        BindingSource showCinemaRooms = new BindingSource();
+        BindingSource showTickets = new BindingSource();
+        BindingSource showChair = new BindingSource();
         public fAdmin()
         {
             InitializeComponent();
@@ -26,6 +29,9 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             //Khi nhấn nút xem vẫn binding được 
             dtgvShows.DataSource = showList;
+            dtgvCinemaRoom.DataSource = showCinemaRooms;
+            dtgvChair.DataSource = showChair;
+            dtgvTicket.DataSource = showTickets;
             loadListRevenueOfFimls();
             //Load danh sách rạp trong bảng doanh thu
             loadListCinema(cbLoadCinema, true);
@@ -73,12 +79,12 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void loadListChair()
         {
-            dtgvChair.DataSource = ChairDAO.Instance.getListChair();
+            showChair.DataSource = ChairDAO.Instance.getListChair();
         }
 
         void loadListCinemaRooms()
         {
-            dtgvCinemaRoom.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
+            showCinemaRooms.DataSource = CinemaRoomDAO.Instance.getListCinemaRoom();
         }
 
         void loadListShowTimes()
@@ -89,7 +95,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         void loadListTicket()
         {
-            dtgvTicket.DataSource = ticketDAO.Instance.getListTicket();
+            showTickets.DataSource = ticketDAO.Instance.getListTicket();
         }
 
         void addShowTimesBinding()
@@ -156,11 +162,15 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 btnView.Text = "Xem doanh thu rạp";
                 loadListRevenueOfFimls();
+                cbLoadCinema.Visible = false;
+                comboBox1.Visible = false;
             }
             else
             {
                 btnView.Text = "Xem doanh thu phim";
                 loadListRevenueOfCinema();
+                cbLoadCinema.Visible = true;
+                comboBox1.Visible = true;
             }
         }
 
@@ -344,7 +354,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = comboBox2.Text;
             if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                if (ChairDAO.Instance.updateChair(maShow, maPhim, maRap) && ticketDAO.Instance.updateTickets(maShow))
+                if (ChairDAO.Instance.updateChair(maShow, maPhim, maRap))
                 {
                     MessageBox.Show("Update succeeded");
                     loadListChair();
@@ -389,6 +399,7 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 MessageBox.Show("Insert succeeded");
                 loadListCinemaRooms();
+                loadListRevenueOfCinema();
             }
             else
             {
@@ -401,10 +412,12 @@ namespace Quản_lý_rạp_chiếu_phim
             string maPhong = txtmaphong2.Text;
             string maRap = txtmarap2.Text;
             string tenPhong = txttenphong.Text;
-            if (CinemaRoomDAO.Instance.updateCinemaRoom(maRap, tenPhong, maPhong))
+            if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong))
             {
                 MessageBox.Show("Update succeeded");
                 loadListCinemaRooms();
+                loadListChair();
+                loadListRevenueOfCinema();
             }
             else
             {
@@ -419,6 +432,8 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 MessageBox.Show("Delete succeeded");
                 loadListCinemaRooms();
+                loadListRevenueOfCinema();
+                loadListChair();
             }
             else
             {

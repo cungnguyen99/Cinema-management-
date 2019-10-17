@@ -75,7 +75,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
 
         public bool updateCinemaRoom(string maPhong, string maRap, string tenPhong)
         {
-            string query = string.Format("UPDATE PHONGCHIEU SET MaRap=N'{0}', TenPhong=N'{1}' WHERE MaPhong=N'{2}'", maRap, tenPhong, maPhong);
+            string query = string.Format("UPDATE PHONGCHIEU SET MaPhong=N'{0}', MaRap=N'{1}', TenPhong=N'{2}' WHERE MaPhong=N'{3}'", maPhong, maRap, tenPhong, maPhong);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
             return result > 0;
         }

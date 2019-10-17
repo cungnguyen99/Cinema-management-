@@ -18,6 +18,7 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             InitializeComponent();
             loadFimls();
+            showFimls("P001");
         }
 
         void loadFimls()
@@ -90,18 +91,26 @@ namespace Quản_lý_rạp_chiếu_phim
         private void btnSearch_Click(object sender, EventArgs e)
         {
             flbTable.Controls.Clear();
-            textBox1.Text = "";
-            List<Fimls> fimls=searchFimlsByFimlsName(textBox1.Text);
-            listView1.Items.Clear();
-            foreach (Fimls item in fimls)
+            List<Fimls> fimls=searchFimlsByFimlsName(txtSearchFimls.Text);
+            if (fimls.Count > 0)
             {
-                Button btn = new Button() { Width = 100, Height = 130 };
-                btn.Tag = item;
-                btn.Click += btn_click;
-                btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
-                btn.BackgroundImageLayout = ImageLayout.Stretch;
-                flbTable.Controls.Add(btn);
+                listView1.Items.Clear();
+                foreach (Fimls item in fimls)
+                {
+                    Button btn = new Button() { Width = 100, Height = 130 };
+                    btn.Tag = item;
+                    btn.Click += btn_click;
+                    btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+                    btn.BackgroundImageLayout = ImageLayout.Stretch;
+                    flbTable.Controls.Add(btn);
+                }
             }
+            else
+            {
+                MessageBox.Show("There are no movies in the list");
+                loadFimls();
+            }
+            txtSearchFimls.Text = "";
         }
 
         private void btnSee_Click(object sender, EventArgs e)
