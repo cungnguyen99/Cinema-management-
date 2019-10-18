@@ -27,6 +27,7 @@ namespace Quản_lý_rạp_chiếu_phim
 
         public void Load()
         {
+            txtChair1.GotFocus += txtChair1_GotFocus;
             //Khi nhấn nút xem vẫn binding được 
             dtgvShows.DataSource = showList;
             dtgvCinemaRoom.DataSource = showCinemaRooms;
@@ -272,6 +273,14 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
+        string idChairText;
+
+        private void txtChair1_GotFocus(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            idChairText = tb.Text;
+        }
+
         private void btnAddTicket_Click(object sender, EventArgs e)
         {
             formAddTicket menu = new formAddTicket();
@@ -348,13 +357,12 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnEditChair_Click(object sender, EventArgs e)
         {
-
             string maShow = txtChair1.Text;
             string maPhim = comboBox3.Text;
             string maRap = comboBox2.Text;
             if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                if (ChairDAO.Instance.updateChair(maShow, maPhim, maRap))
+                if (ChairDAO.Instance.updateChair(idChairText, maPhim, maRap, maShow))
                 {
                     MessageBox.Show("Update succeeded");
                     loadListChair();
