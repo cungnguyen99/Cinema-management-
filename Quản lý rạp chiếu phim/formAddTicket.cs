@@ -22,6 +22,7 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListShow();
             loadListChairEmpty(fimlsID);
             showChairInCinemaRoom("MS001");
+            loadTimeInToCombobox();
         }
 
         List<Chair> listChairs = ChairDAO.Instance.getListChair();
@@ -46,6 +47,14 @@ namespace Quản_lý_rạp_chiếu_phim
                 flowLayoutPanel1.Controls.Add(btn);
             }
         }
+
+        void loadTimeInToCombobox()
+        {
+            List<Ticket> fimlsList = ticketDAO.Instance.loadTime();
+            comboBox1.DataSource = fimlsList;
+            comboBox1.DisplayMember = "GioChieu";
+        }
+
 
         bool IsValidShowTime(string lichChieu, string maShow)
         {
@@ -81,7 +90,7 @@ namespace Quản_lý_rạp_chiếu_phim
         }
 
         private void btn_click(object sender, EventArgs e)
-        {
+        {   
             if (((sender as Button).Tag as Showtimes).MaShow != null)
             {
                 fimlsID = ((sender as Button).Tag as Showtimes).MaShow.ToString();
@@ -95,10 +104,23 @@ namespace Quản_lý_rạp_chiếu_phim
             this.Close();
         }
 
+        bool checkTime()
+        {
+            List<Ticket> fimlsList = ticketDAO.Instance.loadListTicket();
+            foreach (Ticket item in fimlsList)
+            {
+                if (comboBox1.Text != item.GioChieu)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             string maPhim = comboBox2.Text;
-            string gioChieu = textBox11.Text;
+            string gioChieu = comboBox1.Text;
             int maPhong = Convert.ToInt32(textBox9.Text);
             if (!IsValidShowTime(gioChieu, fimlsID))
             {
@@ -106,15 +128,31 @@ namespace Quản_lý_rạp_chiếu_phim
             }
             else
             {
-                if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                if (checkTime())
                 {
-                    MessageBox.Show("Insert succeeded");
-                    showChairInCinemaRoom(fimlsID);
+                    MessageBox.Show("Show time do not match");
                 }
                 else
                 {
-                    MessageBox.Show("Insert unsuccessful");
+                    if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                    {
+                        MessageBox.Show("Insert succeeded");
+                        showChairInCinemaRoom(fimlsID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insert unsuccessful");
+                    }
                 }
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Ticket> tickets = ticketDAO.Instance.loadTimeByIdShowTime(fimlsID);
+            foreach (Ticket item in tickets)
+            {
+                comboBox1.Text = item.GioChieu;
             }
         }
     }

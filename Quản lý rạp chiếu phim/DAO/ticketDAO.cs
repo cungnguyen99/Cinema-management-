@@ -44,6 +44,33 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return fimlsList;
         }
 
+        public List<Ticket> loadTime()
+        {
+            List<Ticket> fimlsList = new List<Ticket>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(@"select * from ( SELECT b.*,ROW_NUMBER() OVER(PARTITION BY GioChieu ORDER BY MaShow) as num
+               FROM ve b) tbl
+               WHERE num = 1");
+            foreach (DataRow item in dataTable.Rows)
+            {
+                Ticket fimls = new Ticket(item);
+                fimlsList.Add(fimls);
+            }
+            return fimlsList;
+        }
+
+        public List<Ticket> loadTimeByIdShowTime(string id)
+        {
+            List<Ticket> fimlsList = new List<Ticket>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(@"select * from ( SELECT b.*,ROW_NUMBER() OVER(PARTITION BY GioChieu ORDER BY MaShow) as num
+               FROM ve b where MaShow=N'"+id+"') tbl WHERE num = 1");
+            foreach (DataRow item in dataTable.Rows)
+            {
+                Ticket fimls = new Ticket(item);
+                fimlsList.Add(fimls);
+            }
+            return fimlsList;
+        }
+
         public bool updateTicket(string maShow, string maGhe, string gioChieu, int giaVe)
         {
             string query = string.Format("UPDATE VE SET MaShow=N'{0}', MaGhe=N'{1}', GioChieu=N'{2}',GiaVe={3} WHERE MaShow=N'{4}' AND MaGhe=N'{5}'", maShow, maGhe, gioChieu, giaVe, maShow, maGhe);
