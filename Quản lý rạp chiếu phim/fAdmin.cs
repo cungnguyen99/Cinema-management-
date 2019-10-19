@@ -22,12 +22,14 @@ namespace Quản_lý_rạp_chiếu_phim
         public fAdmin()
         {
             InitializeComponent();
-            Load();
+            OnLoad();
         }
 
-        public void Load()
+        public void OnLoad()
         {
             txtChair1.GotFocus += txtChair1_GotFocus;
+            txtmaphong2.GotFocus += txtmaphong2_GotFocus;
+            txtID.GotFocus += txtID_GotFocus;
             //Khi nhấn nút xem vẫn binding được 
             dtgvShows.DataSource = showList;
             dtgvCinemaRoom.DataSource = showCinemaRooms;
@@ -97,6 +99,19 @@ namespace Quản_lý_rạp_chiếu_phim
         void loadListTicket()
         {
             showTickets.DataSource = ticketDAO.Instance.getListTicket();
+        }
+
+        bool checkIdFiml(string id)
+        {
+            List<Fimls> fimls = fimlsDAO.Instance.loadListFimls();
+            foreach (Fimls item in fimls)
+            {
+                if (id != item.MaPhim)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         void addShowTimesBinding()
@@ -207,21 +222,28 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+            if (checkIdFiml(maPhim))
             {
-                MessageBox.Show("Insert succeeded");
-                loadListShowTimes();
+                MessageBox.Show("There are no ID Fiml in the list Fimls");
             }
             else
             {
-                MessageBox.Show("Insert unsuccessful");
+                if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+                {
+                    MessageBox.Show("Insert succeeded");
+                    loadListShowTimes();
+                }
+                else
+                {
+                    MessageBox.Show("Insert unsuccessful");
+                }
             }
         }
-
+        
         private List<Showtimes> searchShowTimes(string id)
         {
-            List<Showtimes> showtimes = ShowtimesDAO.Instance.getListShowTimesByIdFimlsOrIdCinema(id);
-            return showtimes;
+            List<Showtimes> showtimesList = ShowtimesDAO.Instance.getListShowTimesByIdFimlsOrIdCinema(id);
+            return showtimesList;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -231,7 +253,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+            if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
             {
                 MessageBox.Show("Update succeeded");
                 loadListShowTimes();
@@ -258,7 +280,15 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            showList.DataSource = searchShowTimes(txtFimlsName.Text);
+            List<Showtimes> showtimesList = searchShowTimes(txtFimlsName.Text);
+            if (showtimesList.Count <= 0)
+            {
+                MessageBox.Show("There are no movies or cinema in the list Show times");
+            }
+            else
+            {
+                showList.DataSource = searchShowTimes(txtFimlsName.Text);
+            }
         }
 
         private void cbLoadCinema_SelectedIndexChanged(object sender, EventArgs e)
@@ -274,11 +304,25 @@ namespace Quản_lý_rạp_chiếu_phim
         }
 
         string idChairText;
+        string idCinemaRoom;
+        string idShowTime;
 
         private void txtChair1_GotFocus(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
             idChairText = tb.Text;
+        }
+
+        private void txtmaphong2_GotFocus(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            idCinemaRoom = tb.Text;
+        }
+
+        private void txtID_GotFocus(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            idShowTime = tb.Text;
         }
 
         private void btnAddTicket_Click(object sender, EventArgs e)
@@ -420,7 +464,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string maPhong = txtmaphong2.Text;
             string maRap = txtmarap2.Text;
             string tenPhong = txttenphong.Text;
-            if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong))
+            if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong, idCinemaRoom))
             {
                 MessageBox.Show("Update succeeded");
                 loadListCinemaRooms();

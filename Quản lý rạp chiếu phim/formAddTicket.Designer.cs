@@ -38,11 +38,11 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -53,12 +53,12 @@
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(104, 68);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(327, 95);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(327, 128);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(104, 169);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(104, 202);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(602, 170);
             this.flowLayoutPanel2.TabIndex = 10;
@@ -67,7 +67,7 @@
             // 
             this.button2.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(621, 359);
+            this.button2.Location = new System.Drawing.Point(621, 378);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 60);
             this.button2.TabIndex = 14;
@@ -140,6 +140,14 @@
             this.panel4.Size = new System.Drawing.Size(200, 35);
             this.panel4.TabIndex = 14;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(61, 8);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(136, 21);
+            this.comboBox1.TabIndex = 2;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -175,14 +183,6 @@
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "Mã ghế";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(61, 8);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(136, 21);
-            this.comboBox1.TabIndex = 2;
             // 
             // formAddTicket
             // 

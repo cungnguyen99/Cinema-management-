@@ -14,8 +14,8 @@ namespace Quản_lý_rạp_chiếu_phim.DTO
         private string maRap;
         private string maPhong;
         private int soVeDaBan;
-        private DateTime NgayChieu;
-        private int TongTien;
+        private int tongTien;
+        private DateTime ngayChieu;
 
         public Showtimes(string maShow, string maPhim, string maRap, string maPhong, int soVeDaBan, DateTime ngayChieu, int tongTien)
         {
@@ -46,7 +46,7 @@ namespace Quản_lý_rạp_chiếu_phim.DTO
         public string MaRap { get => maRap; set => maRap = value; }
         public string MaPhong { get => maPhong; set => maPhong = value; }
         public int SoVeDaBan { get => soVeDaBan; set => soVeDaBan = value; }
-        public DateTime NgayChieu1 { get => NgayChieu; set => NgayChieu = value; }
-        public int TongTien1 { get => TongTien; set => TongTien = value; }
+        public int TongTien { get => tongTien; set => tongTien = value; }
+        public DateTime NgayChieu { get => ngayChieu; set => ngayChieu = value; }
     }
 }

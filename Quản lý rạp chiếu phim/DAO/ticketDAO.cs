@@ -58,6 +58,18 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return fimlsList;
         }
 
+        public List<Ticket> checkTimeTicket(string id)
+        {
+            List<Ticket> fimlsList = new List<Ticket>();
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("SELECT * FROM VE WHERE MaShow=N'"+id+"'");
+            foreach (DataRow item in dataTable.Rows)
+            {
+                Ticket fimls = new Ticket(item);
+                fimlsList.Add(fimls);
+            }
+            return fimlsList;
+        }
+
         public List<Ticket> loadTimeByIdShowTime(string id)
         {
             List<Ticket> fimlsList = new List<Ticket>();

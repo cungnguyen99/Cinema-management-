@@ -286,7 +286,7 @@
             // 
             this.btnSearch.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.images;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(210, 12);
+            this.btnSearch.Location = new System.Drawing.Point(218, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(64, 29);
             this.btnSearch.TabIndex = 4;

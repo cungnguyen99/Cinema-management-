@@ -101,8 +101,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                         // => new {val, ind} : lên mạng tìm từ khóa C# anonymous type
                         .Where(c => c.ind % 2 == 0) // lấy các phần từ có index %2 =0 tức alf tên biến 
                         
-                        .Select(c => new SqlParameter(args[c.ind].ToString(), args[c.ind + 1]))// tạo sql param , để ý cái c.ind+1 ~> phần tử lẻ tiếp theo.
-                        // hiểu chưa em?
+                        .Select(c => new SqlParameter(args[c.ind].ToString(), args[c.ind + 1]))
                         .ToArray();
                     if (prs?.Count() > 0)
                     {

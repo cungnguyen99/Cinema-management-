@@ -75,7 +75,6 @@ namespace Quản_lý_rạp_chiếu_phim
                 {
                     btn.Tag = item;
                     btn.Click += btn_click;
-                    //btn.BackColor = Color.Tomato;
                     if (items.MaGhe == item.MaGhe)
                     {
                         btn.Text = item.MaGhe;
@@ -104,12 +103,25 @@ namespace Quản_lý_rạp_chiếu_phim
             this.Close();
         }
 
-        bool checkTime()
+        bool checkTime(string id)
         {
-            List<Ticket> fimlsList = ticketDAO.Instance.loadListTicket();
+            List<Ticket> fimlsList = ticketDAO.Instance.checkTimeTicket(id);
             foreach (Ticket item in fimlsList)
             {
-                if (comboBox1.Text != item.GioChieu)
+                if (comboBox1.Text == item.GioChieu)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool checkIdShow(string id)
+        {
+            List<Ticket> tickets = ticketDAO.Instance.loadListTicket ();
+            foreach (Ticket item in tickets)
+            {
+                if (fimlsID != item.MaShow)
                 {
                     return true;
                 }
@@ -119,32 +131,53 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string maPhim = comboBox2.Text;
-            string gioChieu = comboBox1.Text;
-            int maPhong = Convert.ToInt32(textBox9.Text);
-            if (!IsValidShowTime(gioChieu, fimlsID))
+            if (comboBox1.Text == "" || comboBox2.Text == "" || textBox9.Text =="")
             {
-                MessageBox.Show("Correct showtimes. Enter a different showtime");
+                MessageBox.Show("Fill in the blanks");
             }
             else
             {
-                if (checkTime())
+                string maPhim = comboBox2.Text;
+                string gioChieu = comboBox1.Text;
+                int maPhong = Convert.ToInt32(textBox9.Text);
+                if (!IsValidShowTime(gioChieu, fimlsID))
                 {
-                    MessageBox.Show("Show time do not match");
+                    MessageBox.Show("Correct showtimes. Enter a different showtime");
                 }
                 else
                 {
-                    if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                    if (checkTime(fimlsID))
                     {
-                        MessageBox.Show("Insert succeeded");
-                        showChairInCinemaRoom(fimlsID);
+
+                        if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                        {
+                            MessageBox.Show("Insert succeeded");
+                            showChairInCinemaRoom(fimlsID);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insert unsuccessful");
+                        }
                     }
+                    //else if (checkIdShow(fimlsID))
+                    //{
+                    //    if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                    //    {
+                    //        MessageBox.Show("Insert succeeded");
+                    //        showChairInCinemaRoom(fimlsID);
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Insert unsuccessful");
+                    //    }
+                    //}
                     else
                     {
-                        MessageBox.Show("Insert unsuccessful");
+                        MessageBox.Show("Show time do not match");
                     }
                 }
             }
+            
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
