@@ -38,6 +38,7 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListRevenueOfFimls();
             //Load danh sách rạp trong bảng doanh thu
             loadListCinema(cbLoadCinema, true);
+            loadListFimlsIntoCombobox();
             loadListShowTimes();
             loadListTicket();
             loadListChair();
@@ -49,6 +50,21 @@ namespace Quản_lý_rạp_chiếu_phim
             addTicketBinding();
             addCinemaRoomsBinding();
             addChairBinding();
+        }
+
+        int check(DataGridView dataGridView,string str)
+        {
+            int kt = 1;
+            for (int i = 0; i < dataGridView.RowCount; i++)
+            {
+                if (dataGridView.Rows[i].Cells[0].Value.ToString() == str)
+                {
+                    kt = 0;
+                    MessageBox.Show("The ID is the same as the primary key");
+                    break;
+                }
+            }
+            return kt;
         }
 
         void loadListRevenueOfFimls()
@@ -64,6 +80,13 @@ namespace Quản_lý_rạp_chiếu_phim
         void loadListCinemaByName(string name, int month)
         {
             dtgvRevenue.DataSource = CinemaDAO.Instance.getListCinemaByName(name, month);
+        }
+
+        void loadListFimlsIntoCombobox()
+        {
+            List<Fimls> fimls = fimlsDAO.Instance.loadListFimls();
+            txtTen.DataSource = fimls;
+            txtTen.DisplayMember = "MaPhim";
         }
 
         void loadListCinema(ComboBox comboBox, bool check)
@@ -106,7 +129,7 @@ namespace Quản_lý_rạp_chiếu_phim
             List<Fimls> fimls = fimlsDAO.Instance.loadListFimls();
             foreach (Fimls item in fimls)
             {
-                if (id != item.MaPhim)
+                if (id == item.MaPhim)
                 {
                     return true;
                 }
@@ -222,21 +245,14 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if (checkIdFiml(maPhim))
+            if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
             {
-                MessageBox.Show("There are no ID Fiml in the list Fimls");
+                MessageBox.Show("Insert succeeded");
+                loadListShowTimes();
             }
             else
             {
-                if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
-                {
-                    MessageBox.Show("Insert succeeded");
-                    loadListShowTimes();
-                }
-                else
-                {
-                    MessageBox.Show("Insert unsuccessful");
-                }
+                MessageBox.Show("Insert unsuccessful");
             }
         }
         
@@ -253,14 +269,32 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
+            if (check(dtgvShows, maShow)==1)
             {
-                MessageBox.Show("Update succeeded");
-                loadListShowTimes();
+                if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
+                {
+                    MessageBox.Show("Update succeeded");
+                    loadListTicket();
+                    loadListRevenueOfCinema();
+                    loadListRevenueOfFimls();
+                    loadListShowTimes();
+                }
+                else
+                {
+                    MessageBox.Show("Update unsuccessful");
+                }
             }
             else
             {
-                MessageBox.Show("Update unsuccessful");
+                if (ShowtimesDAO.Instance.updateShowtime(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+                {
+                    MessageBox.Show("Update succeeded");
+                    loadListShowTimes();
+                }
+                else
+                {
+                    MessageBox.Show("Update unsuccessful");
+                }
             }
         }
 
@@ -386,16 +420,19 @@ namespace Quản_lý_rạp_chiếu_phim
             string maShow = txtChair1.Text;
             string maPhim = comboBox2.Text;
             string maRap = comboBox3.Text;
-            if (ChairDAO.Instance.insertChair(maShow, maRap, maPhim))
+            if (check(dtgvChair, maShow) == 1)
             {
-                MessageBox.Show("Insert succeeded");
-                loadListChair();
-                loadListCinemaRooms();
-                loadListRevenueOfCinema();
-            }
-            else
-            {
-                MessageBox.Show("Insert unsuccessful");
+                if (ChairDAO.Instance.insertChair(maShow, maRap, maPhim))
+                {
+                    MessageBox.Show("Insert succeeded");
+                    loadListChair();
+                    loadListCinemaRooms();
+                    loadListRevenueOfCinema();
+                }
+                else
+                {
+                    MessageBox.Show("Insert unsuccessful");
+                }
             }
         }
 
@@ -447,15 +484,18 @@ namespace Quản_lý_rạp_chiếu_phim
             string maPhong = txtmaphong2.Text;
             string maRap = txtmarap2.Text;
             string tenPhong = txttenphong.Text;
-            if (CinemaRoomDAO.Instance.insertCinemaRoom(maPhong, maRap, tenPhong))
+            if (check(dtgvCinemaRoom, maPhong) == 1)
             {
-                MessageBox.Show("Insert succeeded");
-                loadListCinemaRooms();
-                loadListRevenueOfCinema();
-            }
-            else
-            {
-                MessageBox.Show("Insert unsuccessful");
+                if (CinemaRoomDAO.Instance.insertCinemaRoom(maPhong, maRap, tenPhong))
+                {
+                    MessageBox.Show("Insert succeeded");
+                    loadListCinemaRooms();
+                    loadListRevenueOfCinema();
+                }
+                else
+                {
+                    MessageBox.Show("Insert unsuccessful");
+                }
             }
         }
 

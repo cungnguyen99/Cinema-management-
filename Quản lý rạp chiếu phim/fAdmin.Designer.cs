@@ -57,7 +57,6 @@
             this.cbIDCinema = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txtTen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -118,6 +117,7 @@
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
             this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
+            this.txtTen = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -445,13 +445,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(282, 34);
             this.panel8.TabIndex = 2;
-            // 
-            // txtTen
-            // 
-            this.txtTen.Location = new System.Drawing.Point(90, 12);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(189, 20);
-            this.txtTen.TabIndex = 1;
             // 
             // label2
             // 
@@ -1025,6 +1018,14 @@
             this.dtgvCinemaRoom.Size = new System.Drawing.Size(461, 107);
             this.dtgvCinemaRoom.TabIndex = 0;
             // 
+            // txtTen
+            // 
+            this.txtTen.FormattingEnabled = true;
+            this.txtTen.Location = new System.Drawing.Point(90, 6);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(189, 21);
+            this.txtTen.TabIndex = 1;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1126,7 +1127,6 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtgvCinemaRoom;
         private System.Windows.Forms.ComboBox cbLoadCinema;
@@ -1181,5 +1181,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button btnXemVe;
+        private System.Windows.Forms.ComboBox txtTen;
     }
 }

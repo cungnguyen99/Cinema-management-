@@ -63,6 +63,13 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return result > 0;
         }
 
+        public bool updateShowtime(string maShow, string maPhim, string maRap, string maPhong, DateTime ngayChieu)
+        {
+            string query = string.Format("UPDATE LICHCHIEU SET MaPhim=N'{0}', MaRap=N'{1}', MaPhong=N'{2}',NgayChieu=N'{3}' WHERE MaShow=N'{4}'", maPhim, maRap, maPhong, ngayChieu, maShow);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
         public bool updateShowtimes(string maShow, string maPhim, string maRap, string maPhong, DateTime ngayChieu, string maShowTrc)
         {
             string query = string.Format("UPDATE LICHCHIEU SET MaShow=N'{0}', MaPhim=N'{1}', MaRap=N'{2}', MaPhong=N'{3}',NgayChieu=N'{4}' WHERE MaShow=N'{5}'",maShow, maPhim, maRap, maPhong, ngayChieu, maShowTrc);

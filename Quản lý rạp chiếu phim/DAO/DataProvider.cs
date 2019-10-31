@@ -97,7 +97,7 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
                     cmd.Connection = conn;
 
                     var prs = args?.Select((val, ind) => new { ind, val })// ?. có nghĩa là nếu khác null thì xxx
-                        // Select((val,ind)) ~> cái này là lambda syntax. khi e có 1 mảng mà muốn lấy value và index của từng phần từ thì dùng syntax này.
+                        // Select((val,ind)) ~> cái này là lambda syntax. khi có 1 mảng mà muốn lấy value và index của từng phần từ thì dùng syntax này.
                         // => new {val, ind} : lên mạng tìm từ khóa C# anonymous type
                         .Where(c => c.ind % 2 == 0) // lấy các phần từ có index %2 =0 tức alf tên biến 
                         
