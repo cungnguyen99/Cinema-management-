@@ -269,23 +269,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if (check(dtgvShows, maShow)==1)
-            {
-                if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
-                {
-                    MessageBox.Show("Update succeeded");
-                    loadListTicket();
-                    loadListRevenueOfCinema();
-                    loadListRevenueOfFimls();
-                    loadListShowTimes();
-                }
-                else
-                {
-                    MessageBox.Show("Update unsuccessful");
-                }
-            }
-            else
-            {
+
                 if (ShowtimesDAO.Instance.updateShowtime(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
                 {
                     MessageBox.Show("Update succeeded");
@@ -295,7 +279,6 @@ namespace Quản_lý_rạp_chiếu_phim
                 {
                     MessageBox.Show("Update unsuccessful");
                 }
-            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -537,6 +520,27 @@ namespace Quản_lý_rạp_chiếu_phim
         {
             loadListTicket();
             loadListShowTimes();
+        }
+
+        private void btnchangeKey_Click(object sender, EventArgs e)
+        {
+            string maShow = txtID.Text;
+            string maPhim = txtTen.Text;
+            string maRap = cbIDCinema.Text;
+            string maPhong = cbRooms.Text;
+            string ngayChieu = txtNgayKC.Text;
+            if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
+                {
+                    MessageBox.Show("Update succeeded");
+                    loadListTicket();
+                    loadListRevenueOfCinema();
+                    loadListRevenueOfFimls();
+                    loadListShowTimes();
+                }
+                else
+                {
+                    MessageBox.Show("Update unsuccessful");
+                }
         }
     }
 }

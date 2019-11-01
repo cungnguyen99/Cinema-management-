@@ -39,7 +39,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtFimlsName = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtSum = new System.Windows.Forms.TextBox();
@@ -57,19 +56,15 @@
             this.cbIDCinema = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtTen = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnSee = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvShows = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnXemVe = new System.Windows.Forms.Button();
             this.txtgia = new System.Windows.Forms.TextBox();
             this.txtgiochieu = new System.Windows.Forms.TextBox();
             this.txtmaghe = new System.Windows.Forms.TextBox();
@@ -78,9 +73,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtmashow = new System.Windows.Forms.TextBox();
-            this.btnEditTicket = new System.Windows.Forms.Button();
-            this.btnRemoveTicket = new System.Windows.Forms.Button();
-            this.btnAddTicket = new System.Windows.Forms.Button();
             this.dtgvTicket = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -94,9 +86,6 @@
             this.txtChair1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.btnRemoveChair = new System.Windows.Forms.Button();
-            this.btnAddChair = new System.Windows.Forms.Button();
-            this.btnEditChair = new System.Windows.Forms.Button();
             this.dtgvChair = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel20 = new System.Windows.Forms.Panel();
@@ -113,11 +102,23 @@
             this.txtmaphong2 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnchangeKey = new System.Windows.Forms.Button();
+            this.btnSee = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnXemVe = new System.Windows.Forms.Button();
+            this.btnEditTicket = new System.Windows.Forms.Button();
+            this.btnRemoveTicket = new System.Windows.Forms.Button();
+            this.btnAddTicket = new System.Windows.Forms.Button();
+            this.btnRemoveChair = new System.Windows.Forms.Button();
+            this.btnAddChair = new System.Windows.Forms.Button();
+            this.btnEditChair = new System.Windows.Forms.Button();
             this.btnxoaphong = new System.Windows.Forms.Button();
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
-            this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
-            this.txtTen = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -282,17 +283,6 @@
             this.txtFimlsName.Size = new System.Drawing.Size(193, 21);
             this.txtFimlsName.TabIndex = 5;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.images;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(218, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(64, 29);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel13);
@@ -446,6 +436,14 @@
             this.panel8.Size = new System.Drawing.Size(282, 34);
             this.panel8.TabIndex = 2;
             // 
+            // txtTen
+            // 
+            this.txtTen.FormattingEnabled = true;
+            this.txtTen.Location = new System.Drawing.Point(90, 6);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(189, 21);
+            this.txtTen.TabIndex = 1;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -482,58 +480,15 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnchangeKey);
             this.panel4.Controls.Add(this.btnSee);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnDelete);
             this.panel4.Controls.Add(this.btnAdd);
             this.panel4.Location = new System.Drawing.Point(6, 20);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(404, 59);
+            this.panel4.Size = new System.Drawing.Size(423, 59);
             this.panel4.TabIndex = 1;
-            // 
-            // btnSee
-            // 
-            this.btnSee.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
-            this.btnSee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSee.Location = new System.Drawing.Point(310, 3);
-            this.btnSee.Name = "btnSee";
-            this.btnSee.Size = new System.Drawing.Size(67, 35);
-            this.btnSee.TabIndex = 3;
-            this.btnSee.UseVisualStyleBackColor = true;
-            this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEdit.Location = new System.Drawing.Point(210, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(68, 35);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.Location = new System.Drawing.Point(104, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 38);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(67, 38);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel3
             // 
@@ -562,10 +517,10 @@
             this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.txtmashow);
+            this.tabPage3.Controls.Add(this.dtgvTicket);
             this.tabPage3.Controls.Add(this.btnEditTicket);
             this.tabPage3.Controls.Add(this.btnRemoveTicket);
             this.tabPage3.Controls.Add(this.btnAddTicket);
-            this.tabPage3.Controls.Add(this.dtgvTicket);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -573,17 +528,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Vé";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // btnXemVe
-            // 
-            this.btnXemVe.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
-            this.btnXemVe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnXemVe.Location = new System.Drawing.Point(391, 29);
-            this.btnXemVe.Name = "btnXemVe";
-            this.btnXemVe.Size = new System.Drawing.Size(63, 38);
-            this.btnXemVe.TabIndex = 12;
-            this.btnXemVe.UseVisualStyleBackColor = true;
-            this.btnXemVe.Click += new System.EventHandler(this.btnXemVe_Click);
             // 
             // txtgia
             // 
@@ -648,39 +592,6 @@
             this.txtmashow.Name = "txtmashow";
             this.txtmashow.Size = new System.Drawing.Size(138, 20);
             this.txtmashow.TabIndex = 4;
-            // 
-            // btnEditTicket
-            // 
-            this.btnEditTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
-            this.btnEditTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditTicket.Location = new System.Drawing.Point(269, 29);
-            this.btnEditTicket.Name = "btnEditTicket";
-            this.btnEditTicket.Size = new System.Drawing.Size(62, 38);
-            this.btnEditTicket.TabIndex = 3;
-            this.btnEditTicket.UseVisualStyleBackColor = true;
-            this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
-            // 
-            // btnRemoveTicket
-            // 
-            this.btnRemoveTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
-            this.btnRemoveTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRemoveTicket.Location = new System.Drawing.Point(144, 29);
-            this.btnRemoveTicket.Name = "btnRemoveTicket";
-            this.btnRemoveTicket.Size = new System.Drawing.Size(67, 38);
-            this.btnRemoveTicket.TabIndex = 2;
-            this.btnRemoveTicket.UseVisualStyleBackColor = true;
-            this.btnRemoveTicket.Click += new System.EventHandler(this.btnRemoveTicket_Click);
-            // 
-            // btnAddTicket
-            // 
-            this.btnAddTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
-            this.btnAddTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddTicket.Location = new System.Drawing.Point(23, 29);
-            this.btnAddTicket.Name = "btnAddTicket";
-            this.btnAddTicket.Size = new System.Drawing.Size(67, 38);
-            this.btnAddTicket.TabIndex = 1;
-            this.btnAddTicket.UseVisualStyleBackColor = true;
-            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
             // 
             // dtgvTicket
             // 
@@ -800,39 +711,6 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(415, 46);
             this.panel14.TabIndex = 2;
-            // 
-            // btnRemoveChair
-            // 
-            this.btnRemoveChair.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
-            this.btnRemoveChair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRemoveChair.Location = new System.Drawing.Point(345, 5);
-            this.btnRemoveChair.Name = "btnRemoveChair";
-            this.btnRemoveChair.Size = new System.Drawing.Size(67, 38);
-            this.btnRemoveChair.TabIndex = 4;
-            this.btnRemoveChair.UseVisualStyleBackColor = true;
-            this.btnRemoveChair.Click += new System.EventHandler(this.btnRemoveChair_Click);
-            // 
-            // btnAddChair
-            // 
-            this.btnAddChair.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
-            this.btnAddChair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddChair.Location = new System.Drawing.Point(14, 4);
-            this.btnAddChair.Name = "btnAddChair";
-            this.btnAddChair.Size = new System.Drawing.Size(66, 38);
-            this.btnAddChair.TabIndex = 3;
-            this.btnAddChair.UseVisualStyleBackColor = true;
-            this.btnAddChair.Click += new System.EventHandler(this.btnAddChair_Click);
-            // 
-            // btnEditChair
-            // 
-            this.btnEditChair.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
-            this.btnEditChair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditChair.Location = new System.Drawing.Point(170, 4);
-            this.btnEditChair.Name = "btnEditChair";
-            this.btnEditChair.Size = new System.Drawing.Size(63, 38);
-            this.btnEditChair.TabIndex = 2;
-            this.btnEditChair.UseVisualStyleBackColor = true;
-            this.btnEditChair.Click += new System.EventHandler(this.btnEditChair_Click);
             // 
             // dtgvChair
             // 
@@ -977,6 +855,157 @@
             this.panel15.Size = new System.Drawing.Size(464, 46);
             this.panel15.TabIndex = 3;
             // 
+            // dtgvCinemaRoom
+            // 
+            this.dtgvCinemaRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvCinemaRoom.Location = new System.Drawing.Point(6, 72);
+            this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
+            this.dtgvCinemaRoom.Size = new System.Drawing.Size(461, 107);
+            this.dtgvCinemaRoom.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.images;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Location = new System.Drawing.Point(218, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(64, 29);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnchangeKey
+            // 
+            this.btnchangeKey.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.key_560x604;
+            this.btnchangeKey.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnchangeKey.Location = new System.Drawing.Point(337, 7);
+            this.btnchangeKey.Name = "btnchangeKey";
+            this.btnchangeKey.Size = new System.Drawing.Size(67, 35);
+            this.btnchangeKey.TabIndex = 4;
+            this.btnchangeKey.UseVisualStyleBackColor = true;
+            this.btnchangeKey.Click += new System.EventHandler(this.btnchangeKey_Click);
+            // 
+            // btnSee
+            // 
+            this.btnSee.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
+            this.btnSee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSee.Location = new System.Drawing.Point(254, 7);
+            this.btnSee.Name = "btnSee";
+            this.btnSee.Size = new System.Drawing.Size(67, 35);
+            this.btnSee.TabIndex = 3;
+            this.btnSee.UseVisualStyleBackColor = true;
+            this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEdit.Location = new System.Drawing.Point(170, 7);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(68, 35);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Location = new System.Drawing.Point(85, 4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(70, 38);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(67, 38);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnXemVe
+            // 
+            this.btnXemVe.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
+            this.btnXemVe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnXemVe.Location = new System.Drawing.Point(391, 29);
+            this.btnXemVe.Name = "btnXemVe";
+            this.btnXemVe.Size = new System.Drawing.Size(63, 38);
+            this.btnXemVe.TabIndex = 12;
+            this.btnXemVe.UseVisualStyleBackColor = true;
+            this.btnXemVe.Click += new System.EventHandler(this.btnXemVe_Click);
+            // 
+            // btnEditTicket
+            // 
+            this.btnEditTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
+            this.btnEditTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEditTicket.Location = new System.Drawing.Point(269, 29);
+            this.btnEditTicket.Name = "btnEditTicket";
+            this.btnEditTicket.Size = new System.Drawing.Size(62, 38);
+            this.btnEditTicket.TabIndex = 3;
+            this.btnEditTicket.UseVisualStyleBackColor = true;
+            this.btnEditTicket.Click += new System.EventHandler(this.btnEditTicket_Click);
+            // 
+            // btnRemoveTicket
+            // 
+            this.btnRemoveTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
+            this.btnRemoveTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRemoveTicket.Location = new System.Drawing.Point(144, 29);
+            this.btnRemoveTicket.Name = "btnRemoveTicket";
+            this.btnRemoveTicket.Size = new System.Drawing.Size(67, 38);
+            this.btnRemoveTicket.TabIndex = 2;
+            this.btnRemoveTicket.UseVisualStyleBackColor = true;
+            this.btnRemoveTicket.Click += new System.EventHandler(this.btnRemoveTicket_Click);
+            // 
+            // btnAddTicket
+            // 
+            this.btnAddTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
+            this.btnAddTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddTicket.Location = new System.Drawing.Point(23, 29);
+            this.btnAddTicket.Name = "btnAddTicket";
+            this.btnAddTicket.Size = new System.Drawing.Size(67, 38);
+            this.btnAddTicket.TabIndex = 1;
+            this.btnAddTicket.UseVisualStyleBackColor = true;
+            this.btnAddTicket.Click += new System.EventHandler(this.btnAddTicket_Click);
+            // 
+            // btnRemoveChair
+            // 
+            this.btnRemoveChair.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
+            this.btnRemoveChair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRemoveChair.Location = new System.Drawing.Point(345, 5);
+            this.btnRemoveChair.Name = "btnRemoveChair";
+            this.btnRemoveChair.Size = new System.Drawing.Size(67, 38);
+            this.btnRemoveChair.TabIndex = 4;
+            this.btnRemoveChair.UseVisualStyleBackColor = true;
+            this.btnRemoveChair.Click += new System.EventHandler(this.btnRemoveChair_Click);
+            // 
+            // btnAddChair
+            // 
+            this.btnAddChair.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
+            this.btnAddChair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddChair.Location = new System.Drawing.Point(14, 4);
+            this.btnAddChair.Name = "btnAddChair";
+            this.btnAddChair.Size = new System.Drawing.Size(66, 38);
+            this.btnAddChair.TabIndex = 3;
+            this.btnAddChair.UseVisualStyleBackColor = true;
+            this.btnAddChair.Click += new System.EventHandler(this.btnAddChair_Click);
+            // 
+            // btnEditChair
+            // 
+            this.btnEditChair.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
+            this.btnEditChair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEditChair.Location = new System.Drawing.Point(170, 4);
+            this.btnEditChair.Name = "btnEditChair";
+            this.btnEditChair.Size = new System.Drawing.Size(63, 38);
+            this.btnEditChair.TabIndex = 2;
+            this.btnEditChair.UseVisualStyleBackColor = true;
+            this.btnEditChair.Click += new System.EventHandler(this.btnEditChair_Click);
+            // 
             // btnxoaphong
             // 
             this.btnxoaphong.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
@@ -1009,22 +1038,6 @@
             this.btnsuaphong.TabIndex = 2;
             this.btnsuaphong.UseVisualStyleBackColor = true;
             this.btnsuaphong.Click += new System.EventHandler(this.btnsuaphong_Click);
-            // 
-            // dtgvCinemaRoom
-            // 
-            this.dtgvCinemaRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCinemaRoom.Location = new System.Drawing.Point(6, 72);
-            this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
-            this.dtgvCinemaRoom.Size = new System.Drawing.Size(461, 107);
-            this.dtgvCinemaRoom.TabIndex = 0;
-            // 
-            // txtTen
-            // 
-            this.txtTen.FormattingEnabled = true;
-            this.txtTen.Location = new System.Drawing.Point(90, 6);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(189, 21);
-            this.txtTen.TabIndex = 1;
             // 
             // fAdmin
             // 
@@ -1182,5 +1195,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button btnXemVe;
         private System.Windows.Forms.ComboBox txtTen;
+        private System.Windows.Forms.Button btnchangeKey;
     }
 }

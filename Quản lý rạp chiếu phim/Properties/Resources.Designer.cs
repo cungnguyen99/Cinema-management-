@@ -93,6 +93,16 @@ namespace Quản_lý_rạp_chiếu_phim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap key_560x604 {
+            get {
+                object obj = ResourceManager.GetObject("key-560x604", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6 {
             get {
                 object obj = ResourceManager.GetObject("kissclipart-delete-icon-clipart-computer-icons-231856fced9a0ea6", resourceCulture);
