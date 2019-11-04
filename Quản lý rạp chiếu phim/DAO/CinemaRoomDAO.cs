@@ -80,6 +80,13 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return result > 0;
         }
 
+        public bool updateCinemaRooms(string maPhong, string maRap, string tenPhong)
+        {
+            string query = string.Format("UPDATE PHONGCHIEU SET MaRap=N'{0}', TenPhong=N'{1}' WHERE MaPhong=N'{2}'", maRap, tenPhong, maPhong);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
+            return result > 0;
+        }
+
         public bool deleteCinemaRoom(string maPhong)
         {
             string query = string.Format("DELETE PHONGCHIEU WHERE MaPhong=N'{0}'", maPhong);

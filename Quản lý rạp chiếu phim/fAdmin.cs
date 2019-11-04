@@ -52,6 +52,16 @@ namespace Quản_lý_rạp_chiếu_phim
             addChairBinding();
         }
 
+        bool checkEmpty(ComboBox c1 = null, ComboBox c2 = null, ComboBox c3 = null, TextBox t1 = null, TextBox t2 = null, TextBox t3 = null, TextBox t4 = null)
+        {
+            if (c1.Text == "" || c2.Text == "" || c3.Text == "" || t1.Text == "" || t2.Text == "" || t3.Text == "" || t4.Text == "")
+            {
+                MessageBox.Show("Fill in the blanks");
+                return true;
+            }
+            return false;
+        }
+
         int check(DataGridView dataGridView,string str)
         {
             int kt = 1;
@@ -270,15 +280,15 @@ namespace Quản_lý_rạp_chiếu_phim
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
 
-                if (ShowtimesDAO.Instance.updateShowtime(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
-                {
-                    MessageBox.Show("Update succeeded");
-                    loadListShowTimes();
-                }
-                else
-                {
-                    MessageBox.Show("Update unsuccessful");
-                }
+            if (ShowtimesDAO.Instance.updateShowtime(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+            {
+                MessageBox.Show("Update succeeded");
+                loadListShowTimes();
+            }
+            else
+            {
+                MessageBox.Show("Click btn 'key' to change Value key");
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -433,6 +443,10 @@ namespace Quản_lý_rạp_chiếu_phim
                     loadListCinemaRooms();
                     loadListShowTimes();
                 }
+                else
+                {
+                    MessageBox.Show("Click button 'edit' to chagne information of table");
+                }
             }
             else
             {
@@ -496,7 +510,7 @@ namespace Quản_lý_rạp_chiếu_phim
             }
             else
             {
-                MessageBox.Show("Update unsuccessful");
+                MessageBox.Show("Click button 'edit' to update information of table");
             }
         }
 
@@ -539,8 +553,51 @@ namespace Quản_lý_rạp_chiếu_phim
                 }
                 else
                 {
-                    MessageBox.Show("Update unsuccessful");
+                     MessageBox.Show("Click button 'edit' to chagne information of table");
                 }
+        }
+
+        private void btneditNormal_Click(object sender, EventArgs e)
+        {
+            string maShow = txtChair1.Text;
+            string maPhim = comboBox3.Text;
+            string maRap = comboBox2.Text;
+            if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (ChairDAO.Instance.updateChairs(maShow, maPhim, maRap))
+                {
+                    MessageBox.Show("Update succeeded");
+                    loadListChair();
+                    loadListCinemaRooms();
+                    loadListShowTimes();
+                }
+                else
+                {
+                    MessageBox.Show("Click btn 'key' to change Value key");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Update unsuccessful");
+            }
+        }
+
+        private void btneditroom_Click(object sender, EventArgs e)
+        {
+            string maPhong = txtmaphong2.Text;
+            string maRap = txtmarap2.Text;
+            string tenPhong = txttenphong.Text;
+            if (CinemaRoomDAO.Instance.updateCinemaRooms(maPhong, maRap, tenPhong))
+            {
+                MessageBox.Show("Update succeeded");
+                loadListCinemaRooms();
+                loadListChair();
+                loadListRevenueOfCinema();
+            }
+            else
+            {
+                MessageBox.Show("Click button 'key' to change value key");
+            }
         }
     }
 }
