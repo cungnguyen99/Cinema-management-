@@ -272,9 +272,9 @@
             // 
             this.panel6.Controls.Add(this.txtFimlsName);
             this.panel6.Controls.Add(this.btnSearch);
-            this.panel6.Location = new System.Drawing.Point(432, 8);
+            this.panel6.Location = new System.Drawing.Point(432, 14);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(291, 52);
+            this.panel6.Size = new System.Drawing.Size(291, 49);
             this.panel6.TabIndex = 3;
             // 
             // txtFimlsName
@@ -824,6 +824,7 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(415, 46);
             this.panel14.TabIndex = 2;
+            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
             // btneditNormal
             // 
@@ -873,9 +874,9 @@
             // dtgvChair
             // 
             this.dtgvChair.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvChair.Location = new System.Drawing.Point(20, 86);
+            this.dtgvChair.Location = new System.Drawing.Point(20, 96);
             this.dtgvChair.Name = "dtgvChair";
-            this.dtgvChair.Size = new System.Drawing.Size(348, 223);
+            this.dtgvChair.Size = new System.Drawing.Size(348, 211);
             this.dtgvChair.TabIndex = 1;
             // 
             // tabPage5
