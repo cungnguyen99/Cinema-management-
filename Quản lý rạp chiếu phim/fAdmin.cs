@@ -96,16 +96,17 @@ namespace Quản_lý_rạp_chiếu_phim
             return false;
         }
 
-        int check(DataGridView dataGridView,string str)
+        int check(string str)
         {
             int kt = 1;
-            for (int i = 0; i < dataGridView.RowCount; i++)
+            List<Showtimes> list = ShowtimesDAO.Instance.loadListShowtimes();
+            for (int i = 0; i < list.Count; i++)
             {
-                if (dataGridView.Rows[i].Cells[0].Value.ToString() == str)
+                if (list[i].MaShow == str)
                 {
                     kt = 0;
-                    //MessageBox.Show("The ID is the same as the primary key");
-                    //break;
+                    MessageBox.Show("The ID is the same as the primary key");
+                    break;
                 }
             }
             return kt;
@@ -118,6 +119,22 @@ namespace Quản_lý_rạp_chiếu_phim
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].MaGhe == str1)
+                {
+                    kt = 0;
+                    MessageBox.Show("The ID is the same as the primary key");
+                    break;
+                }
+            }
+            return kt;
+        }
+
+        int checkRoomKey(string str1)
+        {
+            int kt = 1;
+            List<CinemaRoom> list = CinemaRoomDAO.Instance.getListCinemaRoom();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].MaPhong == str1)
                 {
                     kt = 0;
                     MessageBox.Show("The ID is the same as the primary key");
@@ -308,7 +325,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string ngayChieu = txtNgayKC.Text;
             if(!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
             {
-                if(check(dtgvShows, maShow)==1)
+                if(check(maShow)==1)
                 {
                     if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
                     {
@@ -505,23 +522,26 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = comboBox2.Text;
             if (!checkEmptyChair(txtChair1, comboBox2, comboBox3))
             {
-                if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (checks(maShow) == 1)
                 {
-                    if (ChairDAO.Instance.updateChair(idChairText, maPhim, maRap, maShow))
+                    if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        MessageBox.Show("Update succeeded");
-                        loadListChair();
-                        loadListCinemaRooms();
-                        loadListShowTimes();
+                        if (ChairDAO.Instance.updateChair(idChairText, maPhim, maRap, maShow))
+                        {
+                            MessageBox.Show("Update succeeded");
+                            loadListChair();
+                            loadListCinemaRooms();
+                            loadListShowTimes();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Click button 'edit' to chagne information of table");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Click button 'edit' to chagne information of table");
+                        MessageBox.Show("Update unsuccessful");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Update unsuccessful");
                 }
             }
         }
@@ -558,7 +578,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string tenPhong = txttenphong.Text;
             if(!checkEmptyRoom(txtmaphong2, txtmarap2, txttenphong))
             {
-                if (check(dtgvCinemaRoom, maPhong) == 1)
+                if (checkRoomKey(maPhong) == 1)
                 {
                     if (CinemaRoomDAO.Instance.insertCinemaRoom(maPhong, maRap, tenPhong))
                     {
@@ -629,7 +649,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string ngayChieu = txtNgayKC.Text;
             if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
             {
-                if (check(dtgvShows, maShow) == 1)
+                if (check(maShow) == 1)
                 {
                     if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
                     {
