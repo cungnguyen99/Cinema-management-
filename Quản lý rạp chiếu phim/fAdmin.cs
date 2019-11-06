@@ -118,7 +118,7 @@ namespace Quản_lý_rạp_chiếu_phim
             List<Chair> list = ChairDAO.Instance.getListChair();
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].MaGhe == str1)
+                if (list[i].MaGhe.Trim() == str1)
                 {
                     kt = 0;
                     MessageBox.Show("The ID is the same as the primary key");
@@ -356,7 +356,12 @@ namespace Quản_lý_rạp_chiếu_phim
 
             if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
             {
-                if (ShowtimesDAO.Instance.updateShowtime(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+                if (maShow != idShowTime)
+                {
+                    MessageBox.Show("Do not correct the primary key");
+                    txtID.Text = idShowTime;
+                }
+                else if (ShowtimesDAO.Instance.updateShowtime(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
                 {
                     MessageBox.Show("Update succeeded");
                     loadListShowTimes();
@@ -371,14 +376,17 @@ namespace Quản_lý_rạp_chiếu_phim
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string maShow = txtID.Text;
-            if (ShowtimesDAO.Instance.deleteShowtimes(maShow))
+            if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
             {
-                MessageBox.Show("Delete succeeded");
-                loadListShowTimes();
-            }
-            else
-            {
-                MessageBox.Show("Delete unsuccessful");
+                if (ShowtimesDAO.Instance.deleteShowtimes(maShow))
+                {
+                    MessageBox.Show("Delete succeeded");
+                    loadListShowTimes();
+                }
+                else
+                {
+                    MessageBox.Show("Delete unsuccessful");
+                }
             }
         }
 
@@ -524,8 +532,8 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 if (checks(maShow) == 1)
                 {
-                    if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                    {
+                    //if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    //{
                         if (ChairDAO.Instance.updateChair(idChairText, maPhim, maRap, maShow))
                         {
                             MessageBox.Show("Update succeeded");
@@ -537,11 +545,11 @@ namespace Quản_lý_rạp_chiếu_phim
                         {
                             MessageBox.Show("Click button 'edit' to chagne information of table");
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Update unsuccessful");
-                    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Update unsuccessful");
+                    //}
                 }
             }
         }
@@ -601,16 +609,19 @@ namespace Quản_lý_rạp_chiếu_phim
             string tenPhong = txttenphong.Text;
             if (!checkEmptyRoom(txtmaphong2, txtmarap2, txttenphong))
             {
-                if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong, idCinemaRoom))
+                if (checkRoomKey(maPhong) == 1)
                 {
-                    MessageBox.Show("Update succeeded");
-                    loadListCinemaRooms();
-                    loadListChair();
-                    loadListRevenueOfCinema();
-                }
-                else
-                {
-                    MessageBox.Show("Click button 'edit' to update information of table");
+                    if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong, idCinemaRoom))
+                    {
+                        MessageBox.Show("Update succeeded");
+                        loadListCinemaRooms();
+                        loadListChair();
+                        loadListRevenueOfCinema();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Click button 'edit' to update information of table");
+                    }
                 }
             }
         }
@@ -649,7 +660,7 @@ namespace Quản_lý_rạp_chiếu_phim
             string ngayChieu = txtNgayKC.Text;
             if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
             {
-                if (check(maShow) == 1)
+                if (check(maShow) == 1&&maShow!=idShowTime)
                 {
                     if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
                     {
@@ -663,10 +674,6 @@ namespace Quản_lý_rạp_chiếu_phim
                     {
                         MessageBox.Show("Click button 'edit' to chagne information of table");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("The ID is the same as the primary key");
                 }
             }
         }
