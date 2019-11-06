@@ -626,6 +626,7 @@
             // 
             this.txtmaghe.Location = new System.Drawing.Point(588, 181);
             this.txtmaghe.Name = "txtmaghe";
+            this.txtmaghe.ReadOnly = true;
             this.txtmaghe.Size = new System.Drawing.Size(138, 20);
             this.txtmaghe.TabIndex = 9;
             // 
@@ -669,6 +670,7 @@
             // 
             this.txtmashow.Location = new System.Drawing.Point(588, 101);
             this.txtmashow.Name = "txtmashow";
+            this.txtmashow.ReadOnly = true;
             this.txtmashow.Size = new System.Drawing.Size(138, 20);
             this.txtmashow.TabIndex = 4;
             // 
