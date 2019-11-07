@@ -103,6 +103,19 @@ namespace Quản_lý_rạp_chiếu_phim
             this.Close();
         }
 
+        bool checkShowTime(string id)
+        {
+            List<Ticket> fimlsList = ticketDAO.Instance.loadListTicket();
+            foreach (Ticket item in fimlsList)
+            {
+                if (comboBox1.Text == item.MaShow.Trim())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         bool checkTime(string id)
         {
             List<Ticket> fimlsList = ticketDAO.Instance.checkTimeTicket(id);
@@ -146,34 +159,38 @@ namespace Quản_lý_rạp_chiếu_phim
                 }
                 else
                 {
-                    if (checkTime(fimlsID))
+                    if (checkShowTime(fimlsID))
                     {
-
-                        if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
-                        {
-                            MessageBox.Show("Insert succeeded");
-                            showChairInCinemaRoom(fimlsID);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Insert unsuccessful");
-                        }
+                        MessageBox.Show(checkShowTime(fimlsID)+fimlsID+"cccc");
+                        //if (checkTime(fimlsID))
+                        //{
+                        //    if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                        //    {
+                        //        MessageBox.Show("Insert succeeded");
+                        //        showChairInCinemaRoom(fimlsID);
+                        //    }
+                        //    else
+                        //    {
+                        //        MessageBox.Show("Insert unsuccessful");
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Show time do not match");
+                        //}
                     }
-                    //else if (checkIdShow(fimlsID))
-                    //{
-                    //    if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
-                    //    {
-                    //        MessageBox.Show("Insert succeeded");
-                    //        showChairInCinemaRoom(fimlsID);
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("Insert unsuccessful");
-                    //    }
-                    //}
-                    else
+                    else 
                     {
-                        MessageBox.Show("Show time do not match");
+                        MessageBox.Show(checkShowTime(fimlsID) + fimlsID+"q4887874872");
+                        //if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                        //{
+                        //    MessageBox.Show("Insert succeeded");
+                        //    showChairInCinemaRoom(fimlsID);
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("Insert unsuccessful");
+                        //}
                     }
                 }
             }

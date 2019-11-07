@@ -42,6 +42,7 @@ namespace Quản_lý_rạp_chiếu_phim
             loadListShowTimes();
             loadListTicket();
             loadListChair();
+            loadListCinemaIntoCombobox();
             loadListCinemaRooms();
             //load danh mã rạp trong bảng lịch chiếu
             loadListCinema(cbIDCinema, false);
@@ -85,7 +86,7 @@ namespace Quản_lý_rạp_chiếu_phim
         }
 
 
-        bool checkEmptyRoom(TextBox c1, TextBox c2, TextBox c3)
+        bool checkEmptyRoom(TextBox c1, ComboBox c2, TextBox c3)
         {
             if (c1.Text == "" || c2.Text == "" || c3.Text == "")
             {
@@ -165,6 +166,13 @@ namespace Quản_lý_rạp_chiếu_phim
             List<Fimls> fimls = fimlsDAO.Instance.loadListFimls();
             txtTen.DataSource = fimls;
             txtTen.DisplayMember = "MaPhim";
+        }
+
+        void loadListCinemaIntoCombobox()
+        {
+            List<Cinema> fimls = CinemaDAO.Instance.getListCinemas();
+            txtmarap2.DataSource = fimls;
+            txtmarap2.DisplayMember = "MaRap";
         }
 
         void loadListCinema(ComboBox comboBox, bool check)
@@ -643,6 +651,8 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnXemVe_Click(object sender, EventArgs e)
         {
+            loadListRevenueOfCinema();
+            loadListRevenueOfFimls();
             loadListTicket();
             loadListShowTimes();
         }
@@ -654,10 +664,12 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
+            try
             {
-                //if (check(maShow) == 1&&maShow!=idShowTime)
-                //{
+                if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
+                {
+                    //if (check(maShow) == 1&&maShow!=idShowTime)
+                    //{
                     if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
                     {
                         MessageBox.Show("Update succeeded");
@@ -670,7 +682,12 @@ namespace Quản_lý_rạp_chiếu_phim
                     {
                         MessageBox.Show("Click button 'edit' to chagne information of table");
                     }
-                //}
+                    //}
+                }
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Cannot edit primary key because duplicate primary key");
             }
         }
 

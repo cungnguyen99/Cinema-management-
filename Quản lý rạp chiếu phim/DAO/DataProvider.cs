@@ -85,8 +85,8 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return data;
         }
 
-        public DataTable ExecuteReturnDataTable(string procedureName, params object[] args)// params object[] args : nguyene cụm này có nghĩa là từ bên ngoài gọi vào sẽ truyền dc vô hạn phần tử, nhưng sau khi vào đây sẽ tạo thành 1 mảng object trong biến args. e xem bene hamf IsValidShowTime nguyene cumj nayf: "@MaShow", maShow, "@ShowTime", lichChieu sẽ dc truyền vào args.
-            // Quy ước của a là : phần tử chẵn là tên biến, phần tử lẻ kế tiếp là value của biến.
+        public DataTable ExecuteReturnDataTable(string procedureName, params object[] args)// params object[] args: cụm này có nghĩa là từ bên ngoài gọi vào sẽ truyền dc vô hạn phần tử, nhưng sau khi vào đây sẽ tạo thành 1 mảng object trong biến args. xem bên hàm IsValidShowTime nguyên cụm này: "@MaShow", maShow, "@ShowTime", lichChieu sẽ dc truyền vào args.
+            // Quy ước: phần tử chẵn là tên biến, phần tử lẻ kế tiếp là value của biến.
         {
             using (SqlConnection conn = new SqlConnection(connectionSTR))
             {

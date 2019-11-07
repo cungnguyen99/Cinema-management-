@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -71,6 +72,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvShows = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
             this.btnXemVe = new System.Windows.Forms.Button();
             this.txtgia = new System.Windows.Forms.TextBox();
             this.txtgiochieu = new System.Windows.Forms.TextBox();
@@ -107,7 +109,6 @@
             this.txttenphong = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.txtmarap2 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.txttongghe = new System.Windows.Forms.TextBox();
@@ -121,6 +122,9 @@
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
             this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
+            this.txtmarap2 = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -576,6 +580,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.btnXemVe);
             this.tabPage3.Controls.Add(this.txtgia);
             this.tabPage3.Controls.Add(this.txtgiochieu);
@@ -597,11 +604,20 @@
             this.tabPage3.Text = "Vé";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(386, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(358, 13);
+            this.label19.TabIndex = 13;
+            this.label19.Text = "Vé bán rồi thì không được trả lại nên không được sửa mã ghế và mã show";
+            // 
             // btnXemVe
             // 
             this.btnXemVe.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.icon_1968246_960_720;
             this.btnXemVe.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnXemVe.Location = new System.Drawing.Point(328, 29);
+            this.btnXemVe.Location = new System.Drawing.Point(317, 42);
             this.btnXemVe.Name = "btnXemVe";
             this.btnXemVe.Size = new System.Drawing.Size(63, 38);
             this.btnXemVe.TabIndex = 12;
@@ -677,7 +693,7 @@
             // dtgvTicket
             // 
             this.dtgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTicket.Location = new System.Drawing.Point(33, 101);
+            this.dtgvTicket.Location = new System.Drawing.Point(33, 103);
             this.dtgvTicket.Name = "dtgvTicket";
             this.dtgvTicket.Size = new System.Drawing.Size(455, 232);
             this.dtgvTicket.TabIndex = 0;
@@ -686,7 +702,7 @@
             // 
             this.btnEditTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.tải_xuống;
             this.btnEditTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnEditTicket.Location = new System.Drawing.Point(128, 29);
+            this.btnEditTicket.Location = new System.Drawing.Point(131, 42);
             this.btnEditTicket.Name = "btnEditTicket";
             this.btnEditTicket.Size = new System.Drawing.Size(62, 38);
             this.btnEditTicket.TabIndex = 3;
@@ -697,7 +713,7 @@
             // 
             this.btnRemoveTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kissclipart_delete_icon_clipart_computer_icons_231856fced9a0ea6;
             this.btnRemoveTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRemoveTicket.Location = new System.Drawing.Point(223, 29);
+            this.btnRemoveTicket.Location = new System.Drawing.Point(219, 42);
             this.btnRemoveTicket.Name = "btnRemoveTicket";
             this.btnRemoveTicket.Size = new System.Drawing.Size(67, 38);
             this.btnRemoveTicket.TabIndex = 2;
@@ -708,7 +724,7 @@
             // 
             this.btnAddTicket.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.kisspng_addition_computer_icons_clip_art_add_to_cart_button_5ac18a1e9c2711_6810101515226332466396;
             this.btnAddTicket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddTicket.Location = new System.Drawing.Point(33, 29);
+            this.btnAddTicket.Location = new System.Drawing.Point(33, 42);
             this.btnAddTicket.Name = "btnAddTicket";
             this.btnAddTicket.Size = new System.Drawing.Size(67, 38);
             this.btnAddTicket.TabIndex = 1;
@@ -939,13 +955,6 @@
             this.panel21.Size = new System.Drawing.Size(264, 35);
             this.panel21.TabIndex = 2;
             // 
-            // txtmarap2
-            // 
-            this.txtmarap2.Location = new System.Drawing.Point(87, 7);
-            this.txtmarap2.Name = "txtmarap2";
-            this.txtmarap2.Size = new System.Drawing.Size(154, 20);
-            this.txtmarap2.TabIndex = 1;
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1068,6 +1077,33 @@
             this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
             this.dtgvCinemaRoom.Size = new System.Drawing.Size(461, 107);
             this.dtgvCinemaRoom.TabIndex = 0;
+            // 
+            // txtmarap2
+            // 
+            this.txtmarap2.FormattingEnabled = true;
+            this.txtmarap2.Location = new System.Drawing.Point(87, 7);
+            this.txtmarap2.Name = "txtmarap2";
+            this.txtmarap2.Size = new System.Drawing.Size(154, 21);
+            this.txtmarap2.TabIndex = 1;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(-3, 3);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(702, 39);
+            this.label22.TabIndex = 16;
+            this.label22.Text = resources.GetString("label22.Text");
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(7, 87);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(455, 13);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "không trùng trong bảng đấy thì khi sửa khóa và info nó sẽ báo phải nhấn edit key " +
+    "để sửa khóa";
             // 
             // fAdmin
             // 
@@ -1213,7 +1249,6 @@
         private System.Windows.Forms.TextBox txttenphong;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.TextBox txtmarap2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.TextBox txttongghe;
@@ -1228,5 +1263,9 @@
         private System.Windows.Forms.Button btnchangeKey;
         private System.Windows.Forms.Button btneditNormal;
         private System.Windows.Forms.Button btneditroom;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox txtmarap2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
     }
 }
