@@ -52,5 +52,10 @@ namespace Quản_lý_rạp_chiếu_phim
                 e.Cancel = true;
             }
         }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

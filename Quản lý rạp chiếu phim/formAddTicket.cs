@@ -159,38 +159,21 @@ namespace Quản_lý_rạp_chiếu_phim
                 }
                 else
                 {
-                    if (checkShowTime(fimlsID))
+                    if (checkTime(fimlsID))
                     {
-                        MessageBox.Show(checkShowTime(fimlsID)+fimlsID+"cccc");
-                        //if (checkTime(fimlsID))
-                        //{
-                        //    if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
-                        //    {
-                        //        MessageBox.Show("Insert succeeded");
-                        //        showChairInCinemaRoom(fimlsID);
-                        //    }
-                        //    else
-                        //    {
-                        //        MessageBox.Show("Insert unsuccessful");
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Show time do not match");
-                        //}
+                        if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
+                        {
+                            MessageBox.Show("Insert succeeded");
+                            showChairInCinemaRoom(fimlsID);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insert unsuccessful");
+                        }
                     }
-                    else 
+                    else
                     {
-                        MessageBox.Show(checkShowTime(fimlsID) + fimlsID+"q4887874872");
-                        //if (ticketDAO.Instance.insertTicket(fimlsID, maPhim, gioChieu, maPhong))
-                        //{
-                        //    MessageBox.Show("Insert succeeded");
-                        //    showChairInCinemaRoom(fimlsID);
-                        //}
-                        //else
-                        //{
-                        //    MessageBox.Show("Insert unsuccessful");
-                        //}
+                        MessageBox.Show("Show time do not match");
                     }
                 }
             }

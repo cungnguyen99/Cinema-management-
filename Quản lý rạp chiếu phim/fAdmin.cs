@@ -538,26 +538,34 @@ namespace Quản_lý_rạp_chiếu_phim
             string maShow = txtChair1.Text;
             string maPhim = comboBox3.Text;
             string maRap = comboBox2.Text;
-            if (!checkEmptyChair(txtChair1, comboBox2, comboBox3))
+            try
             {
-                if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                if (!checkEmptyChair(txtChair1, comboBox2, comboBox3))
                 {
-                    if (ChairDAO.Instance.updateChair(idChairText, maPhim, maRap, maShow))
+                    if (MessageBox.Show("Bạn sẽ cập nhật luôn dữ liệu trong bảng vé", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                     {
-                        MessageBox.Show("Update succeeded");
-                        loadListChair();
-                        loadListCinemaRooms();
-                        loadListShowTimes();
+                        if (ChairDAO.Instance.updateChair(idChairText, maPhim, maRap, maShow))
+                        {
+                            MessageBox.Show("Update succeeded");
+                            loadListChair();
+                            loadListCinemaRooms();
+                            loadListShowTimes();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Click button 'edit' to chagne information of table");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Click button 'edit' to chagne information of table");
+                        MessageBox.Show("Update unsuccessful");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Update unsuccessful");
-                }
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Cannot edit primary key because duplicate primary key");
+                txtChair1.Text = idChairText;
             }
         }
 
@@ -614,19 +622,27 @@ namespace Quản_lý_rạp_chiếu_phim
             string maPhong = txtmaphong2.Text;
             string maRap = txtmarap2.Text;
             string tenPhong = txttenphong.Text;
-            if (!checkEmptyRoom(txtmaphong2, txtmarap2, txttenphong))
+            try
             {
-                if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong, idCinemaRoom))
+                if (!checkEmptyRoom(txtmaphong2, txtmarap2, txttenphong))
                 {
-                    MessageBox.Show("Update succeeded");
-                    loadListCinemaRooms();
-                    loadListChair();
-                    loadListRevenueOfCinema();
+                    if (CinemaRoomDAO.Instance.updateCinemaRoom(maPhong, maRap, tenPhong, idCinemaRoom))
+                    {
+                        MessageBox.Show("Update succeeded");
+                        loadListCinemaRooms();
+                        loadListChair();
+                        loadListRevenueOfCinema();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Click button 'edit' to update information of table");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Click button 'edit' to update information of table");
-                }
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("Cannot edit primary key because duplicate primary key");
+                txtChair1.Text = idChairText;
             }
         }
 
@@ -668,8 +684,6 @@ namespace Quản_lý_rạp_chiếu_phim
             {
                 if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
                 {
-                    //if (check(maShow) == 1&&maShow!=idShowTime)
-                    //{
                     if (ShowtimesDAO.Instance.updateShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu), idShowTime))
                     {
                         MessageBox.Show("Update succeeded");
@@ -682,7 +696,6 @@ namespace Quản_lý_rạp_chiếu_phim
                     {
                         MessageBox.Show("Click button 'edit' to chagne information of table");
                     }
-                    //}
                 }
             }
             catch (System.Data.SqlClient.SqlException)
