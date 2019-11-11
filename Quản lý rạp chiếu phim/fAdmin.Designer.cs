@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExcel = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbLoadCinema = new System.Windows.Forms.ComboBox();
             this.btnView = new System.Windows.Forms.Button();
@@ -72,7 +72,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvShows = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
             this.btnXemVe = new System.Windows.Forms.Button();
             this.txtgia = new System.Windows.Forms.TextBox();
             this.txtgiochieu = new System.Windows.Forms.TextBox();
@@ -109,6 +108,7 @@
             this.txttenphong = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.txtmarap2 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.txttongghe = new System.Windows.Forms.TextBox();
@@ -122,9 +122,7 @@
             this.btnthemphong = new System.Windows.Forms.Button();
             this.btnsuaphong = new System.Windows.Forms.Button();
             this.dtgvCinemaRoom = new System.Windows.Forms.DataGridView();
-            this.txtmarap2 = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -189,6 +187,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.cbLoadCinema);
             this.panel2.Controls.Add(this.btnView);
@@ -196,6 +195,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(692, 33);
             this.panel2.TabIndex = 1;
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.Location = new System.Drawing.Point(517, 4);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(119, 23);
+            this.btnExcel.TabIndex = 5;
+            this.btnExcel.Text = "Xuất ra file excel";
+            this.btnExcel.UseVisualStyleBackColor = true;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // comboBox1
             // 
@@ -213,7 +222,7 @@
             "10",
             "11",
             "12"});
-            this.comboBox1.Location = new System.Drawing.Point(312, 6);
+            this.comboBox1.Location = new System.Drawing.Point(257, 6);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(47, 21);
             this.comboBox1.TabIndex = 4;
@@ -224,7 +233,7 @@
             // cbLoadCinema
             // 
             this.cbLoadCinema.FormattingEnabled = true;
-            this.cbLoadCinema.Location = new System.Drawing.Point(137, 6);
+            this.cbLoadCinema.Location = new System.Drawing.Point(63, 6);
             this.cbLoadCinema.Name = "cbLoadCinema";
             this.cbLoadCinema.Size = new System.Drawing.Size(134, 21);
             this.cbLoadCinema.TabIndex = 3;
@@ -233,7 +242,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(406, 4);
+            this.btnView.Location = new System.Drawing.Point(351, 4);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(119, 23);
             this.btnView.TabIndex = 2;
@@ -580,9 +589,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.label19);
             this.tabPage3.Controls.Add(this.btnXemVe);
             this.tabPage3.Controls.Add(this.txtgia);
             this.tabPage3.Controls.Add(this.txtgiochieu);
@@ -603,15 +609,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Vé";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(386, 42);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(358, 13);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Vé bán rồi thì không được trả lại nên không được sửa mã ghế và mã show";
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // btnXemVe
             // 
@@ -955,6 +953,14 @@
             this.panel21.Size = new System.Drawing.Size(264, 35);
             this.panel21.TabIndex = 2;
             // 
+            // txtmarap2
+            // 
+            this.txtmarap2.FormattingEnabled = true;
+            this.txtmarap2.Location = new System.Drawing.Point(87, 7);
+            this.txtmarap2.Name = "txtmarap2";
+            this.txtmarap2.Size = new System.Drawing.Size(154, 21);
+            this.txtmarap2.TabIndex = 1;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1077,33 +1083,6 @@
             this.dtgvCinemaRoom.Name = "dtgvCinemaRoom";
             this.dtgvCinemaRoom.Size = new System.Drawing.Size(461, 107);
             this.dtgvCinemaRoom.TabIndex = 0;
-            // 
-            // txtmarap2
-            // 
-            this.txtmarap2.FormattingEnabled = true;
-            this.txtmarap2.Location = new System.Drawing.Point(87, 7);
-            this.txtmarap2.Name = "txtmarap2";
-            this.txtmarap2.Size = new System.Drawing.Size(154, 21);
-            this.txtmarap2.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(-3, 3);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(702, 39);
-            this.label22.TabIndex = 16;
-            this.label22.Text = resources.GetString("label22.Text");
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 87);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(455, 13);
-            this.label23.TabIndex = 17;
-            this.label23.Text = "không trùng trong bảng đấy thì khi sửa khóa và info nó sẽ báo phải nhấn edit key " +
-    "để sửa khóa";
             // 
             // fAdmin
             // 
@@ -1263,9 +1242,8 @@
         private System.Windows.Forms.Button btnchangeKey;
         private System.Windows.Forms.Button btneditNormal;
         private System.Windows.Forms.Button btneditroom;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox txtmarap2;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.SaveFileDialog dlgSave;
     }
 }
