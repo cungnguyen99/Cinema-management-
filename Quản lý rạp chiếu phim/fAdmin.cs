@@ -406,8 +406,11 @@ namespace Quản_lý_rạp_chiếu_phim
                 exSheet.get_Range("D7").Value = "Ngày khởi chiếu";
                 exSheet.get_Range("D7").ColumnWidth = 20;
                 exSheet.get_Range("E7").Value = "Ngày kết thúc";
+                exSheet.get_Range("E7").ColumnWidth = 20;
                 exSheet.get_Range("F7").Value = "Tổng chi phí";
+                exSheet.get_Range("F7").ColumnWidth = 20;
                 exSheet.get_Range("G7").Value = "Đạo diễn";
+                exSheet.get_Range("G7").ColumnWidth = 20;
                 exSheet.get_Range("H7").Value = "Tổng chi phí";
                 exSheet.get_Range("I7").Value = "Doanh thu";
 

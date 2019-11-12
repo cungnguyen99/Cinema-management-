@@ -50,6 +50,8 @@
             this.btnSee = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearchFimls = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.sdlSave = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -196,6 +198,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.btnSee);
             this.panel1.Controls.Add(this.btnSearch);
@@ -207,9 +210,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(567, 13);
+            this.button4.Location = new System.Drawing.Point(484, 14);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(136, 31);
+            this.button4.Size = new System.Drawing.Size(120, 31);
             this.button4.TabIndex = 5;
             this.button4.Text = "Phim đang chiếu";
             this.button4.UseVisualStyleBackColor = true;
@@ -217,9 +220,9 @@
             // 
             // btnSee
             // 
-            this.btnSee.Location = new System.Drawing.Point(395, 12);
+            this.btnSee.Location = new System.Drawing.Point(330, 12);
             this.btnSee.Name = "btnSee";
-            this.btnSee.Size = new System.Drawing.Size(139, 33);
+            this.btnSee.Size = new System.Drawing.Size(125, 33);
             this.btnSee.TabIndex = 4;
             this.btnSee.Text = "Danh sách phim";
             this.btnSee.UseVisualStyleBackColor = true;
@@ -229,7 +232,7 @@
             // 
             this.btnSearch.BackgroundImage = global::Quản_lý_rạp_chiếu_phim.Properties.Resources.images;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(277, 12);
+            this.btnSearch.Location = new System.Drawing.Point(251, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(59, 31);
             this.btnSearch.TabIndex = 3;
@@ -238,10 +241,20 @@
             // 
             // txtSearchFimls
             // 
-            this.txtSearchFimls.Location = new System.Drawing.Point(49, 18);
+            this.txtSearchFimls.Location = new System.Drawing.Point(12, 18);
             this.txtSearchFimls.Name = "txtSearchFimls";
             this.txtSearchFimls.Size = new System.Drawing.Size(209, 20);
             this.txtSearchFimls.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(638, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 31);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Xuất file excel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // fTableManager
             // 
@@ -292,5 +305,7 @@
         private System.Windows.Forms.TextBox txtSearchFimls;
         private System.Windows.Forms.Button btnSee;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.SaveFileDialog sdlSave;
     }
 }
