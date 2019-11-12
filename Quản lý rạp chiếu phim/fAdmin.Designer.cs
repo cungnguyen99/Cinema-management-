@@ -262,9 +262,9 @@
             // 
             this.dtgvRevenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvRevenue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvRevenue.Location = new System.Drawing.Point(63, 40);
+            this.dtgvRevenue.Location = new System.Drawing.Point(3, 40);
             this.dtgvRevenue.Name = "dtgvRevenue";
-            this.dtgvRevenue.Size = new System.Drawing.Size(573, 177);
+            this.dtgvRevenue.Size = new System.Drawing.Size(686, 177);
             this.dtgvRevenue.TabIndex = 0;
             // 
             // tabPage2

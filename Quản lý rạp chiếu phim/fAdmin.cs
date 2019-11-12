@@ -281,7 +281,7 @@ namespace Quản_lý_rạp_chiếu_phim
             }
         }
 
-        void outDataExcel()
+        void outDataCinemasExcel()
         {
             //TH có dữ liệu để ghi
             if (dtgvRevenue.Rows.Count > 0) 
@@ -324,9 +324,11 @@ namespace Quản_lý_rạp_chiếu_phim
                 exSheet.get_Range("A7:E7").HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
                 exSheet.get_Range("A7").Value = "STT";
                 exSheet.get_Range("B7").Value = "Tên rạp";
+                exSheet.get_Range("B7").ColumnWidth = 20;
                 exSheet.get_Range("C7").Value = "Địa chỉ rạp";
-                exSheet.get_Range("C7").ColumnWidth = 20;
+                exSheet.get_Range("C7").ColumnWidth = 30;
                 exSheet.get_Range("D7").Value = "Số điện thoại";
+                exSheet.get_Range("D7").ColumnWidth = 20;
                 exSheet.get_Range("E7").Value = "Số phòng";
                 exSheet.get_Range("F7").Value = "Doanh thu";
 
@@ -340,10 +342,94 @@ namespace Quản_lý_rạp_chiếu_phim
                     exSheet.get_Range("C" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[1].Value;
                     exSheet.get_Range("D" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[2].Value;
                     exSheet.get_Range("E" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[3].Value;
-                    exSheet.get_Range("F" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[3].Value;
+                    exSheet.get_Range("F" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[4].Value;
                 }
                 exSheet.Name = "Danh sách doanh thu các rạp";
                 exBook.Activate(); 
+                dlgSave.Filter = "Excel Document(*.xls)|*.xls  |Word Document(*.doc) |*.doc|All files(*.*)|*.*";
+                dlgSave.FilterIndex = 1;
+                dlgSave.AddExtension = true;
+                dlgSave.DefaultExt = ".xls";
+                if (dlgSave.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    exBook.SaveAs(dlgSave.FileName.ToString());
+                exApp.Quit();
+            }
+            else MessageBox.Show("Không có danh sách hàng để in");
+        }
+
+        void outDataFimlsExcel()
+        {
+            //TH có dữ liệu để ghi
+            if (dtgvRevenue.Rows.Count > 0)
+            {
+                //Khai báo và khởi tạo các đối tượng
+                Excel.Application exApp = new Excel.Application();
+                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
+
+                //Định dạng chung
+                Excel.Range tenCuaHang = (Excel.Range)exSheet.Cells[1, 1];
+                tenCuaHang.Font.Size = 14;
+                tenCuaHang.Font.Bold = true;
+                tenCuaHang.Font.Color = Color.Blue;
+                tenCuaHang.Value = "BẢNG DANH SÁCH DOANH THU PHIM";
+
+                Excel.Range dcCuaHang = (Excel.Range)exSheet.Cells[2, 1];
+                dcCuaHang.Font.Size = 13;
+                dcCuaHang.Font.Bold = true;
+                dcCuaHang.Font.Color = Color.Blue;
+                dcCuaHang.Value = "Copyright: Nguyễn Văn Cung";
+
+                Excel.Range dtCuaHang = (Excel.Range)exSheet.Cells[3, 1];
+                dtCuaHang.Font.Size = 13;
+                dtCuaHang.Font.Bold = true;
+                dtCuaHang.Font.Color = Color.Blue;
+                dtCuaHang.Value = "Điện thoại: 0399544543";
+
+
+                Excel.Range header = (Excel.Range)exSheet.Cells[5, 2];
+                exSheet.get_Range("B5:G5").Merge(true);
+                header.Font.Size = 13;
+                header.Font.Bold = true;
+                header.Font.Color = Color.Red;
+                header.Value = "DANH SÁCH DOANH THU PHIM";
+
+                //Định dạng tiêu đề bảng
+
+                exSheet.get_Range("A7:E7").Font.Bold = true;
+                exSheet.get_Range("A7:E7").HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                exSheet.get_Range("A7").Value = "STT";
+                exSheet.get_Range("B7").Value = "Tên Phim";
+                exSheet.get_Range("B7").ColumnWidth = 20;
+                exSheet.get_Range("C7").Value = "Thể loại";
+                exSheet.get_Range("C7").ColumnWidth = 30;
+                exSheet.get_Range("D7").Value = "Ngày khởi chiếu";
+                exSheet.get_Range("D7").ColumnWidth = 20;
+                exSheet.get_Range("E7").Value = "Ngày kết thúc";
+                exSheet.get_Range("F7").Value = "Tổng chi phí";
+                exSheet.get_Range("G7").Value = "Đạo diễn";
+                exSheet.get_Range("H7").Value = "Tổng chi phí";
+                exSheet.get_Range("I7").Value = "Doanh thu";
+
+                //In dữ liệu
+                for (int i = 0; i < dtgvRevenue.Rows.Count - 1; i++)
+                {
+                    exSheet.get_Range("A" + (i + 8).ToString() + ":G" + (i + 8).ToString()).Font.Bold = false;
+                    exSheet.get_Range("A" + (i + 8).ToString()).Value = (i + 1).ToString();
+                    exSheet.get_Range("B" + (i + 8).ToString()).Value =
+                        dtgvRevenue.Rows[i].Cells[0].Value;
+                    exSheet.get_Range("C" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[1].Value;
+                    exSheet.get_Range("D" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[2].Value;
+                    exSheet.get_Range("E" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[3].Value;
+                    exSheet.get_Range("F" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[4].Value;
+                    exSheet.get_Range("G" + (i + 8).ToString()).Value =
+                        dtgvRevenue.Rows[i].Cells[0].Value;
+                    exSheet.get_Range("H" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[5].Value;
+                    exSheet.get_Range("I" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[6].Value;
+
+                }
+                exSheet.Name = "Danh sách doanh thu phim";
+                exBook.Activate();
                 dlgSave.Filter = "Excel Document(*.xls)|*.xls  |Word Document(*.doc) |*.doc|All files(*.*)|*.*";
                 dlgSave.FilterIndex = 1;
                 dlgSave.AddExtension = true;
@@ -847,7 +933,14 @@ namespace Quản_lý_rạp_chiếu_phim
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            outDataExcel();
+            if (kt % 2 != 0)
+            {
+                outDataFimlsExcel();
+            }
+            else
+            {
+                outDataCinemasExcel();
+            }
         }
     }
 }
