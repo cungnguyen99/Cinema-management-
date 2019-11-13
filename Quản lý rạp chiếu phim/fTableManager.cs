@@ -30,7 +30,7 @@ namespace Quản_lý_rạp_chiếu_phim
                 Button btn = new Button() { Width = 110, Height = 140 };
                 btn.Tag = item;
                 btn.Click += btn_click;
-                btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\"+item.Anh.ToString());
+                btn.BackgroundImage = Image.FromFile(@"..\..\" + item.Anh.ToString());
                 btn.BackgroundImageLayout = ImageLayout.Stretch;
                 flbTable.Controls.Add(btn);
             }
@@ -62,7 +62,7 @@ namespace Quản_lý_rạp_chiếu_phim
                 label3.Text = "Nam chính: "+item.NamChinh;
                 label4.Text = "Số tiền làm phim: "+ item.TongChi.ToString();
                 label5.Text = "Ngày sản xuất: "+item.NgayKhoiChieu.ToString();
-                pictureBox1.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+                pictureBox1.BackgroundImage = Image.FromFile(@"..\..\" + item.Anh.ToString());
             }
         }
 
@@ -101,7 +101,7 @@ namespace Quản_lý_rạp_chiếu_phim
                     Button btn = new Button() { Width = 100, Height = 130 };
                     btn.Tag = item;
                     btn.Click += btn_click;
-                    btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+                    btn.BackgroundImage = Image.FromFile(@"..\..\" + item.Anh.ToString());
                     btn.BackgroundImageLayout = ImageLayout.Stretch;
                     flbTable.Controls.Add(btn);
                 }
@@ -129,7 +129,7 @@ namespace Quản_lý_rạp_chiếu_phim
                 Button btn = new Button() { Width = 110, Height = 140 };
                 btn.Tag = item;
                 btn.Click += btn_click;
-                btn.BackgroundImage = Image.FromFile(@"D:\My Easy Life\My Film\" + item.Anh.ToString());
+                btn.BackgroundImage = Image.FromFile(@"..\..\" + item.Anh.ToString());
                 btn.BackgroundImageLayout = ImageLayout.Stretch;
                 flbTable.Controls.Add(btn);
             }
@@ -170,40 +170,41 @@ namespace Quản_lý_rạp_chiếu_phim
 
             //Định dạng tiêu đề bảng
 
-            exSheet.get_Range("A7:E7").Font.Bold = true;
-            exSheet.get_Range("A7:E7").HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-            exSheet.get_Range("A7").Value = "STT";
-            exSheet.get_Range("B7").Value = "Tên Phim";
+            exSheet.get_Range("B7:N7").HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            //exSheet.get_Range("A7").Value = "STT";
+            exSheet.get_Range("B7").Value = "Mã Phim";
             exSheet.get_Range("B7").ColumnWidth = 20;
-            exSheet.get_Range("C7").Value = "Thể loại";
-            exSheet.get_Range("C7").ColumnWidth = 30;
-            exSheet.get_Range("D7").Value = "Ngày khởi chiếu";
-            exSheet.get_Range("D7").ColumnWidth = 20;
-            exSheet.get_Range("E7").Value = "Ngày kết thúc";
-            exSheet.get_Range("E7").ColumnWidth = 20;
-            exSheet.get_Range("F7").Value = "Tổng chi phí";
-            exSheet.get_Range("F7").ColumnWidth = 20;
-            exSheet.get_Range("G7").Value = "Đạo diễn";
+            exSheet.get_Range("C7").Value = "Tên Phim";
+            exSheet.get_Range("C7").ColumnWidth = 20;
+            exSheet.get_Range("D7").Value = "Mã nước sản xuất";
+            exSheet.get_Range("E7").Value = "Mã hãng sản xuất";
+            exSheet.get_Range("F7").Value = "Đạo diễn";
+            exSheet.get_Range("G7").Value = "Mã thể loại";
             exSheet.get_Range("G7").ColumnWidth = 20;
-            exSheet.get_Range("H7").Value = "Tổng chi phí";
-            exSheet.get_Range("I7").Value = "Doanh thu";
+            exSheet.get_Range("H7").Value = "Ngày khởi chiếu";
+            exSheet.get_Range("H7").ColumnWidth = 20;
+            exSheet.get_Range("I7").Value = "Ngày kết thúc";
+            exSheet.get_Range("I7").ColumnWidth = 20;
+            exSheet.get_Range("J7").Value = "Nữ chính";
+            exSheet.get_Range("J7").ColumnWidth = 20;
+            exSheet.get_Range("K7").Value = "Nam chính";
+            exSheet.get_Range("K7").ColumnWidth = 20;
+            exSheet.get_Range("L7").Value = "Tổng chi";
+            exSheet.get_Range("M7").Value = "Tổng thu";
+
+            DataTable dataTable = fimlsDAO.Instance.getListFimls();
+            DataColumnCollection dataColumnCollection = dataTable.Columns;
 
             //In dữ liệu
-            for (int i = 0; i < dtgvRevenue.Rows.Count - 1; i++)
+            for (int i = 1; i <= dataTable.Rows.Count + 1; i++)
             {
-                exSheet.get_Range("A" + (i + 8).ToString() + ":G" + (i + 8).ToString()).Font.Bold = false;
-                exSheet.get_Range("A" + (i + 8).ToString()).Value = (i + 1).ToString();
-                exSheet.get_Range("B" + (i + 8).ToString()).Value =
-                    dtgvRevenue.Rows[i].Cells[0].Value;
-                exSheet.get_Range("C" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[1].Value;
-                exSheet.get_Range("D" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[2].Value;
-                exSheet.get_Range("E" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[3].Value;
-                exSheet.get_Range("F" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[4].Value;
-                exSheet.get_Range("G" + (i + 8).ToString()).Value =
-                    dtgvRevenue.Rows[i].Cells[0].Value;
-                exSheet.get_Range("H" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[5].Value;
-                exSheet.get_Range("I" + (i + 8).ToString()).Value = dtgvRevenue.Rows[i].Cells[6].Value;
-
+                for (int j = 1; j <= dataTable.Columns.Count; j++)
+                {
+                    if (i == 1)
+                        exApp.Cells[5+i, j] = dataColumnCollection[j - 1].ToString();
+                    else
+                        exApp.Cells[5+i, j] = dataTable.Rows[i - 2][j - 1].ToString();
+                }
             }
             exSheet.Name = "Danh sách doanh thu phim";
             exBook.Activate();

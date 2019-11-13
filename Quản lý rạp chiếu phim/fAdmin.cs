@@ -495,20 +495,27 @@ namespace Quản_lý_rạp_chiếu_phim
             string maRap = cbIDCinema.Text;
             string maPhong = cbRooms.Text;
             string ngayChieu = txtNgayKC.Text;
-            if(!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
+            try
             {
-                if(check(maShow)==1)
+                if (!checkEmptyShowTime(txtID, txtTen, cbIDCinema, cbRooms, txtNgayKC))
                 {
-                    if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+                    if (check(maShow) == 1)
                     {
-                        MessageBox.Show("Insert succeeded");
-                        loadListShowTimes();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Insert unsuccessful");
+                        if (ShowtimesDAO.Instance.insertShowtimes(maShow, maPhim, maRap, maPhong, Convert.ToDateTime(ngayChieu)))
+                        {
+                            MessageBox.Show("Insert succeeded");
+                            loadListShowTimes();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Insert unsuccessful");
+                        }
                     }
                 }
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                MessageBox.Show("The ID show must be less than 6 characters");
             }
         }
         
@@ -538,6 +545,7 @@ namespace Quản_lý_rạp_chiếu_phim
                     else
                     {
                         MessageBox.Show("Click btn 'key' to change Value key");
+                        txtID.Text = idShowTime;
                     }
                 }
             }
@@ -864,7 +872,8 @@ namespace Quản_lý_rạp_chiếu_phim
             }
             catch (System.Data.SqlClient.SqlException)
             {
-                MessageBox.Show("Cannot edit primary key because duplicate primary key");
+                MessageBox.Show("Duplicate primary key or id show is more than 6 characters");
+                txtID.Text = idShowTime;
             }
         }
 

@@ -71,6 +71,11 @@ namespace Quản_lý_rạp_chiếu_phim.DAO
             return fimls;
         }
 
+        public DataTable getListFimls()
+        {
+            return DataProvider.Instance.ExecuteQuery("SELECT * FROM PHIM WHERE EXISTS (SELECT LICHCHIEU.MaPhim FROM LICHCHIEU WHERE PHIM.MaPhim=LICHCHIEU.MaPhim)");
+        }
+
         public DataTable getListRevenueOfFimls()
         {
             return DataProvider.Instance.ExecuteQuery("EXEC USP_GetListRevenueOfFimls", new object[] { });
