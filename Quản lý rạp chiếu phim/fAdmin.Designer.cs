@@ -628,6 +628,7 @@
             this.txtgia.Name = "txtgia";
             this.txtgia.Size = new System.Drawing.Size(138, 20);
             this.txtgia.TabIndex = 11;
+            this.txtgia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtgia_KeyPress);
             // 
             // txtgiochieu
             // 

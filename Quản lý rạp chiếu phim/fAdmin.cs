@@ -722,6 +722,7 @@ namespace Quản_lý_rạp_chiếu_phim
                             loadListChair();
                             loadListCinemaRooms();
                             loadListShowTimes();
+                            loadListTicket();
                         }
                         else
                         {
@@ -952,6 +953,15 @@ namespace Quản_lý_rạp_chiếu_phim
             else
             {
                 outDataCinemasExcel();
+            }
+        }
+
+        private void txtgia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Moi nhap so", "Thong Bao!");
             }
         }
     }
