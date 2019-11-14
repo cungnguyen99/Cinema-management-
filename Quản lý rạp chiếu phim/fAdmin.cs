@@ -278,6 +278,7 @@ namespace Quản_lý_rạp_chiếu_phim
             foreach (Binding binding in cbbox.DataBindings)
             {
                 binding.ReadValue();
+                cbbox.Text = rooms[0].MaPhong;
             }
         }
 
